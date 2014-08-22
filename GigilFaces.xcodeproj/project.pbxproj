@@ -1,0 +1,474 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		BCA121CE19A74E20005CC84D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCA121CD19A74E20005CC84D /* Foundation.framework */; };
+		BCA121D019A74E20005CC84D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCA121CF19A74E20005CC84D /* CoreGraphics.framework */; };
+		BCA121D219A74E20005CC84D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCA121D119A74E20005CC84D /* UIKit.framework */; };
+		BCA121D819A74E20005CC84D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BCA121D619A74E20005CC84D /* InfoPlist.strings */; };
+		BCA121DA19A74E20005CC84D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BCA121D919A74E20005CC84D /* main.m */; };
+		BCA121DE19A74E20005CC84D /* GigilFacesAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BCA121DD19A74E20005CC84D /* GigilFacesAppDelegate.m */; };
+		BCA121E119A74E20005CC84D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BCA121DF19A74E20005CC84D /* Main.storyboard */; };
+		BCA121E419A74E20005CC84D /* GigilFacesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCA121E319A74E20005CC84D /* GigilFacesViewController.m */; };
+		BCA121E619A74E20005CC84D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BCA121E519A74E20005CC84D /* Images.xcassets */; };
+		BCA121ED19A74E20005CC84D /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCA121EC19A74E20005CC84D /* XCTest.framework */; };
+		BCA121EE19A74E20005CC84D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCA121CD19A74E20005CC84D /* Foundation.framework */; };
+		BCA121EF19A74E20005CC84D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCA121D119A74E20005CC84D /* UIKit.framework */; };
+		BCA121F719A74E20005CC84D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BCA121F519A74E20005CC84D /* InfoPlist.strings */; };
+		BCA121F919A74E20005CC84D /* GigilFacesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BCA121F819A74E20005CC84D /* GigilFacesTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BCA121F019A74E20005CC84D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BCA121C219A74E20005CC84D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BCA121C919A74E20005CC84D;
+			remoteInfo = GigilFaces;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		BCA121CA19A74E20005CC84D /* GigilFaces.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GigilFaces.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BCA121CD19A74E20005CC84D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		BCA121CF19A74E20005CC84D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		BCA121D119A74E20005CC84D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		BCA121D519A74E20005CC84D /* GigilFaces-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GigilFaces-Info.plist"; sourceTree = "<group>"; };
+		BCA121D719A74E20005CC84D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		BCA121D919A74E20005CC84D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		BCA121DB19A74E20005CC84D /* GigilFaces-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GigilFaces-Prefix.pch"; sourceTree = "<group>"; };
+		BCA121DC19A74E20005CC84D /* GigilFacesAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GigilFacesAppDelegate.h; sourceTree = "<group>"; };
+		BCA121DD19A74E20005CC84D /* GigilFacesAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GigilFacesAppDelegate.m; sourceTree = "<group>"; };
+		BCA121E019A74E20005CC84D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		BCA121E219A74E20005CC84D /* GigilFacesViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GigilFacesViewController.h; sourceTree = "<group>"; };
+		BCA121E319A74E20005CC84D /* GigilFacesViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GigilFacesViewController.m; sourceTree = "<group>"; };
+		BCA121E519A74E20005CC84D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		BCA121EB19A74E20005CC84D /* GigilFacesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GigilFacesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BCA121EC19A74E20005CC84D /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		BCA121F419A74E20005CC84D /* GigilFacesTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GigilFacesTests-Info.plist"; sourceTree = "<group>"; };
+		BCA121F619A74E20005CC84D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		BCA121F819A74E20005CC84D /* GigilFacesTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GigilFacesTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BCA121C719A74E20005CC84D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BCA121D019A74E20005CC84D /* CoreGraphics.framework in Frameworks */,
+				BCA121D219A74E20005CC84D /* UIKit.framework in Frameworks */,
+				BCA121CE19A74E20005CC84D /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BCA121E819A74E20005CC84D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BCA121ED19A74E20005CC84D /* XCTest.framework in Frameworks */,
+				BCA121EF19A74E20005CC84D /* UIKit.framework in Frameworks */,
+				BCA121EE19A74E20005CC84D /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		BCA121C119A74E20005CC84D = {
+			isa = PBXGroup;
+			children = (
+				BCA121D319A74E20005CC84D /* GigilFaces */,
+				BCA121F219A74E20005CC84D /* GigilFacesTests */,
+				BCA121CC19A74E20005CC84D /* Frameworks */,
+				BCA121CB19A74E20005CC84D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		BCA121CB19A74E20005CC84D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BCA121CA19A74E20005CC84D /* GigilFaces.app */,
+				BCA121EB19A74E20005CC84D /* GigilFacesTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BCA121CC19A74E20005CC84D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BCA121CD19A74E20005CC84D /* Foundation.framework */,
+				BCA121CF19A74E20005CC84D /* CoreGraphics.framework */,
+				BCA121D119A74E20005CC84D /* UIKit.framework */,
+				BCA121EC19A74E20005CC84D /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BCA121D319A74E20005CC84D /* GigilFaces */ = {
+			isa = PBXGroup;
+			children = (
+				BCA121DC19A74E20005CC84D /* GigilFacesAppDelegate.h */,
+				BCA121DD19A74E20005CC84D /* GigilFacesAppDelegate.m */,
+				BCA121DF19A74E20005CC84D /* Main.storyboard */,
+				BCA121E219A74E20005CC84D /* GigilFacesViewController.h */,
+				BCA121E319A74E20005CC84D /* GigilFacesViewController.m */,
+				BCA121E519A74E20005CC84D /* Images.xcassets */,
+				BCA121D419A74E20005CC84D /* Supporting Files */,
+			);
+			path = GigilFaces;
+			sourceTree = "<group>";
+		};
+		BCA121D419A74E20005CC84D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				BCA121D519A74E20005CC84D /* GigilFaces-Info.plist */,
+				BCA121D619A74E20005CC84D /* InfoPlist.strings */,
+				BCA121D919A74E20005CC84D /* main.m */,
+				BCA121DB19A74E20005CC84D /* GigilFaces-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		BCA121F219A74E20005CC84D /* GigilFacesTests */ = {
+			isa = PBXGroup;
+			children = (
+				BCA121F819A74E20005CC84D /* GigilFacesTests.m */,
+				BCA121F319A74E20005CC84D /* Supporting Files */,
+			);
+			path = GigilFacesTests;
+			sourceTree = "<group>";
+		};
+		BCA121F319A74E20005CC84D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				BCA121F419A74E20005CC84D /* GigilFacesTests-Info.plist */,
+				BCA121F519A74E20005CC84D /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BCA121C919A74E20005CC84D /* GigilFaces */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BCA121FC19A74E20005CC84D /* Build configuration list for PBXNativeTarget "GigilFaces" */;
+			buildPhases = (
+				BCA121C619A74E20005CC84D /* Sources */,
+				BCA121C719A74E20005CC84D /* Frameworks */,
+				BCA121C819A74E20005CC84D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GigilFaces;
+			productName = GigilFaces;
+			productReference = BCA121CA19A74E20005CC84D /* GigilFaces.app */;
+			productType = "com.apple.product-type.application";
+		};
+		BCA121EA19A74E20005CC84D /* GigilFacesTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BCA121FF19A74E20005CC84D /* Build configuration list for PBXNativeTarget "GigilFacesTests" */;
+			buildPhases = (
+				BCA121E719A74E20005CC84D /* Sources */,
+				BCA121E819A74E20005CC84D /* Frameworks */,
+				BCA121E919A74E20005CC84D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BCA121F119A74E20005CC84D /* PBXTargetDependency */,
+			);
+			name = GigilFacesTests;
+			productName = GigilFacesTests;
+			productReference = BCA121EB19A74E20005CC84D /* GigilFacesTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BCA121C219A74E20005CC84D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = GigilFaces;
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = nicole;
+				TargetAttributes = {
+					BCA121EA19A74E20005CC84D = {
+						TestTargetID = BCA121C919A74E20005CC84D;
+					};
+				};
+			};
+			buildConfigurationList = BCA121C519A74E20005CC84D /* Build configuration list for PBXProject "GigilFaces" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = BCA121C119A74E20005CC84D;
+			productRefGroup = BCA121CB19A74E20005CC84D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BCA121C919A74E20005CC84D /* GigilFaces */,
+				BCA121EA19A74E20005CC84D /* GigilFacesTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BCA121C819A74E20005CC84D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BCA121E619A74E20005CC84D /* Images.xcassets in Resources */,
+				BCA121D819A74E20005CC84D /* InfoPlist.strings in Resources */,
+				BCA121E119A74E20005CC84D /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BCA121E919A74E20005CC84D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BCA121F719A74E20005CC84D /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BCA121C619A74E20005CC84D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BCA121E419A74E20005CC84D /* GigilFacesViewController.m in Sources */,
+				BCA121DE19A74E20005CC84D /* GigilFacesAppDelegate.m in Sources */,
+				BCA121DA19A74E20005CC84D /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BCA121E719A74E20005CC84D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BCA121F919A74E20005CC84D /* GigilFacesTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BCA121F119A74E20005CC84D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BCA121C919A74E20005CC84D /* GigilFaces */;
+			targetProxy = BCA121F019A74E20005CC84D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		BCA121D619A74E20005CC84D /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BCA121D719A74E20005CC84D /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		BCA121DF19A74E20005CC84D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BCA121E019A74E20005CC84D /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		BCA121F519A74E20005CC84D /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BCA121F619A74E20005CC84D /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		BCA121FA19A74E20005CC84D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Debug;
+		};
+		BCA121FB19A74E20005CC84D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BCA121FD19A74E20005CC84D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "GigilFaces/GigilFaces-Prefix.pch";
+				INFOPLIST_FILE = "GigilFaces/GigilFaces-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		BCA121FE19A74E20005CC84D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "GigilFaces/GigilFaces-Prefix.pch";
+				INFOPLIST_FILE = "GigilFaces/GigilFaces-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		BCA1220019A74E20005CC84D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/GigilFaces.app/GigilFaces";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "GigilFaces/GigilFaces-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "GigilFacesTests/GigilFacesTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		BCA1220119A74E20005CC84D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/GigilFaces.app/GigilFaces";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "GigilFaces/GigilFaces-Prefix.pch";
+				INFOPLIST_FILE = "GigilFacesTests/GigilFacesTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BCA121C519A74E20005CC84D /* Build configuration list for PBXProject "GigilFaces" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BCA121FA19A74E20005CC84D /* Debug */,
+				BCA121FB19A74E20005CC84D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BCA121FC19A74E20005CC84D /* Build configuration list for PBXNativeTarget "GigilFaces" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BCA121FD19A74E20005CC84D /* Debug */,
+				BCA121FE19A74E20005CC84D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		BCA121FF19A74E20005CC84D /* Build configuration list for PBXNativeTarget "GigilFacesTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BCA1220019A74E20005CC84D /* Debug */,
+				BCA1220119A74E20005CC84D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BCA121C219A74E20005CC84D /* Project object */;
+}
