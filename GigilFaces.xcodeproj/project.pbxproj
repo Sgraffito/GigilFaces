@@ -7,6 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BC08673C19A8D293006C05D0 /* FaceAnimationsPopOverVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BC08673A19A8D293006C05D0 /* FaceAnimationsPopOverVC.m */; };
+		BC08673D19A8D293006C05D0 /* FaceAnimationsPopOverVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC08673B19A8D293006C05D0 /* FaceAnimationsPopOverVC.xib */; };
+		BC4AE49619A7B9C7009CB7E7 /* SmoothPaintingBrushBezier.m in Sources */ = {isa = PBXBuildFile; fileRef = BC4AE49519A7B9C7009CB7E7 /* SmoothPaintingBrushBezier.m */; };
+		BC4AE49A19A7C29A009CB7E7 /* DrawingBoardShadowView.m in Sources */ = {isa = PBXBuildFile; fileRef = BC4AE49919A7C29A009CB7E7 /* DrawingBoardShadowView.m */; };
+		BC4AE49D19A7C5C0009CB7E7 /* VariedWidthsPaintingBrushBezier.m in Sources */ = {isa = PBXBuildFile; fileRef = BC4AE49C19A7C5C0009CB7E7 /* VariedWidthsPaintingBrushBezier.m */; };
+		BC4AE4A019A7DE47009CB7E7 /* VineLineBezierPath.m in Sources */ = {isa = PBXBuildFile; fileRef = BC4AE49F19A7DE47009CB7E7 /* VineLineBezierPath.m */; };
+		BC4AE4A319A7DE64009CB7E7 /* VineBranchBezierPath.m in Sources */ = {isa = PBXBuildFile; fileRef = BC4AE4A219A7DE64009CB7E7 /* VineBranchBezierPath.m */; };
+		BC4AE4AE19A803EA009CB7E7 /* BrushSizePopOverVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BC4AE4AC19A803EA009CB7E7 /* BrushSizePopOverVC.m */; };
+		BC4AE4AF19A803EA009CB7E7 /* BrushSizePopOverVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC4AE4AD19A803EA009CB7E7 /* BrushSizePopOverVC.xib */; };
+		BC4AE4B319A8043C009CB7E7 /* BrushSizeView.m in Sources */ = {isa = PBXBuildFile; fileRef = BC4AE4B219A8043C009CB7E7 /* BrushSizeView.m */; };
+		BC4AE4B719A81066009CB7E7 /* BrushOpacityPopOverVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BC4AE4B519A81066009CB7E7 /* BrushOpacityPopOverVC.m */; };
+		BC4AE4B819A81066009CB7E7 /* BrushOpacityPopOverVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC4AE4B619A81066009CB7E7 /* BrushOpacityPopOverVC.xib */; };
+		BC4AE4BC19A810AD009CB7E7 /* BrushOpacityView.m in Sources */ = {isa = PBXBuildFile; fileRef = BC4AE4BB19A810AD009CB7E7 /* BrushOpacityView.m */; };
 		BCA121CE19A74E20005CC84D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCA121CD19A74E20005CC84D /* Foundation.framework */; };
 		BCA121D019A74E20005CC84D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCA121CF19A74E20005CC84D /* CoreGraphics.framework */; };
 		BCA121D219A74E20005CC84D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCA121D119A74E20005CC84D /* UIKit.framework */; };
@@ -14,13 +27,21 @@
 		BCA121DA19A74E20005CC84D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BCA121D919A74E20005CC84D /* main.m */; };
 		BCA121DE19A74E20005CC84D /* GigilFacesAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BCA121DD19A74E20005CC84D /* GigilFacesAppDelegate.m */; };
 		BCA121E119A74E20005CC84D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BCA121DF19A74E20005CC84D /* Main.storyboard */; };
-		BCA121E419A74E20005CC84D /* GigilFacesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCA121E319A74E20005CC84D /* GigilFacesViewController.m */; };
 		BCA121E619A74E20005CC84D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BCA121E519A74E20005CC84D /* Images.xcassets */; };
 		BCA121ED19A74E20005CC84D /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCA121EC19A74E20005CC84D /* XCTest.framework */; };
 		BCA121EE19A74E20005CC84D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCA121CD19A74E20005CC84D /* Foundation.framework */; };
 		BCA121EF19A74E20005CC84D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCA121D119A74E20005CC84D /* UIKit.framework */; };
 		BCA121F719A74E20005CC84D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BCA121F519A74E20005CC84D /* InfoPlist.strings */; };
 		BCA121F919A74E20005CC84D /* GigilFacesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BCA121F819A74E20005CC84D /* GigilFacesTests.m */; };
+		BCA1220419A74E78005CC84D /* GigilFacesDrawingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BCA1220319A74E78005CC84D /* GigilFacesDrawingVC.m */; };
+		BCA1220719A7560D005CC84D /* DrawingBoardView.m in Sources */ = {isa = PBXBuildFile; fileRef = BCA1220619A7560D005CC84D /* DrawingBoardView.m */; };
+		BCA1220A19A75B48005CC84D /* ColorSelectedView.m in Sources */ = {isa = PBXBuildFile; fileRef = BCA1220919A75B48005CC84D /* ColorSelectedView.m */; };
+		BCA1220D19A75EB0005CC84D /* ColorTrayView.m in Sources */ = {isa = PBXBuildFile; fileRef = BCA1220C19A75EAF005CC84D /* ColorTrayView.m */; };
+		BCA1221119A76AAE005CC84D /* DrawingUtensilsTrayView.m in Sources */ = {isa = PBXBuildFile; fileRef = BCA1221019A76AAE005CC84D /* DrawingUtensilsTrayView.m */; };
+		BCC74A0A19AB861000C3A574 /* AnimatedImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = BCC74A0919AB861000C3A574 /* AnimatedImageView.m */; };
+		BCC74A0D19AB863A00C3A574 /* AnimateGS.m in Sources */ = {isa = PBXBuildFile; fileRef = BCC74A0C19AB863A00C3A574 /* AnimateGS.m */; };
+		BCC74A1119AB8C7B00C3A574 /* NoAnimatedImagesPopOverVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BCC74A0F19AB8C7B00C3A574 /* NoAnimatedImagesPopOverVC.m */; };
+		BCC74A1219AB8C7B00C3A574 /* NoAnimatedImagesPopOverVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCC74A1019AB8C7B00C3A574 /* NoAnimatedImagesPopOverVC.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +55,29 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BC08673919A8D293006C05D0 /* FaceAnimationsPopOverVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FaceAnimationsPopOverVC.h; sourceTree = "<group>"; };
+		BC08673A19A8D293006C05D0 /* FaceAnimationsPopOverVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FaceAnimationsPopOverVC.m; sourceTree = "<group>"; };
+		BC08673B19A8D293006C05D0 /* FaceAnimationsPopOverVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FaceAnimationsPopOverVC.xib; sourceTree = "<group>"; };
+		BC4AE49419A7B9C7009CB7E7 /* SmoothPaintingBrushBezier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmoothPaintingBrushBezier.h; sourceTree = "<group>"; };
+		BC4AE49519A7B9C7009CB7E7 /* SmoothPaintingBrushBezier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmoothPaintingBrushBezier.m; sourceTree = "<group>"; };
+		BC4AE49819A7C29A009CB7E7 /* DrawingBoardShadowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrawingBoardShadowView.h; sourceTree = "<group>"; };
+		BC4AE49919A7C29A009CB7E7 /* DrawingBoardShadowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrawingBoardShadowView.m; sourceTree = "<group>"; };
+		BC4AE49B19A7C5C0009CB7E7 /* VariedWidthsPaintingBrushBezier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VariedWidthsPaintingBrushBezier.h; sourceTree = "<group>"; };
+		BC4AE49C19A7C5C0009CB7E7 /* VariedWidthsPaintingBrushBezier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VariedWidthsPaintingBrushBezier.m; sourceTree = "<group>"; };
+		BC4AE49E19A7DE47009CB7E7 /* VineLineBezierPath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VineLineBezierPath.h; sourceTree = "<group>"; };
+		BC4AE49F19A7DE47009CB7E7 /* VineLineBezierPath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VineLineBezierPath.m; sourceTree = "<group>"; };
+		BC4AE4A119A7DE64009CB7E7 /* VineBranchBezierPath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VineBranchBezierPath.h; sourceTree = "<group>"; };
+		BC4AE4A219A7DE64009CB7E7 /* VineBranchBezierPath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VineBranchBezierPath.m; sourceTree = "<group>"; };
+		BC4AE4AB19A803EA009CB7E7 /* BrushSizePopOverVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrushSizePopOverVC.h; sourceTree = "<group>"; };
+		BC4AE4AC19A803EA009CB7E7 /* BrushSizePopOverVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrushSizePopOverVC.m; sourceTree = "<group>"; };
+		BC4AE4AD19A803EA009CB7E7 /* BrushSizePopOverVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BrushSizePopOverVC.xib; sourceTree = "<group>"; };
+		BC4AE4B119A8043C009CB7E7 /* BrushSizeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrushSizeView.h; sourceTree = "<group>"; };
+		BC4AE4B219A8043C009CB7E7 /* BrushSizeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrushSizeView.m; sourceTree = "<group>"; };
+		BC4AE4B419A81066009CB7E7 /* BrushOpacityPopOverVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrushOpacityPopOverVC.h; sourceTree = "<group>"; };
+		BC4AE4B519A81066009CB7E7 /* BrushOpacityPopOverVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrushOpacityPopOverVC.m; sourceTree = "<group>"; };
+		BC4AE4B619A81066009CB7E7 /* BrushOpacityPopOverVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BrushOpacityPopOverVC.xib; sourceTree = "<group>"; };
+		BC4AE4BA19A810AD009CB7E7 /* BrushOpacityView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrushOpacityView.h; sourceTree = "<group>"; };
+		BC4AE4BB19A810AD009CB7E7 /* BrushOpacityView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrushOpacityView.m; sourceTree = "<group>"; };
 		BCA121CA19A74E20005CC84D /* GigilFaces.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GigilFaces.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCA121CD19A74E20005CC84D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		BCA121CF19A74E20005CC84D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -45,14 +89,29 @@
 		BCA121DC19A74E20005CC84D /* GigilFacesAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GigilFacesAppDelegate.h; sourceTree = "<group>"; };
 		BCA121DD19A74E20005CC84D /* GigilFacesAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GigilFacesAppDelegate.m; sourceTree = "<group>"; };
 		BCA121E019A74E20005CC84D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		BCA121E219A74E20005CC84D /* GigilFacesViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GigilFacesViewController.h; sourceTree = "<group>"; };
-		BCA121E319A74E20005CC84D /* GigilFacesViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GigilFacesViewController.m; sourceTree = "<group>"; };
 		BCA121E519A74E20005CC84D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		BCA121EB19A74E20005CC84D /* GigilFacesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GigilFacesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCA121EC19A74E20005CC84D /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		BCA121F419A74E20005CC84D /* GigilFacesTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GigilFacesTests-Info.plist"; sourceTree = "<group>"; };
 		BCA121F619A74E20005CC84D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		BCA121F819A74E20005CC84D /* GigilFacesTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GigilFacesTests.m; sourceTree = "<group>"; };
+		BCA1220219A74E78005CC84D /* GigilFacesDrawingVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GigilFacesDrawingVC.h; sourceTree = "<group>"; };
+		BCA1220319A74E78005CC84D /* GigilFacesDrawingVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GigilFacesDrawingVC.m; sourceTree = "<group>"; };
+		BCA1220519A7560D005CC84D /* DrawingBoardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrawingBoardView.h; sourceTree = "<group>"; };
+		BCA1220619A7560D005CC84D /* DrawingBoardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrawingBoardView.m; sourceTree = "<group>"; };
+		BCA1220819A75B48005CC84D /* ColorSelectedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorSelectedView.h; sourceTree = "<group>"; };
+		BCA1220919A75B48005CC84D /* ColorSelectedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorSelectedView.m; sourceTree = "<group>"; };
+		BCA1220B19A75EAF005CC84D /* ColorTrayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorTrayView.h; sourceTree = "<group>"; };
+		BCA1220C19A75EAF005CC84D /* ColorTrayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorTrayView.m; sourceTree = "<group>"; };
+		BCA1220F19A76AAE005CC84D /* DrawingUtensilsTrayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrawingUtensilsTrayView.h; sourceTree = "<group>"; };
+		BCA1221019A76AAE005CC84D /* DrawingUtensilsTrayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrawingUtensilsTrayView.m; sourceTree = "<group>"; };
+		BCC74A0819AB861000C3A574 /* AnimatedImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimatedImageView.h; sourceTree = "<group>"; };
+		BCC74A0919AB861000C3A574 /* AnimatedImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimatedImageView.m; sourceTree = "<group>"; };
+		BCC74A0B19AB863A00C3A574 /* AnimateGS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimateGS.h; sourceTree = "<group>"; };
+		BCC74A0C19AB863A00C3A574 /* AnimateGS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimateGS.m; sourceTree = "<group>"; };
+		BCC74A0E19AB8C7B00C3A574 /* NoAnimatedImagesPopOverVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoAnimatedImagesPopOverVC.h; sourceTree = "<group>"; };
+		BCC74A0F19AB8C7B00C3A574 /* NoAnimatedImagesPopOverVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoAnimatedImagesPopOverVC.m; sourceTree = "<group>"; };
+		BCC74A1019AB8C7B00C3A574 /* NoAnimatedImagesPopOverVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NoAnimatedImagesPopOverVC.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +138,85 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BC08673E19A8D298006C05D0 /* Face Animations Pop-Over */ = {
+			isa = PBXGroup;
+			children = (
+				BC08673919A8D293006C05D0 /* FaceAnimationsPopOverVC.h */,
+				BC08673A19A8D293006C05D0 /* FaceAnimationsPopOverVC.m */,
+				BC08673B19A8D293006C05D0 /* FaceAnimationsPopOverVC.xib */,
+			);
+			name = "Face Animations Pop-Over";
+			sourceTree = "<group>";
+		};
+		BC08674219A8DA41006C05D0 /* Animated Images */ = {
+			isa = PBXGroup;
+			children = (
+				BCC74A0819AB861000C3A574 /* AnimatedImageView.h */,
+				BCC74A0919AB861000C3A574 /* AnimatedImageView.m */,
+				BCC74A0B19AB863A00C3A574 /* AnimateGS.h */,
+				BCC74A0C19AB863A00C3A574 /* AnimateGS.m */,
+			);
+			name = "Animated Images";
+			sourceTree = "<group>";
+		};
+		BC4AE49719A7B9CA009CB7E7 /* Bezier Paths */ = {
+			isa = PBXGroup;
+			children = (
+				BC4AE4A419A7DE69009CB7E7 /* Vine Bezier Path */,
+				BC4AE49419A7B9C7009CB7E7 /* SmoothPaintingBrushBezier.h */,
+				BC4AE49519A7B9C7009CB7E7 /* SmoothPaintingBrushBezier.m */,
+				BC4AE49B19A7C5C0009CB7E7 /* VariedWidthsPaintingBrushBezier.h */,
+				BC4AE49C19A7C5C0009CB7E7 /* VariedWidthsPaintingBrushBezier.m */,
+			);
+			name = "Bezier Paths";
+			sourceTree = "<group>";
+		};
+		BC4AE4A419A7DE69009CB7E7 /* Vine Bezier Path */ = {
+			isa = PBXGroup;
+			children = (
+				BC4AE4A119A7DE64009CB7E7 /* VineBranchBezierPath.h */,
+				BC4AE4A219A7DE64009CB7E7 /* VineBranchBezierPath.m */,
+				BC4AE49E19A7DE47009CB7E7 /* VineLineBezierPath.h */,
+				BC4AE49F19A7DE47009CB7E7 /* VineLineBezierPath.m */,
+			);
+			name = "Vine Bezier Path";
+			sourceTree = "<group>";
+		};
+		BC4AE4B019A803EE009CB7E7 /* Brush Size Pop-Over */ = {
+			isa = PBXGroup;
+			children = (
+				BC4AE4AB19A803EA009CB7E7 /* BrushSizePopOverVC.h */,
+				BC4AE4AC19A803EA009CB7E7 /* BrushSizePopOverVC.m */,
+				BC4AE4AD19A803EA009CB7E7 /* BrushSizePopOverVC.xib */,
+				BC4AE4B119A8043C009CB7E7 /* BrushSizeView.h */,
+				BC4AE4B219A8043C009CB7E7 /* BrushSizeView.m */,
+			);
+			name = "Brush Size Pop-Over";
+			sourceTree = "<group>";
+		};
+		BC4AE4B919A81069009CB7E7 /* Brush Opacity Pop-Over */ = {
+			isa = PBXGroup;
+			children = (
+				BC4AE4B419A81066009CB7E7 /* BrushOpacityPopOverVC.h */,
+				BC4AE4B519A81066009CB7E7 /* BrushOpacityPopOverVC.m */,
+				BC4AE4B619A81066009CB7E7 /* BrushOpacityPopOverVC.xib */,
+				BC4AE4BA19A810AD009CB7E7 /* BrushOpacityView.h */,
+				BC4AE4BB19A810AD009CB7E7 /* BrushOpacityView.m */,
+			);
+			name = "Brush Opacity Pop-Over";
+			sourceTree = "<group>";
+		};
+		BC4AE4BD19A81453009CB7E7 /* Pop-Overs */ = {
+			isa = PBXGroup;
+			children = (
+				BC4AE4B919A81069009CB7E7 /* Brush Opacity Pop-Over */,
+				BC4AE4B019A803EE009CB7E7 /* Brush Size Pop-Over */,
+				BC08673E19A8D298006C05D0 /* Face Animations Pop-Over */,
+				BCC74A1319AB8C8000C3A574 /* No Animated Images Pop-Over */,
+			);
+			name = "Pop-Overs";
+			sourceTree = "<group>";
+		};
 		BCA121C119A74E20005CC84D = {
 			isa = PBXGroup;
 			children = (
@@ -112,13 +250,15 @@
 		BCA121D319A74E20005CC84D /* GigilFaces */ = {
 			isa = PBXGroup;
 			children = (
-				BCA121DC19A74E20005CC84D /* GigilFacesAppDelegate.h */,
-				BCA121DD19A74E20005CC84D /* GigilFacesAppDelegate.m */,
 				BCA121DF19A74E20005CC84D /* Main.storyboard */,
-				BCA121E219A74E20005CC84D /* GigilFacesViewController.h */,
-				BCA121E319A74E20005CC84D /* GigilFacesViewController.m */,
 				BCA121E519A74E20005CC84D /* Images.xcassets */,
+				BC4AE4BD19A81453009CB7E7 /* Pop-Overs */,
+				BC4AE49719A7B9CA009CB7E7 /* Bezier Paths */,
+				BCA1220E19A75EB7005CC84D /* Drawing Board Views */,
+				BCA1220219A74E78005CC84D /* GigilFacesDrawingVC.h */,
+				BCA1220319A74E78005CC84D /* GigilFacesDrawingVC.m */,
 				BCA121D419A74E20005CC84D /* Supporting Files */,
+				BC08674219A8DA41006C05D0 /* Animated Images */,
 			);
 			path = GigilFaces;
 			sourceTree = "<group>";
@@ -126,6 +266,8 @@
 		BCA121D419A74E20005CC84D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				BCA121DC19A74E20005CC84D /* GigilFacesAppDelegate.h */,
+				BCA121DD19A74E20005CC84D /* GigilFacesAppDelegate.m */,
 				BCA121D519A74E20005CC84D /* GigilFaces-Info.plist */,
 				BCA121D619A74E20005CC84D /* InfoPlist.strings */,
 				BCA121D919A74E20005CC84D /* main.m */,
@@ -150,6 +292,33 @@
 				BCA121F519A74E20005CC84D /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		BCA1220E19A75EB7005CC84D /* Drawing Board Views */ = {
+			isa = PBXGroup;
+			children = (
+				BCA1220519A7560D005CC84D /* DrawingBoardView.h */,
+				BCA1220619A7560D005CC84D /* DrawingBoardView.m */,
+				BC4AE49819A7C29A009CB7E7 /* DrawingBoardShadowView.h */,
+				BC4AE49919A7C29A009CB7E7 /* DrawingBoardShadowView.m */,
+				BCA1220819A75B48005CC84D /* ColorSelectedView.h */,
+				BCA1220919A75B48005CC84D /* ColorSelectedView.m */,
+				BCA1220B19A75EAF005CC84D /* ColorTrayView.h */,
+				BCA1220C19A75EAF005CC84D /* ColorTrayView.m */,
+				BCA1220F19A76AAE005CC84D /* DrawingUtensilsTrayView.h */,
+				BCA1221019A76AAE005CC84D /* DrawingUtensilsTrayView.m */,
+			);
+			name = "Drawing Board Views";
+			sourceTree = "<group>";
+		};
+		BCC74A1319AB8C8000C3A574 /* No Animated Images Pop-Over */ = {
+			isa = PBXGroup;
+			children = (
+				BCC74A0E19AB8C7B00C3A574 /* NoAnimatedImagesPopOverVC.h */,
+				BCC74A0F19AB8C7B00C3A574 /* NoAnimatedImagesPopOverVC.m */,
+				BCC74A1019AB8C7B00C3A574 /* NoAnimatedImagesPopOverVC.xib */,
+			);
+			name = "No Animated Images Pop-Over";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -229,8 +398,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC08673D19A8D293006C05D0 /* FaceAnimationsPopOverVC.xib in Resources */,
 				BCA121E619A74E20005CC84D /* Images.xcassets in Resources */,
+				BC4AE4B819A81066009CB7E7 /* BrushOpacityPopOverVC.xib in Resources */,
 				BCA121D819A74E20005CC84D /* InfoPlist.strings in Resources */,
+				BC4AE4AF19A803EA009CB7E7 /* BrushSizePopOverVC.xib in Resources */,
+				BCC74A1219AB8C7B00C3A574 /* NoAnimatedImagesPopOverVC.xib in Resources */,
 				BCA121E119A74E20005CC84D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -250,9 +423,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BCA121E419A74E20005CC84D /* GigilFacesViewController.m in Sources */,
+				BCA1220A19A75B48005CC84D /* ColorSelectedView.m in Sources */,
+				BCA1220719A7560D005CC84D /* DrawingBoardView.m in Sources */,
+				BCA1220D19A75EB0005CC84D /* ColorTrayView.m in Sources */,
+				BC4AE4A319A7DE64009CB7E7 /* VineBranchBezierPath.m in Sources */,
+				BC4AE4B319A8043C009CB7E7 /* BrushSizeView.m in Sources */,
+				BC4AE4BC19A810AD009CB7E7 /* BrushOpacityView.m in Sources */,
+				BC4AE4AE19A803EA009CB7E7 /* BrushSizePopOverVC.m in Sources */,
+				BCC74A0D19AB863A00C3A574 /* AnimateGS.m in Sources */,
+				BC4AE4A019A7DE47009CB7E7 /* VineLineBezierPath.m in Sources */,
 				BCA121DE19A74E20005CC84D /* GigilFacesAppDelegate.m in Sources */,
+				BCC74A1119AB8C7B00C3A574 /* NoAnimatedImagesPopOverVC.m in Sources */,
+				BCC74A0A19AB861000C3A574 /* AnimatedImageView.m in Sources */,
 				BCA121DA19A74E20005CC84D /* main.m in Sources */,
+				BCA1220419A74E78005CC84D /* GigilFacesDrawingVC.m in Sources */,
+				BC4AE4B719A81066009CB7E7 /* BrushOpacityPopOverVC.m in Sources */,
+				BCA1221119A76AAE005CC84D /* DrawingUtensilsTrayView.m in Sources */,
+				BC08673C19A8D293006C05D0 /* FaceAnimationsPopOverVC.m in Sources */,
+				BC4AE49D19A7C5C0009CB7E7 /* VariedWidthsPaintingBrushBezier.m in Sources */,
+				BC4AE49619A7B9C7009CB7E7 /* SmoothPaintingBrushBezier.m in Sources */,
+				BC4AE49A19A7C29A009CB7E7 /* DrawingBoardShadowView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -459,6 +649,7 @@
 				BCA121FE19A74E20005CC84D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		BCA121FF19A74E20005CC84D /* Build configuration list for PBXNativeTarget "GigilFacesTests" */ = {
 			isa = XCConfigurationList;
@@ -467,6 +658,7 @@
 				BCA1220119A74E20005CC84D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

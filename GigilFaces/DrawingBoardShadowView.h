@@ -1,5 +1,5 @@
 //
-//  GigilFacesViewController.h
+//  DrawingBoardShadowView.h
 //  GigilFaces
 //
 //  Created by Nicole on 8/22/14.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface GigilFacesViewController : UIViewController
+@interface DrawingBoardShadowView : UIView
 
 @end
