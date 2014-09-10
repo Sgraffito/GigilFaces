@@ -10,7 +10,7 @@
 
 @protocol BrushOpacityPopOverViewControllerDelegate
 
--(void)opacityValueChanged:(float)opacity;
+- (void)opacityValueChanged:(float)opacity;
 
 @end
 

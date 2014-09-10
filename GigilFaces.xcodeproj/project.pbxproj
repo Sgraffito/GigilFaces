@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		BC08673C19A8D293006C05D0 /* FaceAnimationsPopOverVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BC08673A19A8D293006C05D0 /* FaceAnimationsPopOverVC.m */; };
 		BC08673D19A8D293006C05D0 /* FaceAnimationsPopOverVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC08673B19A8D293006C05D0 /* FaceAnimationsPopOverVC.xib */; };
+		BC12D2DB19ACCA0700350C78 /* CancelButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = BC12D2DA19ACCA0700350C78 /* CancelButtonView.m */; };
+		BC12D2DE19ACF49D00350C78 /* RollingEyeView.m in Sources */ = {isa = PBXBuildFile; fileRef = BC12D2DD19ACF49D00350C78 /* RollingEyeView.m */; };
+		BC1C080D19B0BF4C008EFCD8 /* SavePopOverVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1C080B19B0BF4C008EFCD8 /* SavePopOverVC.m */; };
+		BC1C080E19B0BF4C008EFCD8 /* SavePopOverVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC1C080C19B0BF4C008EFCD8 /* SavePopOverVC.xib */; };
 		BC4AE49619A7B9C7009CB7E7 /* SmoothPaintingBrushBezier.m in Sources */ = {isa = PBXBuildFile; fileRef = BC4AE49519A7B9C7009CB7E7 /* SmoothPaintingBrushBezier.m */; };
 		BC4AE49A19A7C29A009CB7E7 /* DrawingBoardShadowView.m in Sources */ = {isa = PBXBuildFile; fileRef = BC4AE49919A7C29A009CB7E7 /* DrawingBoardShadowView.m */; };
 		BC4AE49D19A7C5C0009CB7E7 /* VariedWidthsPaintingBrushBezier.m in Sources */ = {isa = PBXBuildFile; fileRef = BC4AE49C19A7C5C0009CB7E7 /* VariedWidthsPaintingBrushBezier.m */; };
@@ -20,6 +24,7 @@
 		BC4AE4B719A81066009CB7E7 /* BrushOpacityPopOverVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BC4AE4B519A81066009CB7E7 /* BrushOpacityPopOverVC.m */; };
 		BC4AE4B819A81066009CB7E7 /* BrushOpacityPopOverVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC4AE4B619A81066009CB7E7 /* BrushOpacityPopOverVC.xib */; };
 		BC4AE4BC19A810AD009CB7E7 /* BrushOpacityView.m in Sources */ = {isa = PBXBuildFile; fileRef = BC4AE4BB19A810AD009CB7E7 /* BrushOpacityView.m */; };
+		BC891B9819B8064300B4EFAB /* FillPaintingBrushBezier.m in Sources */ = {isa = PBXBuildFile; fileRef = BC891B9719B8064300B4EFAB /* FillPaintingBrushBezier.m */; };
 		BCA121CE19A74E20005CC84D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCA121CD19A74E20005CC84D /* Foundation.framework */; };
 		BCA121D019A74E20005CC84D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCA121CF19A74E20005CC84D /* CoreGraphics.framework */; };
 		BCA121D219A74E20005CC84D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCA121D119A74E20005CC84D /* UIKit.framework */; };
@@ -38,10 +43,16 @@
 		BCA1220A19A75B48005CC84D /* ColorSelectedView.m in Sources */ = {isa = PBXBuildFile; fileRef = BCA1220919A75B48005CC84D /* ColorSelectedView.m */; };
 		BCA1220D19A75EB0005CC84D /* ColorTrayView.m in Sources */ = {isa = PBXBuildFile; fileRef = BCA1220C19A75EAF005CC84D /* ColorTrayView.m */; };
 		BCA1221119A76AAE005CC84D /* DrawingUtensilsTrayView.m in Sources */ = {isa = PBXBuildFile; fileRef = BCA1221019A76AAE005CC84D /* DrawingUtensilsTrayView.m */; };
+		BCC1F7F119B69A5000D73DDE /* NanumScript.ttc in Resources */ = {isa = PBXBuildFile; fileRef = BCC1F7F019B69A5000D73DDE /* NanumScript.ttc */; };
 		BCC74A0A19AB861000C3A574 /* AnimatedImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = BCC74A0919AB861000C3A574 /* AnimatedImageView.m */; };
 		BCC74A0D19AB863A00C3A574 /* AnimateGS.m in Sources */ = {isa = PBXBuildFile; fileRef = BCC74A0C19AB863A00C3A574 /* AnimateGS.m */; };
 		BCC74A1119AB8C7B00C3A574 /* NoAnimatedImagesPopOverVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BCC74A0F19AB8C7B00C3A574 /* NoAnimatedImagesPopOverVC.m */; };
 		BCC74A1219AB8C7B00C3A574 /* NoAnimatedImagesPopOverVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCC74A1019AB8C7B00C3A574 /* NoAnimatedImagesPopOverVC.xib */; };
+		BCD132CC19AF572C00C12601 /* MyDrawingsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BCD132CB19AF572C00C12601 /* MyDrawingsVC.m */; };
+		BCD132CF19AF58D600C12601 /* MyDrawingCVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BCD132CE19AF58D600C12601 /* MyDrawingCVCell.m */; };
+		BCD132D619AFB4CD00C12601 /* FrontPageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BCD132D519AFB4CD00C12601 /* FrontPageVC.m */; };
+		BCEEFF7D19AD69ED00FDD188 /* ToothyGrinView.m in Sources */ = {isa = PBXBuildFile; fileRef = BCEEFF7C19AD69ED00FDD188 /* ToothyGrinView.m */; };
+		BCEEFF8019AE100E00FDD188 /* SaveDrawingBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = BCEEFF7F19AE100E00FDD188 /* SaveDrawingBoard.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +69,13 @@
 		BC08673919A8D293006C05D0 /* FaceAnimationsPopOverVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FaceAnimationsPopOverVC.h; sourceTree = "<group>"; };
 		BC08673A19A8D293006C05D0 /* FaceAnimationsPopOverVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FaceAnimationsPopOverVC.m; sourceTree = "<group>"; };
 		BC08673B19A8D293006C05D0 /* FaceAnimationsPopOverVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FaceAnimationsPopOverVC.xib; sourceTree = "<group>"; };
+		BC12D2D919ACCA0700350C78 /* CancelButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CancelButtonView.h; sourceTree = "<group>"; };
+		BC12D2DA19ACCA0700350C78 /* CancelButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CancelButtonView.m; sourceTree = "<group>"; };
+		BC12D2DC19ACF49D00350C78 /* RollingEyeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RollingEyeView.h; sourceTree = "<group>"; };
+		BC12D2DD19ACF49D00350C78 /* RollingEyeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RollingEyeView.m; sourceTree = "<group>"; };
+		BC1C080A19B0BF4C008EFCD8 /* SavePopOverVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SavePopOverVC.h; sourceTree = "<group>"; };
+		BC1C080B19B0BF4C008EFCD8 /* SavePopOverVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SavePopOverVC.m; sourceTree = "<group>"; };
+		BC1C080C19B0BF4C008EFCD8 /* SavePopOverVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SavePopOverVC.xib; sourceTree = "<group>"; };
 		BC4AE49419A7B9C7009CB7E7 /* SmoothPaintingBrushBezier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmoothPaintingBrushBezier.h; sourceTree = "<group>"; };
 		BC4AE49519A7B9C7009CB7E7 /* SmoothPaintingBrushBezier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmoothPaintingBrushBezier.m; sourceTree = "<group>"; };
 		BC4AE49819A7C29A009CB7E7 /* DrawingBoardShadowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrawingBoardShadowView.h; sourceTree = "<group>"; };
@@ -78,6 +96,8 @@
 		BC4AE4B619A81066009CB7E7 /* BrushOpacityPopOverVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BrushOpacityPopOverVC.xib; sourceTree = "<group>"; };
 		BC4AE4BA19A810AD009CB7E7 /* BrushOpacityView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrushOpacityView.h; sourceTree = "<group>"; };
 		BC4AE4BB19A810AD009CB7E7 /* BrushOpacityView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrushOpacityView.m; sourceTree = "<group>"; };
+		BC891B9619B8064300B4EFAB /* FillPaintingBrushBezier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FillPaintingBrushBezier.h; sourceTree = "<group>"; };
+		BC891B9719B8064300B4EFAB /* FillPaintingBrushBezier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FillPaintingBrushBezier.m; sourceTree = "<group>"; };
 		BCA121CA19A74E20005CC84D /* GigilFaces.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GigilFaces.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCA121CD19A74E20005CC84D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		BCA121CF19A74E20005CC84D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -105,6 +125,7 @@
 		BCA1220C19A75EAF005CC84D /* ColorTrayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorTrayView.m; sourceTree = "<group>"; };
 		BCA1220F19A76AAE005CC84D /* DrawingUtensilsTrayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrawingUtensilsTrayView.h; sourceTree = "<group>"; };
 		BCA1221019A76AAE005CC84D /* DrawingUtensilsTrayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrawingUtensilsTrayView.m; sourceTree = "<group>"; };
+		BCC1F7F019B69A5000D73DDE /* NanumScript.ttc */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumScript.ttc; sourceTree = "<group>"; };
 		BCC74A0819AB861000C3A574 /* AnimatedImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimatedImageView.h; sourceTree = "<group>"; };
 		BCC74A0919AB861000C3A574 /* AnimatedImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimatedImageView.m; sourceTree = "<group>"; };
 		BCC74A0B19AB863A00C3A574 /* AnimateGS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimateGS.h; sourceTree = "<group>"; };
@@ -112,6 +133,16 @@
 		BCC74A0E19AB8C7B00C3A574 /* NoAnimatedImagesPopOverVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoAnimatedImagesPopOverVC.h; sourceTree = "<group>"; };
 		BCC74A0F19AB8C7B00C3A574 /* NoAnimatedImagesPopOverVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoAnimatedImagesPopOverVC.m; sourceTree = "<group>"; };
 		BCC74A1019AB8C7B00C3A574 /* NoAnimatedImagesPopOverVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NoAnimatedImagesPopOverVC.xib; sourceTree = "<group>"; };
+		BCD132CA19AF572C00C12601 /* MyDrawingsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyDrawingsVC.h; sourceTree = "<group>"; };
+		BCD132CB19AF572C00C12601 /* MyDrawingsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyDrawingsVC.m; sourceTree = "<group>"; };
+		BCD132CD19AF58D600C12601 /* MyDrawingCVCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyDrawingCVCell.h; sourceTree = "<group>"; };
+		BCD132CE19AF58D600C12601 /* MyDrawingCVCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyDrawingCVCell.m; sourceTree = "<group>"; };
+		BCD132D419AFB4CD00C12601 /* FrontPageVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FrontPageVC.h; sourceTree = "<group>"; };
+		BCD132D519AFB4CD00C12601 /* FrontPageVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FrontPageVC.m; sourceTree = "<group>"; };
+		BCEEFF7B19AD69ED00FDD188 /* ToothyGrinView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToothyGrinView.h; sourceTree = "<group>"; };
+		BCEEFF7C19AD69ED00FDD188 /* ToothyGrinView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToothyGrinView.m; sourceTree = "<group>"; };
+		BCEEFF7E19AE100E00FDD188 /* SaveDrawingBoard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SaveDrawingBoard.h; sourceTree = "<group>"; };
+		BCEEFF7F19AE100E00FDD188 /* SaveDrawingBoard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SaveDrawingBoard.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,8 +186,24 @@
 				BCC74A0919AB861000C3A574 /* AnimatedImageView.m */,
 				BCC74A0B19AB863A00C3A574 /* AnimateGS.h */,
 				BCC74A0C19AB863A00C3A574 /* AnimateGS.m */,
+				BC12D2D919ACCA0700350C78 /* CancelButtonView.h */,
+				BC12D2DA19ACCA0700350C78 /* CancelButtonView.m */,
+				BC12D2DC19ACF49D00350C78 /* RollingEyeView.h */,
+				BC12D2DD19ACF49D00350C78 /* RollingEyeView.m */,
+				BCEEFF7B19AD69ED00FDD188 /* ToothyGrinView.h */,
+				BCEEFF7C19AD69ED00FDD188 /* ToothyGrinView.m */,
 			);
 			name = "Animated Images";
+			sourceTree = "<group>";
+		};
+		BC1C080F19B0BF50008EFCD8 /* Save Pop-Over */ = {
+			isa = PBXGroup;
+			children = (
+				BC1C080A19B0BF4C008EFCD8 /* SavePopOverVC.h */,
+				BC1C080B19B0BF4C008EFCD8 /* SavePopOverVC.m */,
+				BC1C080C19B0BF4C008EFCD8 /* SavePopOverVC.xib */,
+			);
+			name = "Save Pop-Over";
 			sourceTree = "<group>";
 		};
 		BC4AE49719A7B9CA009CB7E7 /* Bezier Paths */ = {
@@ -167,6 +214,8 @@
 				BC4AE49519A7B9C7009CB7E7 /* SmoothPaintingBrushBezier.m */,
 				BC4AE49B19A7C5C0009CB7E7 /* VariedWidthsPaintingBrushBezier.h */,
 				BC4AE49C19A7C5C0009CB7E7 /* VariedWidthsPaintingBrushBezier.m */,
+				BC891B9619B8064300B4EFAB /* FillPaintingBrushBezier.h */,
+				BC891B9719B8064300B4EFAB /* FillPaintingBrushBezier.m */,
 			);
 			name = "Bezier Paths";
 			sourceTree = "<group>";
@@ -213,6 +262,7 @@
 				BC4AE4B019A803EE009CB7E7 /* Brush Size Pop-Over */,
 				BC08673E19A8D298006C05D0 /* Face Animations Pop-Over */,
 				BCC74A1319AB8C8000C3A574 /* No Animated Images Pop-Over */,
+				BC1C080F19B0BF50008EFCD8 /* Save Pop-Over */,
 			);
 			name = "Pop-Overs";
 			sourceTree = "<group>";
@@ -251,14 +301,11 @@
 			isa = PBXGroup;
 			children = (
 				BCA121DF19A74E20005CC84D /* Main.storyboard */,
-				BCA121E519A74E20005CC84D /* Images.xcassets */,
-				BC4AE4BD19A81453009CB7E7 /* Pop-Overs */,
-				BC4AE49719A7B9CA009CB7E7 /* Bezier Paths */,
-				BCA1220E19A75EB7005CC84D /* Drawing Board Views */,
-				BCA1220219A74E78005CC84D /* GigilFacesDrawingVC.h */,
-				BCA1220319A74E78005CC84D /* GigilFacesDrawingVC.m */,
+				BCC1F7ED19B6990F00D73DDE /* Resources */,
+				BCD132D719AFB4D000C12601 /* Front Page */,
+				BCD132D319AF8B9900C12601 /* My Drawings View Controller */,
+				BCD132C819AF56E600C12601 /* Drawing Board View Controller */,
 				BCA121D419A74E20005CC84D /* Supporting Files */,
-				BC08674219A8DA41006C05D0 /* Animated Images */,
 			);
 			path = GigilFaces;
 			sourceTree = "<group>";
@@ -307,8 +354,27 @@
 				BCA1220C19A75EAF005CC84D /* ColorTrayView.m */,
 				BCA1220F19A76AAE005CC84D /* DrawingUtensilsTrayView.h */,
 				BCA1221019A76AAE005CC84D /* DrawingUtensilsTrayView.m */,
+				BCEEFF7E19AE100E00FDD188 /* SaveDrawingBoard.h */,
+				BCEEFF7F19AE100E00FDD188 /* SaveDrawingBoard.m */,
 			);
 			name = "Drawing Board Views";
+			sourceTree = "<group>";
+		};
+		BCC1F7ED19B6990F00D73DDE /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				BCA121E519A74E20005CC84D /* Images.xcassets */,
+				BCC1F7F219B69FD400D73DDE /* Fonts */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		BCC1F7F219B69FD400D73DDE /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				BCC1F7F019B69A5000D73DDE /* NanumScript.ttc */,
+			);
+			name = Fonts;
 			sourceTree = "<group>";
 		};
 		BCC74A1319AB8C8000C3A574 /* No Animated Images Pop-Over */ = {
@@ -319,6 +385,39 @@
 				BCC74A1019AB8C7B00C3A574 /* NoAnimatedImagesPopOverVC.xib */,
 			);
 			name = "No Animated Images Pop-Over";
+			sourceTree = "<group>";
+		};
+		BCD132C819AF56E600C12601 /* Drawing Board View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				BC4AE4BD19A81453009CB7E7 /* Pop-Overs */,
+				BC4AE49719A7B9CA009CB7E7 /* Bezier Paths */,
+				BC08674219A8DA41006C05D0 /* Animated Images */,
+				BCA1220E19A75EB7005CC84D /* Drawing Board Views */,
+				BCA1220219A74E78005CC84D /* GigilFacesDrawingVC.h */,
+				BCA1220319A74E78005CC84D /* GigilFacesDrawingVC.m */,
+			);
+			name = "Drawing Board View Controller";
+			sourceTree = "<group>";
+		};
+		BCD132D319AF8B9900C12601 /* My Drawings View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				BCD132CA19AF572C00C12601 /* MyDrawingsVC.h */,
+				BCD132CB19AF572C00C12601 /* MyDrawingsVC.m */,
+				BCD132CD19AF58D600C12601 /* MyDrawingCVCell.h */,
+				BCD132CE19AF58D600C12601 /* MyDrawingCVCell.m */,
+			);
+			name = "My Drawings View Controller";
+			sourceTree = "<group>";
+		};
+		BCD132D719AFB4D000C12601 /* Front Page */ = {
+			isa = PBXGroup;
+			children = (
+				BCD132D419AFB4CD00C12601 /* FrontPageVC.h */,
+				BCD132D519AFB4CD00C12601 /* FrontPageVC.m */,
+			);
+			name = "Front Page";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -399,10 +498,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				BC08673D19A8D293006C05D0 /* FaceAnimationsPopOverVC.xib in Resources */,
+				BCC1F7F119B69A5000D73DDE /* NanumScript.ttc in Resources */,
 				BCA121E619A74E20005CC84D /* Images.xcassets in Resources */,
 				BC4AE4B819A81066009CB7E7 /* BrushOpacityPopOverVC.xib in Resources */,
 				BCA121D819A74E20005CC84D /* InfoPlist.strings in Resources */,
 				BC4AE4AF19A803EA009CB7E7 /* BrushSizePopOverVC.xib in Resources */,
+				BC1C080E19B0BF4C008EFCD8 /* SavePopOverVC.xib in Resources */,
 				BCC74A1219AB8C7B00C3A574 /* NoAnimatedImagesPopOverVC.xib in Resources */,
 				BCA121E119A74E20005CC84D /* Main.storyboard in Resources */,
 			);
@@ -423,11 +524,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC12D2DE19ACF49D00350C78 /* RollingEyeView.m in Sources */,
 				BCA1220A19A75B48005CC84D /* ColorSelectedView.m in Sources */,
 				BCA1220719A7560D005CC84D /* DrawingBoardView.m in Sources */,
+				BCD132CF19AF58D600C12601 /* MyDrawingCVCell.m in Sources */,
 				BCA1220D19A75EB0005CC84D /* ColorTrayView.m in Sources */,
+				BCD132CC19AF572C00C12601 /* MyDrawingsVC.m in Sources */,
 				BC4AE4A319A7DE64009CB7E7 /* VineBranchBezierPath.m in Sources */,
 				BC4AE4B319A8043C009CB7E7 /* BrushSizeView.m in Sources */,
+				BCD132D619AFB4CD00C12601 /* FrontPageVC.m in Sources */,
 				BC4AE4BC19A810AD009CB7E7 /* BrushOpacityView.m in Sources */,
 				BC4AE4AE19A803EA009CB7E7 /* BrushSizePopOverVC.m in Sources */,
 				BCC74A0D19AB863A00C3A574 /* AnimateGS.m in Sources */,
@@ -436,7 +541,12 @@
 				BCC74A1119AB8C7B00C3A574 /* NoAnimatedImagesPopOverVC.m in Sources */,
 				BCC74A0A19AB861000C3A574 /* AnimatedImageView.m in Sources */,
 				BCA121DA19A74E20005CC84D /* main.m in Sources */,
+				BC12D2DB19ACCA0700350C78 /* CancelButtonView.m in Sources */,
 				BCA1220419A74E78005CC84D /* GigilFacesDrawingVC.m in Sources */,
+				BCEEFF8019AE100E00FDD188 /* SaveDrawingBoard.m in Sources */,
+				BC891B9819B8064300B4EFAB /* FillPaintingBrushBezier.m in Sources */,
+				BCEEFF7D19AD69ED00FDD188 /* ToothyGrinView.m in Sources */,
+				BC1C080D19B0BF4C008EFCD8 /* SavePopOverVC.m in Sources */,
 				BC4AE4B719A81066009CB7E7 /* BrushOpacityPopOverVC.m in Sources */,
 				BCA1221119A76AAE005CC84D /* DrawingUtensilsTrayView.m in Sources */,
 				BC08673C19A8D293006C05D0 /* FaceAnimationsPopOverVC.m in Sources */,

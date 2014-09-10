@@ -45,33 +45,7 @@
         points[0] = points[3];
         points[1] = points[4];
         self.counter = 1;
-        
-        float distanceFromPrevious;
-        
-        // Calculate distance between the first point and second point
-        if ([self.branchLines count] == 0) {
-            distanceFromPrevious = hypotf(point.x - firstPointOnBranch.x,
-                                          point.y - firstPointOnBranch.y);
-        }
-        
-        // Calculate distance between last point and current poin
-        else {
-            distanceFromPrevious = hypot(point.x - lastBranchPosition.x,
-                                         point.y - lastBranchPosition.y);
-        }
-        
-        if (distanceFromPrevious > self.minBranchSeperation) {
-            VineBranchBezierPath *newBranch = [[VineBranchBezierPath alloc]
-                                               initWithRandomPathFromPoint:points[3]
-                                               maxLength:self.maxBranchLength
-                                               leafSize:self.leafSize];
-            newBranch.lineWidth = self.lineWidth / 2.0;
-            [self.branchLines addObject:newBranch];
-            [_delegate vineLineDidCreateBranch:newBranch];
-            lastBranchPosition = point;
-        }
     }
-    
 }
 
 #pragma mark - Set Up

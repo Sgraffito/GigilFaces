@@ -7,28 +7,25 @@
 //
 
 #import "AnimatedImageView.h"
+#import "CancelButtonView.h"
 
 @interface AnimatedImageView() <UIGestureRecognizerDelegate>
 @property (nonatomic) BOOL animated;
-@property (nonatomic) CGPoint priorPoint;
 @property (nonatomic) BOOL imageSelected;
-@property (strong, nonatomic) NSMutableArray *activeRecognizers;
 
 // Gestures
 @property (strong, nonatomic) UIPanGestureRecognizer *pan;
-@property (strong, nonatomic) UIPinchGestureRecognizer *pinch;
-@property (strong, nonatomic) UIRotationGestureRecognizer *rotate;
-@property (nonatomic) CGFloat lastScale;
+
+// Cancel button
+@property (strong, nonatomic) CancelButtonView *cancelButton;
+@property (strong, nonatomic) UIBezierPath *cancelButtonBounds;
 @end
 
-@implementation AnimatedImageView
+@implementation AnimatedImageView {
+    CGFloat lastRotation;
+}
 
 #pragma mark - Initialization
-
-- (NSMutableArray *)activeRecognizers {
-    if (!_activeRecognizers) _activeRecognizers = [[NSMutableArray alloc] init];
-    return _activeRecognizers;
-}
 
 #pragma mark - Animation
 
@@ -42,62 +39,58 @@
     }
 }
 
-- (id)initWithFrame:(CGRect)frame
-{
-    self = [super initWithFrame:frame];
-    if (self) {
-        // Initialization code
-        [self setUp];
-    }
-    return self;
-}
-
-- (void)setUp {
-    
-    // Load images
-    NSArray *imageNames = [self animatedImageNames];
-    
-    NSMutableArray *images = [[NSMutableArray alloc] init];
-    for (int i = 0; i < imageNames.count; i += 1) {
-        [images addObject:[UIImage imageNamed:[imageNames objectAtIndex:i]]];
-    }
-    
-    self.animationImages = images;
-    self.animationDuration = 1.0;
-    
-    self.image = [UIImage imageNamed:@"win_1.png"];
-}
-
 - (void)selectAnimatedImage:(UITapGestureRecognizer *)gesture {
 
     if (gesture.state == UIGestureRecognizerStateEnded) {
         self.imageSelected = !self.imageSelected;
         
-        // If image is not selected, add a green background and a pan gesture
+        // If image is not selected, add a cancel button
         if (self.imageSelected) {
-            self.backgroundColor = [UIColor colorWithRed:0 / 255.0 green:166 / 255.0 blue:80 / 255.0 alpha:0.5];
+            
+            // Change the background color
+            //self.backgroundColor = [UIColor colorWithRed:0 / 255.0 green:166 / 255.0 blue:80 / 255.0 alpha:0.5];
             
             // Add a pan gesture recognizer
             self.pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(moveAnimatedImage:)];
             [self addGestureRecognizer:self.pan];
             
+            // Add a cancel button to the view
+            const int cancelButtonSize = 25;
+            CGRect cancelButtonFrame = CGRectMake(self.frame.size.width - (cancelButtonSize),
+                                                0,
+                                                cancelButtonSize,
+                                                cancelButtonSize);
+            self.cancelButtonBounds = [UIBezierPath bezierPathWithOvalInRect:cancelButtonFrame];
+            self.cancelButton = [[CancelButtonView alloc] initWithFrame:cancelButtonFrame];
+                                 
+            [self addSubview:self.cancelButton];
+            self.cancelButton.backgroundColor = [UIColor clearColor];
+            
             // Add a rotate gesture to the rotation bounds
-            self.rotate = [[UIRotationGestureRecognizer alloc] initWithTarget:self action:@selector(handleGesture:)];
-            [self addGestureRecognizer:self.rotate];
-            self.rotate.delegate = self;
+            //self.rotate = [[UIRotationGestureRecognizer alloc] initWithTarget:self action:@selector(rotateImage:)];
+            //[self addGestureRecognizer:self.rotate];
+            //self.rotate.delegate = self;
             
             // Add a pinch gesture
-            self.pinch = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(handleGesture:)];
-            [self addGestureRecognizer:self.pinch];
-            self.pinch.delegate = self; // KEEP, allows two gestures at once
+            //self.pinch = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(handleGesture:)];
+            //[self addGestureRecognizer:self.pinch];
+            //self.pinch.delegate = self; // KEEP, allows two gestures at once
         }
         
         // If image is already selected, remove green background and pan gesture
         else {
-            self.backgroundColor = [UIColor clearColor];
+            
+            // Remove hightlighted background color
+            //self.backgroundColor = [UIColor clearColor];
+            
+            // Remove the cancel button
+            [self.cancelButton removeFromSuperview];
+            
+            // Remove pan gesture
             [self removeGestureRecognizer:self.pan];
-            [self removeGestureRecognizer:self.rotate];
-            [self removeGestureRecognizer:self.pinch];
+            
+            //[self removeGestureRecognizer:self.rotate];
+            //[self removeGestureRecognizer:self.pinch];
         }
         
         // Bring selected view to the front of all other views
@@ -106,16 +99,6 @@
 }
 
 #pragma mark - Pan Gesture
-
-- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
-    
-    if ([gestureRecognizer isKindOfClass:[UIPanGestureRecognizer class]]
-        || [gestureRecognizer isKindOfClass:[UITapGestureRecognizer class]]) {
-        return NO;
-    }
-    
-    return YES;
-}
 
 - (void)moveAnimatedImage:(UIPanGestureRecognizer *)gesture {
 
@@ -175,92 +158,60 @@
     }
 }
 
-#pragma mark - Pinch and Rotate Gesture
-
-- (void)handleGesture:(UIGestureRecognizer *)gesture {
-    
-    UIView *currentView = gesture.view;
-    
-    if (gesture.state == UIGestureRecognizerStateBegan) {
-        [self.activeRecognizers addObject:gesture];
-        
-        if ([gesture respondsToSelector:@selector(scale)]) {
-            CGFloat scale = [(UIPinchGestureRecognizer *)gesture scale];
-            self.lastScale = scale;
-        }
+- (BOOL)cancelButtonClicked:(CGPoint)point {
+   
+    if ([self.cancelButtonBounds containsPoint:point]) {
+        return true;
     }
-    
-    if (gesture.state == UIGestureRecognizerStateChanged) {
-        CGAffineTransform transform = currentView.transform;
-        for (UIGestureRecognizer *recognizer in self.activeRecognizers) {
-            transform = [self applyRecognizer:recognizer toTransform:transform];
-        }
-        currentView.transform = transform;
-        
-        [self resetRecognizer:gesture];
-    }
-    
-    if (gesture.state == UIGestureRecognizerStateEnded) {
-        [self.activeRecognizers removeObject:gesture];
-    }
-}
-
-- (CGAffineTransform)applyRecognizer:(UIGestureRecognizer *)recognizer toTransform:(CGAffineTransform)transform {
-    if ([recognizer respondsToSelector:@selector(rotation)]) {
-        return CGAffineTransformRotate(transform, [(UIRotationGestureRecognizer *)recognizer rotation]);
-    }
-    
-    else if ([recognizer respondsToSelector:@selector(scale)]) {
-        CGFloat scale = [(UIPinchGestureRecognizer *)recognizer scale];
-        CGFloat currentScale = [[[recognizer view].layer valueForKeyPath:@"transform.scale"] floatValue];
-        NSLog(@"scale is: %f", currentScale);
-
-        const CGFloat kMaxScale = 1.9;
-        const CGFloat kMinScale = 1.0;
-
-        CGFloat newScale = 1 - (self.lastScale - scale);
-        newScale = MIN(newScale, kMaxScale / currentScale);
-        newScale = MAX(newScale, kMinScale / currentScale);
-        CGAffineTransform newTransform = CGAffineTransformScale(transform, newScale, newScale);
-        
-        self.lastScale = newScale;
-        
-        return newTransform;
-        
-//        if (scale > MIN_SCALE) {
-//            return CGAffineTransformScale(transform, scale, scale);
-//        }
-//        if (scale < MAX_SCALE) {
-//            return CGAffineTransformScale(transform, scale, scale);
-//        }
-    }
-    
-    return transform;
-}
-
-- (void)resetRecognizer:(UIGestureRecognizer *)recognizer {
-    if ([recognizer respondsToSelector:@selector(rotation)]) {
-        UIRotationGestureRecognizer *rotate = (UIRotationGestureRecognizer *)recognizer;
-        rotate.rotation = 0;
-    }
-    else if ([recognizer respondsToSelector:@selector(scale)]) {
-        UIPinchGestureRecognizer *pinch = (UIPinchGestureRecognizer *)recognizer;
-        pinch.scale = 1.0;
-    }
+    return false;
 }
 
 #pragma mark - Image Names
+
 - (NSArray *)animatedImageNames {
     return nil; // Abstract
 }
+
+- (NSString *)firstImageName {
+    return nil; // Abstract
+}
+
+#pragma mark - Drawing
 
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect
 {
-    // Drawing code
 }
 */
+
+#pragma mark - Setup
+
+- (id)initWithFrame:(CGRect)frame
+{
+    self = [super initWithFrame:frame];
+    if (self) {
+        // Initialization code
+        [self setUp];
+    }
+    return self;
+}
+
+- (void)setUp {
+    
+    // Load images
+    NSArray *imageNames = [[NSArray alloc] initWithArray:[self animatedImageNames]];
+    
+    NSMutableArray *images = [[NSMutableArray alloc] init];
+    for (int i = 0; i < imageNames.count; i += 1) {
+        [images addObject:[UIImage imageNamed:[imageNames objectAtIndex:i]]];
+    }
+    
+    self.animationImages = images;
+    self.animationDuration = 2.0;
+    
+    self.image = [UIImage imageNamed:[self firstImageName]];
+}
 
 @end

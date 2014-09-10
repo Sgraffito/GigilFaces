@@ -41,4 +41,8 @@
     }
 }
 
+- (void)closePath {
+    [super closePath];
+}
+
 @end

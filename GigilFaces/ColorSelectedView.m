@@ -10,6 +10,9 @@
 
 @implementation ColorSelectedView
 
+// NOT CURRENTLY USED
+// DELETED FROM STORYBOARD
+
 #pragma mark - Initialization
 
 - (void)setSelectedColor:(UIColor *)selectedColor {

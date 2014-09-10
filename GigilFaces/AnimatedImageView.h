@@ -12,6 +12,9 @@
 
 - (void)animate;
 - (NSArray *)animatedImageNames; // Abstract
+- (NSString *)firstImageName; // Abstract
 - (void)selectAnimatedImage:(UITapGestureRecognizer *)gesture;
+- (BOOL)cancelButtonClicked:(CGPoint)point;
+- (void)moveAnimatedImage:(UIPanGestureRecognizer *)gesture;
 
 @end

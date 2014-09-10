@@ -40,7 +40,10 @@
     // Do any additional setup after loading the view from its nib.
 
     self.brushOpacitySlider.value = self.brushOpacity;
+    
+    // Make sure min and max values are set in the storyboard too! (or else problems will occur)
     self.brushOpacitySlider.minimumValue = 0.2;
+    
     self.brushOpacitySlider.maximumValue = 1.0;
     self.brushOpacityPicture.opacity = self.brushOpacity;
     self.brushOpacityPicture.brushColor = self.brushColor;

@@ -20,11 +20,12 @@
     
     // Set the background color of the view
     [[UIColor whiteColor] setFill];
+    self.backgroundColor = [UIColor whiteColor];
     [roundedCorners fill];
     
     // Add a shadow to the background of the view
     self.layer.masksToBounds = NO;
-    self.layer.cornerRadius = 8;                        // Rounded corners
+    self.layer.cornerRadius = 0;                        // Rounded corners
     self.layer.shadowOffset = CGSizeMake(10, 10);       // Location of shadow
     self.layer.shadowRadius = 15;                       // Bigger number makes the shadow edges blurry
     self.layer.shadowOpacity = 0.6;                     // Darkness of the shadow
@@ -53,10 +54,6 @@
 
 /*  Setup the view when it first appears */
 - (void)setUp {
-    
-    // Set the background color of the view to transparent
-    self.backgroundColor = nil;
-    self.opaque = NO;
 }
 
 @end

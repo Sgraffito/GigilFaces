@@ -35,7 +35,7 @@
 
 - (NSArray *)eyes {
     if (!_eyes) {
-        _eyes = @[@"win_1.png", @"image2.png", @"image3.png", @"image4.png"];
+        _eyes = @[@"win_1.png", @"rollingEyePopUpImage.png", @"toothy_grinIcon.png", @"image4.png"];
     }
     return _eyes;
 }
@@ -119,7 +119,7 @@
     
     // Get cell tag
     UICollectionViewCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
-    int cellTag = cell.tag;
+    int cellTag = (int)cell.tag;
     
     // Get category cell is in
     int category = 0;
@@ -136,24 +136,9 @@
         category = 3;
     }
     
-    NSLog(@"cell category: %d, tag: %d", category, cellTag);
+    //NSLog(@"cell category: %d, tag: %d", category, cellTag);
     
     [self.delegate faceShapeChanged:cellTag category:category];
-
-//    [UIView transitionWithView:collectionView
-//                      duration:.5
-//                       options:UIViewAnimationOptionTransitionCrossDissolve
-//                    animations:^{
-//                        
-//                        //any animatable attribute here.
-//                        cell.frame = CGRectMake(3, 14, 100, 100);
-//                        
-//                    } completion:^(BOOL finished) {
-//                        
-//                        //whatever you want to do upon completion
-//                        
-//                    }];
-    
 }
 
 #pragma mark - Setup

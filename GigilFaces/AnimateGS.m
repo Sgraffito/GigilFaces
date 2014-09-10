@@ -19,6 +19,10 @@
     return self;
 }
 
+- (NSString *)firstImageName {
+    return @"win_1.png";
+}
+
 - (NSArray *)animatedImageNames {
     return @[@"win_1.png", @"win_2.png", @"win_3.png", @"win_4.png",
              @"win_5.png", @"win_6.png", @"win_7.png", @"win_8.png",

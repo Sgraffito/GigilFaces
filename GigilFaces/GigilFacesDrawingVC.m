@@ -7,7 +7,6 @@
 //
 
 #import "GigilFacesDrawingVC.h"
-#import "ColorSelectedView.h"
 #import "DrawingUtensilsTrayView.h"
 #import "DrawingBoardView.h"
 #import "DrawingBoardShadowView.h"
@@ -15,14 +14,19 @@
 #import "BrushOpacityPopOverVC.h"
 #import "FaceAnimationsPopOverVC.h"
 #import "NoAnimatedImagesPopOverVC.h"
+#import "MyDrawingsVC.h"
+#import "SavePopOverVC.h"
 
-@interface GigilFacesDrawingVC() <BrushSizePopOverViewControllerDelegate, BrushOpacityPopOverViewControllerDelegate, FaceAnimationPopOverViewControllerDelegate>
+@interface GigilFacesDrawingVC() <BrushSizePopOverViewControllerDelegate, BrushOpacityPopOverViewControllerDelegate, FaceAnimationPopOverViewControllerDelegate, SavePopOverViewControllerDelegate>
+
+//UI Navigational Controller
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *myDrawingsButton;
 
 // Colors
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *colorButtons;
 @property (strong, nonatomic) NSArray *colorChoices; // Of UIColor
-@property (weak, nonatomic) IBOutlet ColorSelectedView *selectedColorView;
 @property (strong, nonatomic) UIColor *selectedColor;
+@property (weak, nonatomic) IBOutlet UIButton *selectedColorButton;
 
 // Brush Size
 @property (nonatomic) float brushSize;
@@ -45,17 +49,24 @@
 @property (nonatomic, strong) UIPopoverController *brushOpacityPopover;
 @property (nonatomic, strong) UIPopoverController *faceAnimationsPopover;
 @property (nonatomic, strong) UIPopoverController *noAnimatedImagesPopover;
+@property (nonatomic, strong) UIPopoverController *saveImagesPopover;
 
 // Play Animation Button
 @property (weak, nonatomic) IBOutlet UIButton *playAnimationButton;
 @property (nonatomic) BOOL playButtonPressed;
-@property (nonatomic) int numberOfAnimationsAdded;
 
 // Clear Screen Button
 @property (weak, nonatomic) IBOutlet UIButton *clearScreenButton;
 
 // Add Face Animations Button
 @property (weak, nonatomic) IBOutlet UIButton *addFaceAnimationsButton;
+
+// Grey background (when user clicks play button)
+@property (strong, nonatomic) UIView *greyBackground;
+
+// Undo & Redo Mistakes Button
+@property (weak, nonatomic) IBOutlet UIButton *undoMistakesButton;
+@property (weak, nonatomic) IBOutlet UIButton *redoMistakesButton;
 
 @end
 
@@ -107,27 +118,62 @@
 
 #pragma mark - Buttons
 
+- (IBAction)saveImage:(UIButton *)sender {
+    SavePopOverVC *saveImagesVC = [[SavePopOverVC alloc]
+                                                   initWithNibName:@"SavePopOverVC" bundle:nil];
+    saveImagesVC.drawingTitle = self.drawingBoard.drawingTitle;
+    saveImagesVC.delegate = self;
+    
+    self.saveImagesPopover = [[UIPopoverController alloc] initWithContentViewController:saveImagesVC];
+    self.saveImagesPopover.popoverContentSize = CGSizeMake(250, 244);
+    [self.saveImagesPopover presentPopoverFromRect:[(UIButton *)sender frame]
+                                              inView:self.view
+                            permittedArrowDirections:UIPopoverArrowDirectionAny
+                                            animated:YES];
+}
+
+- (IBAction)redoMistakesButton:(UIButton *)sender {
+    [self.drawingBoard redoPaintingMistakes];
+}
+
+- (IBAction)undoMistakesButton:(UIButton *)sender {
+    [self.drawingBoard undoPaintingMistakes];
+}
+
 - (IBAction)playAnimationButtonClicked:(UIButton *)sender {
+
+    int numberOfAnimationViews = [self.drawingBoard getAnimatedViewCount];
     
     // Check to make sure there are animated images on the drawing board
-    if (self.numberOfAnimationsAdded > 0) {
+    if (numberOfAnimationViews > 0 || self.playButtonPressed) {
        
+        self.playButtonPressed = !self.playButtonPressed;
+
         // Changed the title of the button when animation starts
         if (self.playButtonPressed) {
-            [self.playAnimationButton setTitle:@"Stop Animation" forState:UIControlStateNormal];
             
-            // Disable All brushes
-            for (UIButton *button in self.brushButtons) {
-                button.enabled = NO;
-            }
+            //[self.playAnimationButton setTitle:@"Stop Animation" forState:UIControlStateNormal];
+            UIImage *pauseButton = [UIImage imageNamed:@"pauseButton.png"];
+            [self.playAnimationButton setBackgroundImage:pauseButton forState:UIControlStateNormal];
             
-            // Disable size and opacity buttons
-            self.chageBrushSizeButton.enabled = NO;
-            self.changeBrushOpacityButton.enabled = NO;
-            self.addFaceAnimationsButton.enabled = NO;
+            // Grey out the background
+            self.greyBackground = [[UIView alloc] initWithFrame:self.view.bounds];
+            [self.view addSubview:self.greyBackground];
+            UIColor *greyedBackgroundColor = [UIColor colorWithRed:48 / 255.0 green:46 / 255.0 blue:48 / 255.0 alpha:0.95];
+            self.greyBackground.backgroundColor = greyedBackgroundColor;
             
-            // Disable clear screen button
-            self.clearScreenButton.enabled = NO;
+            // Grey out the navigational controller
+            [self.navigationController.navigationBar setBarTintColor:greyedBackgroundColor];
+            
+            // Disable the back button and My Drawings button in the navigational controller
+            [self.navigationItem setHidesBackButton:YES animated:YES];
+            self.myDrawingsButton.tintColor = [UIColor clearColor];
+            self.myDrawingsButton.enabled = NO;
+            
+            
+            // Bring the drawingBoard and pause button in front of the greyed out view
+            [self.view bringSubviewToFront:self.drawingBoard];
+            [self.view bringSubviewToFront:self.playAnimationButton];
             
             // Disable drawing
             self.drawingBoard.brushSelected = -1;
@@ -135,21 +181,22 @@
         
         // Change the title of the button when animation stops
         else {
-            [self.playAnimationButton setTitle:@"Start Animation" forState:UIControlStateNormal];
             
-            // Enable all brushes
-            for (UIButton *button in self.brushButtons) {
-                button.enabled = YES;
-            }
+            // Change button background to the play button
+            UIImage *playButton = [UIImage imageNamed:@"playButton.png"];
+            [self.playAnimationButton setBackgroundImage:playButton forState:UIControlStateNormal];
             
-            // Enable size and opacity buttons
-            self.chageBrushSizeButton.enabled = YES;
-            self.changeBrushOpacityButton.enabled = YES;
-            self.addFaceAnimationsButton.enabled = YES;
+            // Remove the grey background view
+            [self.greyBackground removeFromSuperview];
             
-            // Enable clear screen button
-            self.clearScreenButton.enabled = YES;
+            // Reactivate the navigational controller
+            [self.navigationController.navigationBar setBarTintColor:[self.colorChoices objectAtIndex:11]];
             
+            // Enable the back button in the navigational controller
+            [self.navigationItem setHidesBackButton:NO animated:YES];
+            self.myDrawingsButton.tintColor = [self.view tintColor];
+            self.myDrawingsButton.enabled = YES;
+
             // Re-enable drawing
             self.drawingBoard.brushSelected = self.currentBrushSelected;
         }
@@ -175,7 +222,6 @@
             [self.noAnimatedImagesPopover dismissPopoverAnimated:YES];
         }];
     }
-    self.playButtonPressed = !self.playButtonPressed;
 }
 
 - (IBAction)faceAnimationSelected:(UIButton *)sender {
@@ -210,7 +256,7 @@
     BrushSizePopOverVC *sliderViewController = [[BrushSizePopOverVC alloc]
                                                   initWithNibName:@"BrushSizePopOverVC"
                                                   bundle:nil];
-    sliderViewController.brushSize = self.brushSize; // CHANGE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    sliderViewController.brushSize = self.brushSize;
     sliderViewController.brushColor = self.selectedColor;
     sliderViewController.delegate = self;
     
@@ -224,32 +270,45 @@
 
 - (IBAction)clearScreenSelected:(UIButton *)sender {
     
-    // Clear the drawing board of painting strokes
-    self.drawingBoard.clearCanvas = YES;
-    
-    // Clear the drawing board of animated images
-    [self.drawingBoard clearAnimatedArray];
-    
-    // Reset number of animations added to zero
-    self.numberOfAnimationsAdded = 0;
-    
-    // Reset play button presssed
-    self.playButtonPressed = true;
+    // Warn the user that their drawing will disappear forever
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"The Slate is Being Wiped"
+                                                    message:@"Your whole drawing will disappear forever. Do you want to continue?"
+                                                   delegate:self
+                                          cancelButtonTitle:@"Cancel"
+                                          otherButtonTitles:@"Yes", nil];
+    [alert show];
+
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+
+    // If user clicked yes in alert pop-up, wipe the drawing from the canvas
+    if (buttonIndex == 1) {
+        
+        // Clear the drawing board of painting strokes
+        self.drawingBoard.clearCanvas = YES;
+        
+        // Clear the drawing board of animated images
+        [self.drawingBoard clearAnimatedArray];
+        
+        // Reset play button presssed
+        self.playButtonPressed = false;
+    }
 }
 
 /*  When the user changes the color, update the color selected view with the color */
 - (IBAction)colorSelected:(UIButton *)sender {
     UIColor *colorPicked = [self.colorChoices objectAtIndex:sender.tag];
     self.selectedColor = colorPicked;
-    self.selectedColorView.selectedColor = colorPicked;
     self.drawingBoard.brushColor = colorPicked;
+    self.selectedColorButton.backgroundColor = colorPicked;
 }
 
 /* When the user changes the brush, update the brush background image */
 - (IBAction)brushSelected:(UIButton *)sender {
     
     // Get the button that was selected
-    int index = sender.tag;
+    int index = (int)sender.tag;
     UIButton *selectedButton = [self.brushButtons objectAtIndex:index];
 
     // If any other button was hightlighted, change image to unselected image
@@ -313,7 +372,7 @@
     }
     
     // Disable the size and opacity buttons if the pen brush is enabled, enable if not
-    // Pen brush opacity and size CAN NOT be changed at the moment
+    // Pen brush opacity and size CAN NOT be changed when the pen is selected
     if ([[self.brushSelected objectAtIndex:2] boolValue]) {
         self.chageBrushSizeButton.enabled = NO;
         self.changeBrushOpacityButton.enabled = NO;
@@ -321,6 +380,14 @@
     else {
         self.chageBrushSizeButton.enabled = YES;
         self.changeBrushOpacityButton.enabled = YES;
+    }
+    
+    // Disable the size button if the vine brush is enabled. Enable if another brush is selected
+    if ([[self.brushSelected objectAtIndex:4] boolValue]) {
+        self.chageBrushSizeButton.enabled = NO;
+    }
+    else {
+        self.chageBrushSizeButton.enabled = YES;
     }
     
     // If any brush has been selected by the user, send the brush selected to the drawing board
@@ -360,11 +427,50 @@
 /*  Add a face animation to the drawing board */
 - (void)faceShapeChanged:(int)tag category:(int)category {
     
-    // Increase count of number of animated images added to the drawing board
-    self.numberOfAnimationsAdded += 1;
-    
     // Tell the drawing board to add the image
     [self.drawingBoard addFaceAnimation:tag category:category];
+}
+
+- (void)savedTitle:(NSString *)drawingTitle {
+    
+    // Set the title of the navigational controller
+    self.navigationController.topViewController.title = drawingTitle;
+    self.drawingBoard.drawingTitle = drawingTitle;
+}
+
+- (void)doneButton {
+    [self.saveImagesPopover dismissPopoverAnimated:YES];
+}
+
+- (void)savePictureToCameraRoll {
+    [self.drawingBoard saveImageToCameraRoll];
+    [self.saveImagesPopover dismissPopoverAnimated:YES];
+}
+
+#pragma mark - View Will Disappear / Appear
+
+/*  Save the drawing board image when the user exits the view */
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [self.drawingBoard saveImage];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+}
+
+#pragma mark - NSNotifications
+
+/*  Save the drawing board image when user clicks home button */
+-(void)appWillResignActive:(NSNotification*)note {
+    [self.drawingBoard saveImage];
+}
+
+/* Save the drawing board image when the app terminates */
+-(void)appWillTerminate:(NSNotification*)note {
+    [self.drawingBoard saveImage];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIApplicationWillResignActiveNotification object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIApplicationWillTerminateNotification object:nil];
 }
 
 #pragma mark - Setup
@@ -382,18 +488,15 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
-    // Initalize the color-selected-view with a color
-    self.selectedColorView.selectedColor = self.selectedColor;
-    
+        
     // Add a white rectangle behind the drawing utensils
-    CGRect drawingUtensilsBackgroundBounds = CGRectMake(0, 65, 74, 601);
+    CGRect drawingUtensilsBackgroundBounds = CGRectMake(0, 0, 74, 601);
     DrawingUtensilsTrayView *drawingUtensilsBackground = [[DrawingUtensilsTrayView alloc] initWithFrame:drawingUtensilsBackgroundBounds];
     [self.view addSubview:drawingUtensilsBackground];
     [self.view sendSubviewToBack:drawingUtensilsBackground];
     
     // Add a shadow behind the drawing board
-    CGRect drawingBoardShadowBounds = CGRectMake(112, 65, 800, 600);
+    CGRect drawingBoardShadowBounds = CGRectMake(112, 0, 800, 600);
     DrawingBoardShadowView *drawingBoardShadow = [[DrawingBoardShadowView alloc] initWithFrame:drawingBoardShadowBounds];
     drawingBoardShadow.backgroundColor= [UIColor clearColor];
     [self.view addSubview:drawingBoardShadow];
@@ -404,7 +507,24 @@
     self.brushOpacity = 1.0;
     
     // Init play button
-    self.playButtonPressed = true;
+    self.playButtonPressed = false;
+    
+    // Register for notifications
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(appWillResignActive:) name:UIApplicationWillResignActiveNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(appWillTerminate:) name:UIApplicationWillTerminateNotification object:nil];
+    
+    // Init the drawing board
+    self.drawingBoard.savedDataIndex = self.savedDataIndex;
+    self.drawingBoard.brushSize = self.brushSize;
+    self.drawingBoard.brushOpacity = self.brushOpacity;
+    
+    // Set title of navigational view
+    self.navigationController.topViewController.title = self.drawingBoard.drawingTitle;
+    
+    //Selected Color button gets outline
+    UIColor *dkGray = [UIColor colorWithRed:28 / 255.0 green:28 / 255.0 blue:28 / 255.0 alpha:1.0];
+    [[self.selectedColorButton layer] setBorderWidth:5.0];
+    [[self.selectedColorButton layer] setBorderColor:[dkGray CGColor]];
 }
 
 - (void)didReceiveMemoryWarning
@@ -412,16 +532,5 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

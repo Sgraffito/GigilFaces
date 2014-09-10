@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+
 @interface GigilFacesDrawingVC : UIViewController
+
+@property (nonatomic) int savedDataIndex;
 
 @end
