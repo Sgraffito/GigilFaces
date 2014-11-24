@@ -24,7 +24,8 @@
  *  @param sender New drawing button
  */
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    /* Create a new drawing */
+    // Create a new drawing
+    // Setting setSavedDataIndex to -1 means to start new drawing
     if ([segue.identifier isEqualToString:@"New Drawing Segue"]){
         if ([segue.destinationViewController isKindOfClass:[GigilFacesDrawingVC class]]) {
             GigilFacesDrawingVC *newDrawingBoard = (GigilFacesDrawingVC *)segue.destinationViewController;

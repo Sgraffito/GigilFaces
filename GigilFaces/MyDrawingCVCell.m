@@ -16,7 +16,7 @@
 @property (nonatomic) BOOL inDeleteMode;
 @property (nonatomic) int count;
 
-// Select cell color
+// Selected cell color
 @property (strong, nonatomic) UIColor *greenColor;
 
 @end
@@ -25,6 +25,11 @@
 
 #pragma mark - Initialization
 
+/**
+ *  Initialize the selected cell color.
+ *
+ *  @return UIColor of the selected cell
+ */
 - (UIColor *)greenColor {
     if (!_greenColor) _greenColor = [UIColor colorWithRed:0 / 255.0 green:166 / 255.0 blue:80 / 255.0 alpha:1.0];
     return _greenColor;
@@ -32,75 +37,70 @@
 
 #pragma mark - Reuse Cell
 
+/**
+ *  When user scrolls, clear the cancel button. 
+ *  If this is not done, the button will be redrawn repeatedly, which causes
+ *  visible overlap in the transparent parts of the button.
+ */
 - (void)prepareForReuse {
     [super prepareForReuse];
-    
     // Clear the delete button so it can be redrawn again
-    // Prevents layers of buttons being drawn when user is scrolling
-    // Causes buildup of transparent shadows
     if (self.inDeleteMode) {
         [self.cancelButton removeFromSuperview];
         self.cancelButton = nil;
-        
-        //[self.deleteButton removeFromSuperview];
-        //self.deleteButton = nil;
     }
 }
 
-#pragma mark - Setup
+#pragma mark - Delete Button
 
-- (id)initWithFrame:(CGRect)frame
-{
-    self = [super initWithFrame:frame];
-    if (self) {
-           }
-    return self;
-}
-
-#pragma mark - Gesture
-
+/**
+ *  Add a delete button to each cell if the user enters delete mode.
+ *  When the user exits delete mode, remove the delete button from
+ *  each cell.
+ *
+ *  @param mode
+ *      If mode is true, then add a delete button to each cell
+ *      If mode is false, then remove the delete buttons from the cells
+ */
 - (void)deleteMode:(BOOL)mode {
     
+    // Set the delete mode
     self.inDeleteMode = mode;
     
-    // Add the delete button if user enters delete mode
+    // Add the delete button to each cell if user selects delete mode
     if (self.inDeleteMode) {
         
+        // Size of delete button
         const int deleteButtonSize = 25;
         
-        // Location of the cancel button
+        // Location of the delete button
         CGRect deleteButtonFrame = CGRectMake((self.frame.size.width / 6) * 5.25,
                                               (self.frame.size.width / 50),
                                               deleteButtonSize,
                                               deleteButtonSize);
         
-        // Add a cancel button to the view
+        // Add a delete button to the view
         self.cancelButton = [[CancelButtonView alloc] initWithFrame:deleteButtonFrame];
         [self addSubview:self.cancelButton];
         self.cancelButton.backgroundColor = [UIColor clearColor];
-        
-        // Delete Button stuff
-//        self.deleteButton = [[UIButton alloc] initWithFrame:deleteButtonFrame];
-//        self.deleteButton.backgroundColor = [UIColor clearColor];
-//        [self.deleteButton setImage:[UIImage imageNamed:@"redoButton.png"] forState:UIControlStateNormal];
-//        
-//        [self.deleteButton addTarget:self action:@selector(tapButton:) forControlEvents:UIControlEventTouchUpInside];
-//        [self addSubview:self.deleteButton];
     }
     
-    // Remove the delete button if user is in edit mode
+    // If the user selectes edit mode, remove the delete button from the cell
     else {
         [self.cancelButton removeFromSuperview];
         self.cancelButton = nil;
-        
-//        [self.deleteButton removeFromSuperview];
-//        self.deleteButton = nil;
     }
 }
 
-/* Override the selected method */
+#pragma mark - Selected Cell
+
+/**
+ *  Override the selected method
+ *
+ *  @param selected 
+ *      If the cell is selected, change the border color to the selected cell color.
+ */
 - (void)setSelected:(BOOL)selected {
-    
     self.backgroundColor = selected ? self.greenColor : [UIColor whiteColor];
     [super setSelected:selected];
 }
