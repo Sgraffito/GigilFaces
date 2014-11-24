@@ -17,6 +17,12 @@
 
 #pragma mark - Segues
 
+/**
+ *  Create a new, empty drawing board
+ *
+ *  @param segue  Push segue to the drawing board
+ *  @param sender New drawing button
+ */
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     /* Create a new drawing */
     if ([segue.identifier isEqualToString:@"New Drawing Segue"]){
@@ -25,48 +31,45 @@
             [newDrawingBoard setSavedDataIndex:-1];
         }
     }
-    /* Go to the UICollectionView */
-    else if ([segue.identifier isEqualToString:@"Last Drawing Segue"]){
-        if ([segue.destinationViewController isKindOfClass:[GigilFacesDrawingVC class]]) {
-            GigilFacesDrawingVC *lastDrawingBoard = (GigilFacesDrawingVC *)segue.destinationViewController;
-            [lastDrawingBoard setSavedDataIndex:0];
-        }
-    }
 }
 
-- (void)setFont {
-    UIFont *NanumPen = [UIFont fontWithName:@"NanumPen" size:240];
-    [self.GigilFacesFont setFont:NanumPen];
-    self.GigilFacesFont.textColor = [UIColor whiteColor];
-}
 
 #pragma mark - Setup
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
+/**
+ *  When view first appears load the font
+ */
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [self setFont];
+    
+    // Set the speciality font
+    // [self setFont];
 }
 
+/**
+ *  Memory Warning - Default
+ */
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
+#pragma mark - Speciality Font
+/**
+ *  Set the font of the app's Title
+ */
+//- (void)setFont {
+//    UIFont *NanumPen = [UIFont fontWithName:@"NanumPen" size:240];
+//    [self.GigilFacesFont setFont:NanumPen];
+//    self.GigilFacesFont.textColor = [UIColor whiteColor];
+//}
 
+
+#pragma mark - Navigation
+/*
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {

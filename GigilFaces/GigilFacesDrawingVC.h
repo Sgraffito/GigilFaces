@@ -11,6 +11,9 @@
 
 @interface GigilFacesDrawingVC : UIViewController
 
+// Save drawing
+// If -1, drawing has not been saved before
+// If 1, drawing has been saved before
 @property (nonatomic) int savedDataIndex;
 
 @end

@@ -19,7 +19,7 @@
 #import "MyDrawingsVC.h"
 #import "SavePopOverVC.h"
 
-/* THIS IS A TEST FOR THE BRANCH */
+/* THIS IS A TEST FOR THE COMMENT BRANCH */
 
 @interface GigilFacesDrawingVC() <BrushSizePopOverViewControllerDelegate, BrushOpacityPopOverViewControllerDelegate, FaceAnimationPopOverViewControllerDelegate, SavePopOverViewControllerDelegate>
 
