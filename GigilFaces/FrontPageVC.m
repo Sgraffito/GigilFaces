@@ -18,12 +18,14 @@
 #pragma mark - Segues
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    /* Create a new drawing */
     if ([segue.identifier isEqualToString:@"New Drawing Segue"]){
         if ([segue.destinationViewController isKindOfClass:[GigilFacesDrawingVC class]]) {
             GigilFacesDrawingVC *newDrawingBoard = (GigilFacesDrawingVC *)segue.destinationViewController;
             [newDrawingBoard setSavedDataIndex:-1];
         }
     }
+    /* Go to the UICollectionView */
     else if ([segue.identifier isEqualToString:@"Last Drawing Segue"]){
         if ([segue.destinationViewController isKindOfClass:[GigilFacesDrawingVC class]]) {
             GigilFacesDrawingVC *lastDrawingBoard = (GigilFacesDrawingVC *)segue.destinationViewController;
@@ -53,7 +55,6 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
     [self setFont];
 }
 

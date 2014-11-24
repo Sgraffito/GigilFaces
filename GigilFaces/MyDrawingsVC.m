@@ -93,6 +93,7 @@
     return [self.myDrawingImages count];
 }
 
+
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView
                  cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -130,14 +131,30 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     
+    self.cellIndex = (int)[indexPath row];
+
     // If in edit mode, go to the drawing that was clicked
     if (!self.editMode) {
-        self.cellIndex = (int)[indexPath row];
         [self performSegueWithIdentifier:@"UploadOldDrawing" sender:self];
     }
     
-    // If in delete mode, delete the drawing that was clicked
+    // If in delete mode: ask the user first if they want to delete the drawing, then delete the drawing that was clicked
     else {
+        
+        // Warn the user that their drawing will disappear forever
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Deleting Drawing"
+                                                        message:@"Your drawing will disappear forever. Do you want to continue?"
+                                                       delegate:self
+                                              cancelButtonTitle:@"Cancel"
+                                              otherButtonTitles:@"Yes", nil];
+        [alert show];
+    }
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    
+    // If user clicked yes, delete the drawing from the list
+    if (buttonIndex == 1) {
         [self.collectionView performBatchUpdates:^ {
             NSArray *selectedItemIndexPath = [self.collectionView indexPathsForSelectedItems];
             [self deleteItemsFromDataSourceAtIndexPaths:selectedItemIndexPath];
@@ -146,6 +163,7 @@
     }
 }
 
+
 -(void)deleteItemsFromDataSourceAtIndexPaths:(NSArray  *)itemPaths
 {
     NSMutableIndexSet *indexSet = [NSMutableIndexSet indexSet];
@@ -153,7 +171,6 @@
         [indexSet addIndex:itemPath.row];
     }
     [self.myDrawingImages removeObjectsAtIndexes:indexSet];
-    NSLog(@"delete item at: %lu", (unsigned long)[indexSet firstIndex]);
     [self deleteData:[indexSet firstIndex]];
 }
 
@@ -161,10 +178,9 @@
 
 #define FILE_NAME   @"Saved Final Image"
 
+
 - (void)deleteData:(NSUInteger)index {
-    
-    NSLog(@"delete data");
-    
+        
     // Allows user to switch views quickly while the data is saved
      dispatch_async(saveDataQueue, ^{
         
@@ -177,7 +193,6 @@
         // Save the image if the file exists
         if (fileExists == YES) {
             
-            NSLog(@"file exists");
             NSMutableArray *temp = [[NSMutableArray alloc] initWithArray:self.savedImages];
             
             [temp removeObjectAtIndex:index];
@@ -242,10 +257,7 @@
 - (id)initWithCoder:(NSCoder *)aDecoder {
     self = [super initWithCoder:aDecoder];
     if (self) {
-        NSLog(@"init with coder");
-        
-        // Create queue for saving data
-        saveDataQueue = dispatch_queue_create("saveDataQueue", NULL);
+        [self commonInit];
     }
     return self;
 }
@@ -255,11 +267,20 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        NSLog(@"init with nib name");
+        [self commonInit];
     }
     return self;
 }
 
+- (void)commonInit {
+    // Initialize queue for saving data
+    saveDataQueue = dispatch_queue_create("saveDataQueue", NULL);
+    
+//    [[NSNotificationCenter defaultCenter] addObserver:self
+//                                             selector:@selector(handleThisNotification:)
+//                                                 name:WhateverYouDecideToNameYourNotification
+//                                               object:nil];
+}
 
 /*
 #pragma mark - Navigation

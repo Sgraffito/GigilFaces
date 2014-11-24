@@ -8,6 +8,10 @@
 
 #import "ColorSelectedView.h"
 
+@interface ColorSelectedView()
+@property (strong, nonatomic) UIColor *dkGrey;
+@end
+
 @implementation ColorSelectedView
 
 // NOT CURRENTLY USED
@@ -20,40 +24,33 @@
     [self setNeedsDisplay];
 }
 
+- (UIColor *)dkGrey {
+    if (!_dkGrey) _dkGrey = [UIColor colorWithRed:28 / 255.0 green:28 / 255.0 blue:28 / 255.0 alpha:1.0];
+    return _dkGrey;
+}
+
 #pragma mark - Drawing
 
-#define CIRCLE_SIZE 58.0
+#define RECT_SIZE 58.0
 
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect
 {
     // Round the corners of the view
-    UIBezierPath *roundedCorners = [UIBezierPath bezierPathWithRoundedRect:self.bounds cornerRadius:45.0];
+    UIBezierPath *roundedCorners = [UIBezierPath bezierPathWithRoundedRect:self.bounds cornerRadius:4.0];
     [roundedCorners addClip];
     
     // Set the background color of the view
-    [[UIColor whiteColor] setFill];
+    [self.dkGrey setFill];
     [roundedCorners fill];
     
-    // Add a shadow to the background of the view
-    self.layer.masksToBounds = NO;
-    self.layer.cornerRadius = 8;                        // Rounded corners
-    self.layer.shadowOffset = CGSizeMake(10, 10);       // Location of shadow
-    self.layer.shadowRadius = 15;                       // Bigger number makes the shadow edges blurry
-    self.layer.shadowOpacity = 0.6;                     // Darkness of the shadow
-    CGColorRef shadowColor = [[UIColor colorWithRed:67 / 255.0
-                                              green:184 / 255.0
-                                               blue:106 / 255.0
-                                              alpha:1.0] CGColor];
-    self.layer.shadowColor = shadowColor;               // Color of shadow
-
     // Draw Selected circle
-    CGRect circle = CGRectMake(self.frame.size.width / 2.0 - CIRCLE_SIZE / 2.0,
-                               self.frame.size.height / 2.0 - CIRCLE_SIZE / 2.0,
-                               CIRCLE_SIZE,
-                               CIRCLE_SIZE);
-    UIBezierPath *selectedColorCircle = [UIBezierPath bezierPathWithOvalInRect:circle];
+    CGRect circle = CGRectMake(self.frame.size.width / 2.0 - RECT_SIZE / 1.95,
+                               self.frame.size.height / 2.0 - RECT_SIZE / 2.1,
+                               RECT_SIZE,
+                               RECT_SIZE - 3.0);
+    UIBezierPath *selectedColorCircle = [UIBezierPath bezierPathWithRect:circle];
     
     // Selected circle color
     [self.selectedColor setFill];

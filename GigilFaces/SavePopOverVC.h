@@ -12,13 +12,13 @@
 - (void)savedTitle:(NSString *)drawingTitle;
 - (void)doneButton;
 - (void)savePictureToCameraRoll;
-
+- (void)makeNewDrawing;
+- (void)deleteDrawing;
 @end
 
 @interface SavePopOverVC : UIViewController
 
 @property (nonatomic, strong) id <SavePopOverViewControllerDelegate> delegate;
 @property (strong, nonatomic) NSString *drawingTitle;
-@property (strong, nonatomic) NSString *drawingSubtitle;
 
 @end

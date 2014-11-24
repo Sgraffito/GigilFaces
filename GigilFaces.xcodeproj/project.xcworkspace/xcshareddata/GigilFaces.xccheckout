@@ -10,29 +10,29 @@
 	<string>GigilFaces</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>4503D43C-47A8-4569-8E0A-FA18FEB87408</key>
+		<key>B73BE33EC1CC17C9104281F417A97CE8A548C458</key>
 		<string>https://github.com/Sgraffito/GigilFaces.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>GigilFaces.xcodeproj/project.xcworkspace</string>
+	<string>GigilFaces.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>4503D43C-47A8-4569-8E0A-FA18FEB87408</key>
+		<key>B73BE33EC1CC17C9104281F417A97CE8A548C458</key>
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/Sgraffito/GigilFaces.git</string>
 	<key>IDESourceControlProjectVersion</key>
-	<integer>110</integer>
+	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>4503D43C-47A8-4569-8E0A-FA18FEB87408</string>
+	<string>B73BE33EC1CC17C9104281F417A97CE8A548C458</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>4503D43C-47A8-4569-8E0A-FA18FEB87408</string>
+			<string>B73BE33EC1CC17C9104281F417A97CE8A548C458</string>
 			<key>IDESourceControlWCCName</key>
 			<string>GigilFaces</string>
 		</dict>

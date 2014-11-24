@@ -25,6 +25,7 @@
 @property (strong, nonatomic) UIBezierPath *fillBrushStroke;
 @property (nonatomic) int totalNumberOfIncrementalImages;
 
+
 // Pen brush
 @property (nonatomic) float inkSupply;
 @property (strong, nonatomic) NSMutableArray *multipleBristles; // Of UIBezier
@@ -725,6 +726,28 @@
 //    return [self.redoMistakes count];
 //}
 
+#pragma mark - Create New Drawing
+
+- (void)createNewDrawing {
+    
+    // Save the old image
+    [self saveImage];
+
+    // Clear the canvas of all drawing
+    self.clearCanvas = true;
+    [self setNeedsDisplay];
+    
+    dispatch_async(saveDataQueue, ^{
+
+        // Creat a new drawing
+        self.savedDataIndex = -1;
+    });
+    
+    self.saveDrawingBoard = nil;
+    self.saveDrawingBoard = [[SaveDrawingBoard alloc] init];
+    self.drawingTitle = @"Untitled";
+}
+
 #pragma mark - Save Image to Camera Roll
 
 - (void)saveImageToCameraRoll {
@@ -807,7 +830,6 @@
     return (int)[self.animatedImages count];
 }
 
-
 - (void)playAnimationButtonClicked {
     
     self.animated = !self.animated;
@@ -879,7 +901,7 @@
 - (void)saveImage {
 
     // Allows user to switch views quickly while the data is saved
-   dispatch_async(saveDataQueue, ^{
+   dispatch_sync(saveDataQueue, ^{
         
         // Create the file if it does not already exist
         [self createBinaryFile:FILE_NAME];
@@ -920,7 +942,7 @@
             
             [NSKeyedArchiver archiveRootObject:temp toFile:self.dataFilePath];
         }
-    });    
+    });
 }
 
 #pragma mark - Setup
@@ -1018,19 +1040,14 @@
     // The marker is automatically selected the first time the view is shown
     self.brushSelected = 0;
     
-    // The color violet is automatically selected the first time the view is shown
-    UIColor *violet = [UIColor colorWithRed:102 / 255.0 green:44 / 255.0 blue:144 / 255.0 alpha:1.0];
-    self.brushColor = violet;
-    self.clearCanvas = false;
     self.paperColor = [UIColor whiteColor];
+    self.clearCanvas = false;
     self.animated = false;
-    
     self.redo = false;
     self.fillBezierPath = false;
     
     // Create queue for saving data
     saveDataQueue = dispatch_queue_create("saveDataQueue", NULL);
-
 }
 
 @end

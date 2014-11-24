@@ -391,8 +391,8 @@
 			isa = PBXGroup;
 			children = (
 				BC4AE4BD19A81453009CB7E7 /* Pop-Overs */,
-				BC4AE49719A7B9CA009CB7E7 /* Bezier Paths */,
 				BC08674219A8DA41006C05D0 /* Animated Images */,
+				BC4AE49719A7B9CA009CB7E7 /* Bezier Paths */,
 				BCA1220E19A75EB7005CC84D /* Drawing Board Views */,
 				BCA1220219A74E78005CC84D /* GigilFacesDrawingVC.h */,
 				BCA1220319A74E78005CC84D /* GigilFacesDrawingVC.m */,

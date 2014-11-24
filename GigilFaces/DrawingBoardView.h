@@ -28,5 +28,6 @@
 - (int)getAnimatedViewCount;
 - (void)saveImageToCameraRoll;
 - (void)saveImage;
+- (void)createNewDrawing;
 
 @end

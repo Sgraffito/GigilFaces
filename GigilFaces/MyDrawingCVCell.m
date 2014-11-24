@@ -39,8 +39,11 @@
     // Prevents layers of buttons being drawn when user is scrolling
     // Causes buildup of transparent shadows
     if (self.inDeleteMode) {
-        [self.deleteButton removeFromSuperview];
-        self.deleteButton = nil;
+        [self.cancelButton removeFromSuperview];
+        self.cancelButton = nil;
+        
+        //[self.deleteButton removeFromSuperview];
+        //self.deleteButton = nil;
     }
 }
 

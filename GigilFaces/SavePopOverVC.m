@@ -14,11 +14,7 @@
 
 @implementation SavePopOverVC
 
-#pragma mark - Buttons
-
-- (IBAction)startNewDrawing:(id)sender {
-
-}
+#pragma mark - Camera Roll
 
 - (IBAction)savePictureToCameraRoll:(UIButton *)sender {
     [self.delegate savePictureToCameraRoll];
@@ -27,6 +23,18 @@
 /*  Dismiss the popover when the user clicks on the done button */
 - (IBAction)doneButtonClicked:(UIButton *)sender {
     [self.delegate doneButton];
+}
+
+#pragma mark - New Drawing
+
+- (IBAction)newDrawing:(UIButton *)sender {
+    [self.delegate makeNewDrawing];
+}
+
+#pragma mark - Delete Drawing
+
+- (IBAction)deleteDrawing:(UIButton *)sender {
+    [self.delegate deleteDrawing];
 }
 
 #pragma mark - Dismiss Keyboard
