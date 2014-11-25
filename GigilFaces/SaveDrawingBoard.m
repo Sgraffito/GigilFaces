@@ -18,6 +18,8 @@
 #define IMAGE_TITLE             @"Image Label"
 #define IMAGE_SUBTITLE          @"Image Subtitle"
 #define ANIMATED_IMAGES         @"Animated Images"
+#define ANIMATED_IMAGES_CAT     @"Animated Images Category"
+#define ANIMATED_IMAGES_TAG     @"Animated Images Tag"
 #define ANIMATED_IMAGES_FRAME   @"Animated Images Frame"
 #define STATIC_IMAGES           @"Static Images"
 
@@ -27,7 +29,8 @@
     [aCoder encodeObject:self.finalImage forKey:FINAL_IMAGE];
     [aCoder encodeObject:self.finalSmallImage forKey:FINAL_SMALL_IMAGE];
     [aCoder encodeObject:self.finalImageTitle forKey:IMAGE_TITLE];
-    [aCoder encodeObject:self.animatedImages forKey:ANIMATED_IMAGES];
+    [aCoder encodeObject:self.animatedImagesCategory forKey:ANIMATED_IMAGES_CAT];
+    [aCoder encodeObject:self.animatedImagesTag forKey:ANIMATED_IMAGES_TAG];
     [aCoder encodeObject:self.animatedImagesFrames forKey:ANIMATED_IMAGES_FRAME];
     [aCoder encodeObject:self.staticImages forKey:STATIC_IMAGES];
 }
@@ -38,7 +41,8 @@
         [self setFinalImage:[aDecoder decodeObjectForKey:FINAL_IMAGE]];
         [self setFinalSmallImage:[aDecoder decodeObjectForKey:FINAL_SMALL_IMAGE]];
         [self setFinalImageTitle:[aDecoder decodeObjectForKey:IMAGE_TITLE]];
-        [self setAnimatedImages:[aDecoder decodeObjectForKey:ANIMATED_IMAGES]];
+        [self setAnimatedImagesCategory:[aDecoder decodeObjectForKey:ANIMATED_IMAGES_CAT]];
+        [self setAnimatedImagesTag:[aDecoder decodeObjectForKey:ANIMATED_IMAGES_TAG]];
         [self setAnimatedImagesFrames:[aDecoder decodeObjectForKey:ANIMATED_IMAGES_FRAME]];
         [self setStaticImages:[aDecoder decodeObjectForKey:STATIC_IMAGES]];
     }

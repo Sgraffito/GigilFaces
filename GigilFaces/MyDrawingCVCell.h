@@ -14,6 +14,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *cellImage;
 @property (weak, nonatomic) IBOutlet UILabel *cellTitle;
 
+// If user clicks on edit in the segmented control, the view is in edit mode. Else the view is in delete mode
 - (void)deleteMode:(BOOL)mode;
 
 @end

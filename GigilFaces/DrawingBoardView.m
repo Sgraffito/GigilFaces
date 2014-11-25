@@ -25,7 +25,6 @@
 @property (strong, nonatomic) UIBezierPath *fillBrushStroke;
 @property (nonatomic) int totalNumberOfIncrementalImages;
 
-
 // Pen brush
 @property (nonatomic) float inkSupply;
 @property (strong, nonatomic) NSMutableArray *multipleBristles; // Of UIBezier
@@ -38,9 +37,13 @@
 @property (nonatomic) BOOL fillBezierPath;
 
 // Animated Images
-@property (strong, nonatomic) NSMutableArray *animatedImages; // Of UIImageView
+@property (strong, nonatomic) NSMutableArray *animatedImages; // Of UIImageView //// CHANGE TO NSSTRING
 @property (strong, nonatomic) NSMutableArray *animatedImagesFrame; // Of CGRect
 @property (nonatomic) BOOL animated;
+
+// NEW TEST !!!!!!!!!!!!!!!!!!!!!!
+@property (strong, nonatomic) NSMutableArray *animatedImagesCategory; // Of NSInteger
+@property (strong, nonatomic) NSMutableArray *animatedImagesTag; // Of NSInteger
 
 // Undo Mistakes
 @property (strong, nonatomic) NSMutableArray *undoMistakes; // Of UIImage
@@ -62,6 +65,16 @@
 }
 
 #pragma mark - Initialization
+
+- (NSMutableArray *)animatedImagesCategory {
+    if (!_animatedImagesCategory) _animatedImagesCategory = [[NSMutableArray alloc] init];
+    return _animatedImagesCategory;
+}
+
+- (NSMutableArray *)animatedImagesTag {
+    if (!_animatedImagesTag) _animatedImagesTag = [[NSMutableArray alloc] init];
+    return _animatedImagesTag;
+}
 
 - (NSString *)drawingTitle {
     if (!_drawingTitle) _drawingTitle = [NSString stringWithFormat:@"Untitled"];
@@ -140,6 +153,8 @@
         for (int i = 0; i < [self.animatedImages count]; i += 1) {
             if ([image isEqual:[self.animatedImages objectAtIndex:i]]) {
                 [self.animatedImages removeObjectAtIndex:i];
+                [self.animatedImagesCategory removeObjectAtIndex:i];
+                [self.animatedImagesTag removeObjectAtIndex:i];
             }
         }
                 
@@ -553,12 +568,8 @@
         // Set the drawing of the strokes to nil
         self.incrementalImage = nil;
         
-        // Remove animated vine strokes from canvas
-       [self.layer.sublayers makeObjectsPerformSelector:@selector(removeFromSuperlayer)];
-        
         // Remove all uimages
         self.undoMistakes = nil;
-        //[self.redoMistakes removeAllObjects];
         self.redoMistakes = nil;
         
         // Set clear canvas back to no
@@ -678,7 +689,6 @@
         
         // Add the object to be removed to the redo mistakes
         [self.redoMistakes addObject:[self.undoMistakes lastObject]];
-        
         [self.undoMistakes removeLastObject];
         
         self.totalNumberOfIncrementalImages -= 1;
@@ -746,6 +756,15 @@
     self.saveDrawingBoard = nil;
     self.saveDrawingBoard = [[SaveDrawingBoard alloc] init];
     self.drawingTitle = @"Untitled";
+
+    // Remove all animated images from the superlayer
+    [self clearAnimatedArray];
+    
+    // Set arrays to nil
+    self.animatedImages = nil;
+    self.animatedImagesCategory = nil;
+    self.animatedImagesTag = nil;
+    self.animatedImagesFrame = nil;
 }
 
 #pragma mark - Save Image to Camera Roll
@@ -782,32 +801,33 @@
 
 #pragma mark - Animated Illustrations
 
-- (void)addFaceAnimation:(int)tag category:(int)category {
+- (void)addFaceAnimation:(int)tag category:(int)category xLocation:(float)x yLocation:(float)y {
     
     AnimatedImageView *test;
+    int xPos = x;
+    int yPos = y;
 
     // Create a random position for the view on the drawing board
     if (category == 0 && tag == 0) {
         const float width = 86;
         const float height = 193;
-        float randomX = arc4random_uniform(self.frame.size.width - width - 10) + 5;
-        float randomY = arc4random_uniform(self.frame.size.height - height - 10) + 5;
-
-        test = [[AnimateGS alloc] initWithFrame:CGRectMake(randomX, randomY, width, height)];
+        if (xPos < 0) { xPos = [self calculateXPos:xPos width:width]; }
+        if (yPos < 0) { yPos = [self calculateYPos:yPos width:height]; }
+        test = [[AnimateGS alloc] initWithFrame:CGRectMake(xPos, yPos, width, height)];
     }
     else if (category == 0 && tag == 1) {
         const float width = 150;
         const float height = 150;
-        float randomX = arc4random_uniform(self.frame.size.width - width - 10) + 5;
-        float randomY = arc4random_uniform(self.frame.size.height - height - 10) + 5;
-        test = [[RollingEyeView alloc] initWithFrame:CGRectMake(randomX, randomY, width, height)];
+        if (xPos < 0) { xPos = [self calculateXPos:xPos width:width]; }
+        if (yPos < 0) { yPos = [self calculateYPos:yPos width:height]; }
+        test = [[RollingEyeView alloc] initWithFrame:CGRectMake(xPos, yPos, width, height)];
     }
     else if (category == 0 && tag == 2) {
         const float width = 315;
         const float height = 210;
-        float randomX = arc4random_uniform(self.frame.size.width - width - 10) + 5;
-        float randomY = arc4random_uniform(self.frame.size.height - height - 10) + 5;
-        test = [[ToothyGrinView alloc] initWithFrame:CGRectMake(randomX, randomY, width, height)];
+        if (xPos < 0) { xPos = [self calculateXPos:xPos width:width]; }
+        if (yPos < 0) { yPos = [self calculateYPos:yPos width:height]; }
+        test = [[ToothyGrinView alloc] initWithFrame:CGRectMake(xPos, yPos, width, height)];
 
     }
     if (test != nil) {
@@ -816,13 +836,24 @@
         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapAnimatedView:)];
         [test addGestureRecognizer:tap];
         
-
         // Add image to the drawing board view
         [self addSubview:test];
         
         // Add animated image to an array
         [self.animatedImages addObject:test];
+        
+        // Add animated image category and tag to arrays
+        [self.animatedImagesCategory addObject:[NSNumber numberWithInt:category]];
+        [self.animatedImagesTag addObject:[NSNumber numberWithInt:tag]];
     }
+}
+
+- (int)calculateXPos:(float)xPos width:(float)width {
+    return arc4random_uniform(self.frame.size.width - width - 10) + 6;
+}
+
+- (int)calculateYPos:(float)yPos width:(float)height {
+    return arc4random_uniform(self.frame.size.height - height - 10) + 6;
 }
 
 /*  Return the number of animated images on the drawing board */
@@ -909,20 +940,22 @@
         NSFileManager *fm = [NSFileManager defaultManager];
         
         // Save the drawing board with the last UIImage made of the drawing board
-        self.saveDrawingBoard.finalImage = [self.undoMistakes lastObject];
+       
         UIImage *bigImage = [DrawingBoardView imageWithView:self];
         self.saveDrawingBoard.finalSmallImage = [self imageWithImage:bigImage convertToSize:CGSizeMake(218, 163)];
         self.saveDrawingBoard.finalImageTitle = self.drawingTitle;
-        
+       
+       self.saveDrawingBoard.finalImage = [self.undoMistakes lastObject];
+       
         [self.animatedImagesFrame removeAllObjects];
         for (UIImageView *image in self.animatedImages) {
             CGRect imageFrame = image.frame;
             [self.animatedImagesFrame addObject:[NSValue valueWithCGRect:imageFrame]];
         }
         self.saveDrawingBoard.animatedImagesFrames = self.animatedImagesFrame;
-        
-        self.saveDrawingBoard.animatedImages = self.animatedImages;
-        
+        self.saveDrawingBoard.animatedImagesCategory = self.animatedImagesCategory;
+        self.saveDrawingBoard.animatedImagesTag = self.animatedImagesTag;
+       
         // Get datapath for the file
         self.dataFilePath = [[self getPathToDocumentsDir] stringByAppendingPathComponent:FILE_NAME];
         BOOL fileExists = [fm fileExistsAtPath:self.dataFilePath];
@@ -981,25 +1014,22 @@
                 // Add the saved image to the undoMistakes array
                 [self.undoMistakes addObject:self.saveDrawingBoard.finalImage];
                 self.incrementalImage = self.saveDrawingBoard.finalImage;
-                self.drawingTitle = self.saveDrawingBoard.finalImageTitle;
-                
-                self.animatedImages = self.saveDrawingBoard.animatedImages;
-                self.animatedImagesFrame = self.saveDrawingBoard.animatedImagesFrames;
-                
-                int count = 0;
-                for (UIImageView *image in self.animatedImages) {
-                    image.frame = [[self.animatedImagesFrame objectAtIndex:count] CGRectValue];
-                    
-                    // Add a tap gesture to the view
-                    image.userInteractionEnabled = YES; // Important, lets image view recognize tap
-                    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapAnimatedView:)];
-                    [image addGestureRecognizer:tap];
-
-                    [self addSubview:image];
-                    count += 1;
-                }
-
                 self.totalNumberOfIncrementalImages += 1;
+            }
+            
+            self.drawingTitle = self.saveDrawingBoard.finalImageTitle;
+            self.animatedImagesFrame = self.saveDrawingBoard.animatedImagesFrames;
+            self.animatedImagesCategory = self.saveDrawingBoard.animatedImagesCategory;
+            self.animatedImagesTag = self.saveDrawingBoard.animatedImagesTag;
+            
+            int count = 0;
+            for (NSNumber *img in self.animatedImagesFrame) {
+                int xPos = [img CGRectValue].origin.x;
+                int yPos = [img CGRectValue].origin.y;
+                int category = [[self.animatedImagesCategory objectAtIndex:count] intValue];
+                int tag = [[self.animatedImagesTag objectAtIndex:count] intValue];
+                [self addFaceAnimation:tag category:category xLocation:xPos yLocation:yPos];
+                count += 1;
             }
         }
         // Continue with setup

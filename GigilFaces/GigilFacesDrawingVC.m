@@ -285,11 +285,6 @@
                                                   inView:self.view
                                 permittedArrowDirections:UIPopoverArrowDirectionAny
                                                 animated:YES];
-
-        // Dismiss the pop over automatically over the course of 3 seconds
-        [UIView animateWithDuration:3.0 animations:^ {
-            [self.noAnimatedImagesPopover dismissPopoverAnimated:YES];
-        }];
     }
 }
 
@@ -590,7 +585,8 @@
 - (void)faceShapeChanged:(int)tag category:(int)category {
     
     // Tell the drawing board to add the selected image
-    [self.drawingBoard addFaceAnimation:tag category:category];
+//    [self.drawingBoard addFaceAnimation:tag category:category];
+    [self.drawingBoard addFaceAnimation:tag category:category xLocation:-1 yLocation:-1];
 }
 
 /**
@@ -631,7 +627,13 @@
  */
 - (void)makeNewDrawing {
     [self createNewDrawing];
+    [self drawingTitle];
     [self.saveImagesPopover dismissPopoverAnimated:YES];
+}
+
+- (void)drawingTitle {
+    // Set title of navigational view
+    self.navigationController.topViewController.title = self.drawingBoard.drawingTitle;
 }
 
 /**

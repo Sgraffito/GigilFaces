@@ -20,7 +20,7 @@
 @property (nonatomic) int savedDataIndex;
 @property (strong, nonatomic) NSString *drawingTitle;
 
-- (void)addFaceAnimation:(int)tag category:(int)category;
+- (void)addFaceAnimation:(int)tag category:(int)category xLocation:(float)x yLocation:(float)y;
 - (void)playAnimationButtonClicked;
 - (void)clearAnimatedArray;
 - (void)undoPaintingMistakes;

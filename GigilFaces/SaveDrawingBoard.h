@@ -13,7 +13,8 @@
 @property (nonatomic, strong) UIImage *finalImage;
 @property (nonatomic, strong) UIImage *finalSmallImage;
 @property (strong, nonatomic) NSString *finalImageTitle;
-@property (strong, nonatomic) NSMutableArray *animatedImages;   // Of UIImageView
+@property (strong, nonatomic) NSMutableArray *animatedImagesCategory; // Of NSNumber
+@property (strong, nonatomic) NSMutableArray *animatedImagesTag; // Of NSNumber
 @property (strong, nonatomic) NSMutableArray *animatedImagesFrames; // Of CGRect
 @property (strong, nonatomic) NSMutableArray *staticImages;     // ??Of UIImageView MIGHT CHANGE
 
