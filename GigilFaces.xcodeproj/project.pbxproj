@@ -346,7 +346,6 @@
 			children = (
 				BCA1220519A7560D005CC84D /* DrawingBoardView.h */,
 				BCA1220619A7560D005CC84D /* DrawingBoardView.m */,
-				BC4AE49819A7C29A009CB7E7 /* DrawingBoardShadowView.h */,
 				BC4AE49919A7C29A009CB7E7 /* DrawingBoardShadowView.m */,
 				BCA1220819A75B48005CC84D /* ColorSelectedView.h */,
 				BCA1220919A75B48005CC84D /* ColorSelectedView.m */,
@@ -354,6 +353,7 @@
 				BCA1220C19A75EAF005CC84D /* ColorTrayView.m */,
 				BCA1220F19A76AAE005CC84D /* DrawingUtensilsTrayView.h */,
 				BCA1221019A76AAE005CC84D /* DrawingUtensilsTrayView.m */,
+				BC4AE49819A7C29A009CB7E7 /* DrawingBoardShadowView.h */,
 				BCEEFF7E19AE100E00FDD188 /* SaveDrawingBoard.h */,
 				BCEEFF7F19AE100E00FDD188 /* SaveDrawingBoard.m */,
 			);

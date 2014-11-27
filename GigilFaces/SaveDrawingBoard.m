@@ -21,6 +21,9 @@
 #define ANIMATED_IMAGES_CAT     @"Animated Images Category"
 #define ANIMATED_IMAGES_TAG     @"Animated Images Tag"
 #define ANIMATED_IMAGES_FRAME   @"Animated Images Frame"
+#define ANIMATED_IMAGES_SCALE   @"Animated Images Scale"
+#define ANIMATED_IMAGES_ROTATE  @"Animated Images Rotate"
+#define ANIMATED_IMAGES_CENTER  @"Animated Images Center"
 #define STATIC_IMAGES           @"Static Images"
 
 #pragma mark - NSCoding
@@ -32,6 +35,9 @@
     [aCoder encodeObject:self.animatedImagesCategory forKey:ANIMATED_IMAGES_CAT];
     [aCoder encodeObject:self.animatedImagesTag forKey:ANIMATED_IMAGES_TAG];
     [aCoder encodeObject:self.animatedImagesFrames forKey:ANIMATED_IMAGES_FRAME];
+    [aCoder encodeObject:self.animatedImagesScale forKey:ANIMATED_IMAGES_SCALE];
+    [aCoder encodeObject:self.animatedImagesRotate forKey:ANIMATED_IMAGES_ROTATE];
+    [aCoder encodeObject:self.animatedImagesCenter forKey:ANIMATED_IMAGES_CENTER];
     [aCoder encodeObject:self.staticImages forKey:STATIC_IMAGES];
 }
 
@@ -44,6 +50,9 @@
         [self setAnimatedImagesCategory:[aDecoder decodeObjectForKey:ANIMATED_IMAGES_CAT]];
         [self setAnimatedImagesTag:[aDecoder decodeObjectForKey:ANIMATED_IMAGES_TAG]];
         [self setAnimatedImagesFrames:[aDecoder decodeObjectForKey:ANIMATED_IMAGES_FRAME]];
+        [self setAnimatedImagesScale:[aDecoder decodeObjectForKey:ANIMATED_IMAGES_SCALE]];
+        [self setAnimatedImagesRotate:[aDecoder decodeObjectForKey:ANIMATED_IMAGES_ROTATE]];
+        [self setAnimatedImagesCenter:[aDecoder decodeObjectForKey:ANIMATED_IMAGES_CENTER]];
         [self setStaticImages:[aDecoder decodeObjectForKey:STATIC_IMAGES]];
     }
     return self;

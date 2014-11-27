@@ -585,8 +585,10 @@
 - (void)faceShapeChanged:(int)tag category:(int)category {
     
     // Tell the drawing board to add the selected image
-//    [self.drawingBoard addFaceAnimation:tag category:category];
-    [self.drawingBoard addFaceAnimation:tag category:category xLocation:-1 yLocation:-1];
+    // A scale value of 1 applies no scaling
+    // A rotate value of 0 applies no rotation
+    // Negative x and y locations tell the program to add the image to the drawing board in a random position
+    [self.drawingBoard addFaceAnimation:tag category:category xLocation:-1 yLocation:-1 scaleValue:1 rotateValue:0 centerValue:CGPointMake(-100, -100)];
 }
 
 /**

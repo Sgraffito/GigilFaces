@@ -40,10 +40,14 @@
 @property (strong, nonatomic) NSMutableArray *animatedImages; // Of UIImageView //// CHANGE TO NSSTRING
 @property (strong, nonatomic) NSMutableArray *animatedImagesFrame; // Of CGRect
 @property (nonatomic) BOOL animated;
+@property (strong, nonatomic) NSMutableArray *animatedImagesTag; // Of NSNumber
+@property (strong, nonatomic) NSMutableArray *animatedImagesCategory; // Of NSNumber
+@property (strong, nonatomic) NSMutableArray *animatedImagesScale; // Of NSNumber
+@property (strong, nonatomic) NSMutableArray *animatedImagesRotate; // Of NSNumber
+@property (strong, nonatomic) NSMutableArray *animatedImagesCenter; // Of CGPoint
 
-// NEW TEST !!!!!!!!!!!!!!!!!!!!!!
-@property (strong, nonatomic) NSMutableArray *animatedImagesCategory; // Of NSInteger
-@property (strong, nonatomic) NSMutableArray *animatedImagesTag; // Of NSInteger
+// Old Brush
+@property (nonatomic) int lastBrushSelected;
 
 // Undo Mistakes
 @property (strong, nonatomic) NSMutableArray *undoMistakes; // Of UIImage
@@ -66,14 +70,29 @@
 
 #pragma mark - Initialization
 
-- (NSMutableArray *)animatedImagesCategory {
-    if (!_animatedImagesCategory) _animatedImagesCategory = [[NSMutableArray alloc] init];
-    return _animatedImagesCategory;
-}
-
 - (NSMutableArray *)animatedImagesTag {
     if (!_animatedImagesTag) _animatedImagesTag = [[NSMutableArray alloc] init];
     return _animatedImagesTag;
+}
+
+- (NSMutableArray *)animatedImagesCenter {
+    if (!_animatedImagesCenter) _animatedImagesCenter = [[NSMutableArray alloc] init];
+    return _animatedImagesCenter;
+}
+
+- (NSMutableArray *)animatedImagesScale {
+    if (!_animatedImagesScale) _animatedImagesScale = [[NSMutableArray alloc] init];
+    return _animatedImagesScale;
+}
+
+- (NSMutableArray *)animatedImagesRotate {
+    if (!_animatedImagesRotate) _animatedImagesRotate = [[NSMutableArray alloc] init];
+    return _animatedImagesRotate;
+}
+
+- (NSMutableArray *)animatedImagesCategory {
+    if (!_animatedImagesCategory) _animatedImagesCategory = [[NSMutableArray alloc] init];
+    return _animatedImagesCategory;
 }
 
 - (NSString *)drawingTitle {
@@ -141,9 +160,21 @@
 
 - (void)tapAnimatedView:(UITapGestureRecognizer *)gesture {
     
+    BOOL isSelected;
+    
     // Call the tap method in AnimatedImageView class
     AnimatedImageView *image = (AnimatedImageView *)gesture.view;
-    [image selectAnimatedImage:gesture];
+    isSelected = [image selectAnimatedImage:gesture]; // Check if image is selected
+    
+    // If the image is selected, disable all drawing
+    if (isSelected) {
+        self.lastBrushSelected = self.brushSelected;
+        self.brushSelected = -1;
+    }
+    // If the image is not selected, renable the last brush
+    else {
+        self.brushSelected = self.lastBrushSelected;
+    }
     
     // If user clicked on the remove button, remove the face animation view from the drawing board
     BOOL cancel = [image cancelButtonClicked:[gesture locationInView:image]];
@@ -155,6 +186,8 @@
                 [self.animatedImages removeObjectAtIndex:i];
                 [self.animatedImagesCategory removeObjectAtIndex:i];
                 [self.animatedImagesTag removeObjectAtIndex:i];
+                [self.animatedImagesScale removeObjectAtIndex:i];
+                [self.animatedImagesRotate removeObjectAtIndex:i];
             }
         }
                 
@@ -763,8 +796,10 @@
     // Set arrays to nil
     self.animatedImages = nil;
     self.animatedImagesCategory = nil;
-    self.animatedImagesTag = nil;
     self.animatedImagesFrame = nil;
+    self.animatedImagesScale = nil;
+    self.animatedImagesRotate = nil;
+    self.animatedImagesCenter = nil;
 }
 
 #pragma mark - Save Image to Camera Roll
@@ -801,12 +836,15 @@
 
 #pragma mark - Animated Illustrations
 
-- (void)addFaceAnimation:(int)tag category:(int)category xLocation:(float)x yLocation:(float)y {
+- (void)addFaceAnimation:(int)tag category:(int)category xLocation:(float)x yLocation:(float)y scaleValue:(float)scale rotateValue:(float)rotate centerValue:(CGPoint)center {
     
     AnimatedImageView *test;
     int xPos = x;
     int yPos = y;
-
+    float scaleAmount = scale;
+    float rotateAmount = rotate;
+    CGPoint centerPoint = center;
+    
     // Create a random position for the view on the drawing board
     if (category == 0 && tag == 0) {
         const float width = 86;
@@ -835,16 +873,32 @@
         test.userInteractionEnabled = YES; // Important, lets image view recognize tap
         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapAnimatedView:)];
         [test addGestureRecognizer:tap];
+
+        // Update image with scale and rotate amount
+        test.finalScaleValue = scaleAmount;
+        test.finalRotateValue = rotateAmount;
+
+        // Scale and rotate the image at the same time
+        CGAffineTransform scaling = CGAffineTransformMakeScale(scaleAmount, scaleAmount);
+        CGAffineTransform rotation = CGAffineTransformMakeRotation(rotateAmount);
+        CGAffineTransform transform = CGAffineTransformConcat(rotation, scaling);
+        test.transform = transform;
+
+        // Readjust the transformed image to the correct center point
+        // -100 checks to see if image is being added for first time (if so, image will not be scaled or rotated)
+        if (centerPoint.x != -100 && centerPoint.y != -100) {
+            test.center = centerPoint;
+        }
         
         // Add image to the drawing board view
         [self addSubview:test];
         
-        // Add animated image to an array
-        [self.animatedImages addObject:test];
-        
-        // Add animated image category and tag to arrays
-        [self.animatedImagesCategory addObject:[NSNumber numberWithInt:category]];
+        // Save image properties
         [self.animatedImagesTag addObject:[NSNumber numberWithInt:tag]];
+        [self.animatedImagesCategory addObject:[NSNumber numberWithInt:category]];
+        [self.animatedImagesScale addObject:[NSNumber numberWithInt:scaleAmount]];
+        [self.animatedImagesRotate addObject:[NSNumber numberWithInt:rotateAmount]];
+        [self.animatedImages addObject:test];
     }
 }
 
@@ -945,16 +999,32 @@
         self.saveDrawingBoard.finalSmallImage = [self imageWithImage:bigImage convertToSize:CGSizeMake(218, 163)];
         self.saveDrawingBoard.finalImageTitle = self.drawingTitle;
        
-       self.saveDrawingBoard.finalImage = [self.undoMistakes lastObject];
+        self.saveDrawingBoard.finalImage = [self.undoMistakes lastObject];
        
         [self.animatedImagesFrame removeAllObjects];
-        for (UIImageView *image in self.animatedImages) {
-            CGRect imageFrame = image.frame;
-            [self.animatedImagesFrame addObject:[NSValue valueWithCGRect:imageFrame]];
-        }
+        [self.animatedImagesCenter removeAllObjects];
+       
+       for (int i = 0; i < self.animatedImages.count; i += 1) {
+           AnimatedImageView *image = [self.animatedImages objectAtIndex:i];
+           CGRect imageFrame = image.frame;
+           NSNumber *scaleValue = [NSNumber numberWithFloat:image.finalScaleValue];
+           if ([scaleValue floatValue] > 0) {
+               [self.animatedImagesScale replaceObjectAtIndex:i withObject:scaleValue];
+           }
+           NSNumber *rotateValue = [NSNumber numberWithFloat:image.finalRotateValue];
+           [self.animatedImagesRotate replaceObjectAtIndex:i withObject:rotateValue];
+           [self.animatedImagesFrame addObject:[NSValue valueWithCGRect:imageFrame]];
+           [self.animatedImagesCenter addObject:[NSValue valueWithCGPoint:image.center]];
+           
+           NSLog(@"SAVE center is x: %f, y: %f", image.center.x, image.center.y);
+       }
+       
         self.saveDrawingBoard.animatedImagesFrames = self.animatedImagesFrame;
-        self.saveDrawingBoard.animatedImagesCategory = self.animatedImagesCategory;
         self.saveDrawingBoard.animatedImagesTag = self.animatedImagesTag;
+        self.saveDrawingBoard.animatedImagesScale = self.animatedImagesScale;
+        self.saveDrawingBoard.animatedImagesRotate = self.animatedImagesRotate;
+        self.saveDrawingBoard.animatedImagesCategory = self.animatedImagesCategory;
+        self.saveDrawingBoard.animatedImagesCenter = self.animatedImagesCenter;
        
         // Get datapath for the file
         self.dataFilePath = [[self getPathToDocumentsDir] stringByAppendingPathComponent:FILE_NAME];
@@ -1019,16 +1089,23 @@
             
             self.drawingTitle = self.saveDrawingBoard.finalImageTitle;
             self.animatedImagesFrame = self.saveDrawingBoard.animatedImagesFrames;
-            self.animatedImagesCategory = self.saveDrawingBoard.animatedImagesCategory;
             self.animatedImagesTag = self.saveDrawingBoard.animatedImagesTag;
+            self.animatedImagesCategory = self.saveDrawingBoard.animatedImagesCategory;
+            self.animatedImagesScale = self.saveDrawingBoard.animatedImagesScale;
+            self.animatedImagesRotate = self.saveDrawingBoard.animatedImagesRotate;
+            self.animatedImagesCenter = self.saveDrawingBoard.animatedImagesCenter;
             
             int count = 0;
             for (NSNumber *img in self.animatedImagesFrame) {
                 int xPos = [img CGRectValue].origin.x;
                 int yPos = [img CGRectValue].origin.y;
-                int category = [[self.animatedImagesCategory objectAtIndex:count] intValue];
                 int tag = [[self.animatedImagesTag objectAtIndex:count] intValue];
-                [self addFaceAnimation:tag category:category xLocation:xPos yLocation:yPos];
+                float scaleValue = [[self.animatedImagesScale objectAtIndex:count] floatValue];
+                float rotateValue = [[self.animatedImagesRotate objectAtIndex:count] floatValue];
+                CGPoint centerValue = [[self.animatedImagesCenter objectAtIndex:count] CGPointValue];
+                int category = [[self.animatedImagesCategory objectAtIndex:count] intValue];
+                
+                [self addFaceAnimation:tag category:category xLocation:xPos yLocation:yPos scaleValue:scaleValue rotateValue:rotateValue centerValue:centerValue];
                 count += 1;
             }
         }
