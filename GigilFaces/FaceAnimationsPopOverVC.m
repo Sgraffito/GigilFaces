@@ -35,7 +35,7 @@
 
 - (NSArray *)eyes {
     if (!_eyes) {
-        _eyes = @[@"win_1.png", @"rollingEyePopUpImage.png", @"toothy_grinIcon.png", @"image4.png"];
+        _eyes = @[@"win_1.png", @"rollingEyePopUpImage.png", @"toothy_grinIcon.png", @"Star2Layer2", @"image4.png"];
     }
     return _eyes;
 }
@@ -49,7 +49,7 @@
 
 - (NSArray *)noses {
     if (!_noses) {
-        _noses = @[@"image3.png", @"image3.png", @"image3.png", @"image3.png", @"image3.png", @"image3.png",@"image3.png", @"image3.png", @"image3.png", @"image3.png",@"image3.png", @"image3.png"];
+        _noses = @[@"image3.png", @"image3.png", @"image3.png", @"image3.png", @"image3.png", @"image3.png",@"image3.png", @"image3.png", @"image3.png", @"image3.png", @"image3.png", @"image3.png"];
     }
     return _noses;
 }
@@ -122,24 +122,26 @@
     int cellTag = (int)cell.tag;
     
     // Get category cell is in
-    int category = 0;
-    if (self.faceSegmentControl.selectedSegmentIndex == 0) {
-        category = 0;
-    }
-    else if (self.faceSegmentControl.selectedSegmentIndex == 1) {
-        category = 1;
-    }
-    else if (self.faceSegmentControl.selectedSegmentIndex == 2) {
-        category = 2;
-    }
-    else if (self.faceSegmentControl.selectedSegmentIndex == 3) {
-        category = 3;
-    }
+    int category = (int)self.faceSegmentControl.selectedSegmentIndex;
+    
+//    if (self.faceSegmentControl.selectedSegmentIndex == 0) {
+//        category = 0;
+//    }
+//    else if (self.faceSegmentControl.selectedSegmentIndex == 1) {
+//        category = 1;
+//    }
+//    else if (self.faceSegmentControl.selectedSegmentIndex == 2) {
+//        category = 2;
+//    }
+//    else if (self.faceSegmentControl.selectedSegmentIndex == 3) {
+//        category = 3;
+//    }
     
     //NSLog(@"cell category: %d, tag: %d", category, cellTag);
     
     [self.delegate faceShapeChanged:cellTag category:category];
 }
+
 
 #pragma mark - Setup
 

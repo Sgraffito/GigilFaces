@@ -51,6 +51,7 @@
 		BCD132CC19AF572C00C12601 /* MyDrawingsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BCD132CB19AF572C00C12601 /* MyDrawingsVC.m */; };
 		BCD132CF19AF58D600C12601 /* MyDrawingCVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BCD132CE19AF58D600C12601 /* MyDrawingCVCell.m */; };
 		BCD132D619AFB4CD00C12601 /* FrontPageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BCD132D519AFB4CD00C12601 /* FrontPageVC.m */; };
+		BCE820191A28BD7B00788184 /* Star.m in Sources */ = {isa = PBXBuildFile; fileRef = BCE820181A28BD7B00788184 /* Star.m */; };
 		BCEEFF7D19AD69ED00FDD188 /* ToothyGrinView.m in Sources */ = {isa = PBXBuildFile; fileRef = BCEEFF7C19AD69ED00FDD188 /* ToothyGrinView.m */; };
 		BCEEFF8019AE100E00FDD188 /* SaveDrawingBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = BCEEFF7F19AE100E00FDD188 /* SaveDrawingBoard.m */; };
 /* End PBXBuildFile section */
@@ -139,6 +140,8 @@
 		BCD132CE19AF58D600C12601 /* MyDrawingCVCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyDrawingCVCell.m; sourceTree = "<group>"; };
 		BCD132D419AFB4CD00C12601 /* FrontPageVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FrontPageVC.h; sourceTree = "<group>"; };
 		BCD132D519AFB4CD00C12601 /* FrontPageVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FrontPageVC.m; sourceTree = "<group>"; };
+		BCE820171A28BD7B00788184 /* Star.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Star.h; sourceTree = "<group>"; };
+		BCE820181A28BD7B00788184 /* Star.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Star.m; sourceTree = "<group>"; };
 		BCEEFF7B19AD69ED00FDD188 /* ToothyGrinView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToothyGrinView.h; sourceTree = "<group>"; };
 		BCEEFF7C19AD69ED00FDD188 /* ToothyGrinView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToothyGrinView.m; sourceTree = "<group>"; };
 		BCEEFF7E19AE100E00FDD188 /* SaveDrawingBoard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SaveDrawingBoard.h; sourceTree = "<group>"; };
@@ -192,6 +195,8 @@
 				BC12D2DD19ACF49D00350C78 /* RollingEyeView.m */,
 				BCEEFF7B19AD69ED00FDD188 /* ToothyGrinView.h */,
 				BCEEFF7C19AD69ED00FDD188 /* ToothyGrinView.m */,
+				BCE820171A28BD7B00788184 /* Star.h */,
+				BCE820181A28BD7B00788184 /* Star.m */,
 			);
 			name = "Animated Images";
 			sourceTree = "<group>";
@@ -549,6 +554,7 @@
 				BC1C080D19B0BF4C008EFCD8 /* SavePopOverVC.m in Sources */,
 				BC4AE4B719A81066009CB7E7 /* BrushOpacityPopOverVC.m in Sources */,
 				BCA1221119A76AAE005CC84D /* DrawingUtensilsTrayView.m in Sources */,
+				BCE820191A28BD7B00788184 /* Star.m in Sources */,
 				BC08673C19A8D293006C05D0 /* FaceAnimationsPopOverVC.m in Sources */,
 				BC4AE49D19A7C5C0009CB7E7 /* VariedWidthsPaintingBrushBezier.m in Sources */,
 				BC4AE49619A7B9C7009CB7E7 /* SmoothPaintingBrushBezier.m in Sources */,

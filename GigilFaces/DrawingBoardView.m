@@ -16,6 +16,7 @@
 #import "AnimateGS.h"
 #import "RollingEyeView.h"
 #import "ToothyGrinView.h"
+#import "Star.h"
 #import "SaveDrawingBoard.h"
 #import "MyDrawingsVC.h"
 
@@ -184,8 +185,8 @@
         for (int i = 0; i < [self.animatedImages count]; i += 1) {
             if ([image isEqual:[self.animatedImages objectAtIndex:i]]) {
                 [self.animatedImages removeObjectAtIndex:i];
-                [self.animatedImagesCategory removeObjectAtIndex:i];
                 [self.animatedImagesTag removeObjectAtIndex:i];
+                [self.animatedImagesCategory removeObjectAtIndex:i];
                 [self.animatedImagesScale removeObjectAtIndex:i];
                 [self.animatedImagesRotate removeObjectAtIndex:i];
             }
@@ -796,6 +797,7 @@
     // Set arrays to nil
     self.animatedImages = nil;
     self.animatedImagesCategory = nil;
+    self.animatedImagesTag = nil;
     self.animatedImagesFrame = nil;
     self.animatedImagesScale = nil;
     self.animatedImagesRotate = nil;
@@ -838,6 +840,8 @@
 
 - (void)addFaceAnimation:(int)tag category:(int)category xLocation:(float)x yLocation:(float)y scaleValue:(float)scale rotateValue:(float)rotate centerValue:(CGPoint)center {
     
+//    NSLog(@"\nNew image tag is: %d", tag);
+    
     AnimatedImageView *test;
     int xPos = x;
     int yPos = y;
@@ -866,8 +870,15 @@
         if (xPos < 0) { xPos = [self calculateXPos:xPos width:width]; }
         if (yPos < 0) { yPos = [self calculateYPos:yPos width:height]; }
         test = [[ToothyGrinView alloc] initWithFrame:CGRectMake(xPos, yPos, width, height)];
-
     }
+    else if (category == 0 && tag == 3) {
+        const float width = 100;
+        const float height = 100;
+        if (xPos < 0) { xPos = [self calculateXPos:xPos width:width]; }
+        if (yPos < 0) { yPos = [self calculateYPos:yPos width:height]; }
+        test = [[Star alloc] initWithFrame:CGRectMake(xPos, yPos, width, height)];
+    }
+    
     if (test != nil) {
         // Add a tap gesture to the view
         test.userInteractionEnabled = YES; // Important, lets image view recognize tap
@@ -994,11 +1005,9 @@
         NSFileManager *fm = [NSFileManager defaultManager];
         
         // Save the drawing board with the last UIImage made of the drawing board
-       
         UIImage *bigImage = [DrawingBoardView imageWithView:self];
         self.saveDrawingBoard.finalSmallImage = [self imageWithImage:bigImage convertToSize:CGSizeMake(218, 163)];
         self.saveDrawingBoard.finalImageTitle = self.drawingTitle;
-       
         self.saveDrawingBoard.finalImage = [self.undoMistakes lastObject];
        
         [self.animatedImagesFrame removeAllObjects];
@@ -1006,6 +1015,7 @@
        
        for (int i = 0; i < self.animatedImages.count; i += 1) {
            AnimatedImageView *image = [self.animatedImages objectAtIndex:i];
+           NSLog(@"z-position: %f", image.layer.zPosition);
            CGRect imageFrame = image.frame;
            NSNumber *scaleValue = [NSNumber numberWithFloat:image.finalScaleValue];
            if ([scaleValue floatValue] > 0) {
@@ -1015,15 +1025,13 @@
            [self.animatedImagesRotate replaceObjectAtIndex:i withObject:rotateValue];
            [self.animatedImagesFrame addObject:[NSValue valueWithCGRect:imageFrame]];
            [self.animatedImagesCenter addObject:[NSValue valueWithCGPoint:image.center]];
-           
-           NSLog(@"SAVE center is x: %f, y: %f", image.center.x, image.center.y);
-       }
+        }
        
         self.saveDrawingBoard.animatedImagesFrames = self.animatedImagesFrame;
         self.saveDrawingBoard.animatedImagesTag = self.animatedImagesTag;
+        self.saveDrawingBoard.animatedImagesCategory = self.animatedImagesCategory;
         self.saveDrawingBoard.animatedImagesScale = self.animatedImagesScale;
         self.saveDrawingBoard.animatedImagesRotate = self.animatedImagesRotate;
-        self.saveDrawingBoard.animatedImagesCategory = self.animatedImagesCategory;
         self.saveDrawingBoard.animatedImagesCenter = self.animatedImagesCenter;
        
         // Get datapath for the file
@@ -1100,12 +1108,19 @@
                 int xPos = [img CGRectValue].origin.x;
                 int yPos = [img CGRectValue].origin.y;
                 int tag = [[self.animatedImagesTag objectAtIndex:count] intValue];
+                
                 float scaleValue = [[self.animatedImagesScale objectAtIndex:count] floatValue];
                 float rotateValue = [[self.animatedImagesRotate objectAtIndex:count] floatValue];
                 CGPoint centerValue = [[self.animatedImagesCenter objectAtIndex:count] CGPointValue];
                 int category = [[self.animatedImagesCategory objectAtIndex:count] intValue];
                 
                 [self addFaceAnimation:tag category:category xLocation:xPos yLocation:yPos scaleValue:scaleValue rotateValue:rotateValue centerValue:centerValue];
+                
+                [self.animatedImagesCategory removeLastObject];
+                [self.animatedImagesTag removeLastObject];
+                [self.animatedImagesScale removeLastObject];
+                [self.animatedImagesRotate removeLastObject];
+                
                 count += 1;
             }
         }

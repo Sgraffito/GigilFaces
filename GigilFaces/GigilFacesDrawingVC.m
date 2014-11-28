@@ -540,7 +540,7 @@
  *  @return An array of NSStrings with images names of selected brushes.
  */
 + (NSArray *)validSelectedImageNames {
-    return @[@"markerSelected", @"crayonSelected", @"penSelected", @"eraserSelected", @"vineBrushSelected"];
+    return @[@"markerSelected", @"crayonSelected", @"penSelected", @"eraserSelected", @"fillSelected"];
 }
 
 /**
@@ -549,7 +549,7 @@
  *  @return An array of NSStrings with image names of unselected brushes.
  */
 + (NSArray *)validUnSelectedImageNames {
-    return @[@"markerUnSelected", @"crayonUnSelected", @"penUnSelected", @"eraserUnSelected", @"vineBrushUnSelected"];
+    return @[@"markerUnSelected", @"crayonUnSelected", @"penUnSelected", @"eraserUnSelected", @"fillUnSelected"];
 }
 
 #pragma mark - Adopting the Protocals
