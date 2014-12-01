@@ -14,6 +14,7 @@
 
 @implementation CancelButtonView
 
+
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
@@ -39,13 +40,13 @@
     self.layer.cornerRadius = 0;                        // Rounded corners
     self.layer.shadowOffset = CGSizeMake(2, 2);         // Location of shadow
     self.layer.shadowRadius = 2;                        // Bigger number makes the shadow edges blurry
-    self.layer.shadowOpacity = 0.5;                     // Darkness of the shadow
+    self.layer.shadowOpacity = 0.25;                     // Darkness of the shadow
     CGColorRef shadowColor = [[UIColor darkGrayColor] CGColor];
     self.layer.shadowColor = shadowColor;               // Color of shadow
     
     // Add a stroke
     [[UIColor whiteColor] setStroke];
-    [clippingBounds setLineWidth:5.0];
+    [clippingBounds setLineWidth:6.0];
     [clippingBounds stroke];
     
     // Add an x
@@ -54,7 +55,7 @@
     [diagonalLine addLineToPoint:CGPointMake(self.bounds.size.width, self.bounds.size.height)];
     [diagonalLine closePath];
     [[UIColor whiteColor] setStroke];
-    [diagonalLine setLineWidth:3.0];
+    [diagonalLine setLineWidth:4.0];
     [diagonalLine stroke];
     
     UIBezierPath *diagonaLine2 = [UIBezierPath bezierPath];
@@ -62,7 +63,7 @@
     [diagonaLine2 addLineToPoint:CGPointMake(self.bounds.size.width, 0)];
     [diagonaLine2 closePath];
     [[UIColor whiteColor] setStroke];
-    [diagonaLine2 setLineWidth:3.0];
+    [diagonaLine2 setLineWidth:4.0];
     [diagonaLine2 stroke];
 }
 

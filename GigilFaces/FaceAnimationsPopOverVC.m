@@ -124,21 +124,6 @@
     // Get category cell is in
     int category = (int)self.faceSegmentControl.selectedSegmentIndex;
     
-//    if (self.faceSegmentControl.selectedSegmentIndex == 0) {
-//        category = 0;
-//    }
-//    else if (self.faceSegmentControl.selectedSegmentIndex == 1) {
-//        category = 1;
-//    }
-//    else if (self.faceSegmentControl.selectedSegmentIndex == 2) {
-//        category = 2;
-//    }
-//    else if (self.faceSegmentControl.selectedSegmentIndex == 3) {
-//        category = 3;
-//    }
-    
-    //NSLog(@"cell category: %d, tag: %d", category, cellTag);
-    
     [self.delegate faceShapeChanged:cellTag category:category];
 }
 

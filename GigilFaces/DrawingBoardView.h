@@ -20,10 +20,15 @@
 @property (nonatomic) int savedDataIndex;
 @property (strong, nonatomic) NSString *drawingTitle;
 
-- (void)addFaceAnimation:(int)tag category:(int)category
+- (void)addFirstTimeFaceAnimation:(int)tag category:(int)category
                xLocation:(float)x yLocation:(float)y
               scaleValue:(float)scale rotateValue:(float)rotate
              centerValue:(CGPoint)center;
+- (void)addFaceAnimation:(int)tag category:(int)category
+               xLocation:(float)x yLocation:(float)y
+              scaleValue:(float)scale rotateValue:(float)rotate
+             centerValue:(CGPoint)center
+                  zIndex:(int)zIndexValue;
 - (void)playAnimationButtonClicked;
 - (void)clearAnimatedArray;
 - (void)undoPaintingMistakes;

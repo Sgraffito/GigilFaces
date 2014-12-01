@@ -46,6 +46,8 @@
 @property (strong, nonatomic) NSMutableArray *animatedImagesScale; // Of NSNumber
 @property (strong, nonatomic) NSMutableArray *animatedImagesRotate; // Of NSNumber
 @property (strong, nonatomic) NSMutableArray *animatedImagesCenter; // Of CGPoint
+@property (strong, nonatomic) NSMutableArray *animatedImagesZIndex; // Of NSNumber
+@property (nonatomic) int maxZIndex;
 
 // Old Brush
 @property (nonatomic) int lastBrushSelected;
@@ -70,6 +72,11 @@
 }
 
 #pragma mark - Initialization
+
+- (NSMutableArray *)animatedImagesZIndex {
+    if (!_animatedImagesZIndex) _animatedImagesZIndex = [[NSMutableArray alloc] init];
+    return _animatedImagesZIndex;
+}
 
 - (NSMutableArray *)animatedImagesTag {
     if (!_animatedImagesTag) _animatedImagesTag = [[NSMutableArray alloc] init];
@@ -165,8 +172,10 @@
     
     // Call the tap method in AnimatedImageView class
     AnimatedImageView *image = (AnimatedImageView *)gesture.view;
+    image.finalZIndex = self.maxZIndex;
+    self.maxZIndex += 1;
     isSelected = [image selectAnimatedImage:gesture]; // Check if image is selected
-    
+        
     // If the image is selected, disable all drawing
     if (isSelected) {
         self.lastBrushSelected = self.brushSelected;
@@ -802,6 +811,8 @@
     self.animatedImagesScale = nil;
     self.animatedImagesRotate = nil;
     self.animatedImagesCenter = nil;
+    self.animatedImagesZIndex = nil;
+    self.maxZIndex = 0;
 }
 
 #pragma mark - Save Image to Camera Roll
@@ -838,9 +849,29 @@
 
 #pragma mark - Animated Illustrations
 
-- (void)addFaceAnimation:(int)tag category:(int)category xLocation:(float)x yLocation:(float)y scaleValue:(float)scale rotateValue:(float)rotate centerValue:(CGPoint)center {
+- (void)addFirstTimeFaceAnimation:(int)tag category:(int)category
+                        xLocation:(float)x yLocation:(float)y
+                       scaleValue:(float)scale rotateValue:(float)rotate
+                      centerValue:(CGPoint)center {
+    [self addFaceAnimation:tag category:category xLocation:x yLocation:y scaleValue:scale rotateValue:rotate centerValue:center zIndex:self.maxZIndex];
     
-//    NSLog(@"\nNew image tag is: %d", tag);
+    // Save image properties
+    [self.animatedImagesTag addObject:[NSNumber numberWithInt:tag]];
+    [self.animatedImagesCategory addObject:[NSNumber numberWithInt:category]];
+    [self.animatedImagesScale addObject:[NSNumber numberWithInt:scale]];
+    [self.animatedImagesRotate addObject:[NSNumber numberWithInt:rotate]];
+    [self.animatedImagesZIndex addObject:[NSNumber numberWithInteger:self.maxZIndex]];
+    self.maxZIndex += 1;
+//    NSLog(@"maxZIndex is: %d", self.maxZIndex);
+}
+
+- (void)addFaceAnimation:(int)tag category:(int)category
+               xLocation:(float)x yLocation:(float)y
+              scaleValue:(float)scale rotateValue:(float)rotate
+             centerValue:(CGPoint)center
+                  zIndex:(int)zIndexValue {
+    
+    NSLog(@"Z-Position index is: %d", zIndexValue);
     
     AnimatedImageView *test;
     int xPos = x;
@@ -888,6 +919,7 @@
         // Update image with scale and rotate amount
         test.finalScaleValue = scaleAmount;
         test.finalRotateValue = rotateAmount;
+        test.finalZIndex = zIndexValue;
 
         // Scale and rotate the image at the same time
         CGAffineTransform scaling = CGAffineTransformMakeScale(scaleAmount, scaleAmount);
@@ -903,12 +935,9 @@
         
         // Add image to the drawing board view
         [self addSubview:test];
+        test.layer.zPosition = zIndexValue;
         
-        // Save image properties
-        [self.animatedImagesTag addObject:[NSNumber numberWithInt:tag]];
-        [self.animatedImagesCategory addObject:[NSNumber numberWithInt:category]];
-        [self.animatedImagesScale addObject:[NSNumber numberWithInt:scaleAmount]];
-        [self.animatedImagesRotate addObject:[NSNumber numberWithInt:rotateAmount]];
+        // Save animated image to an array
         [self.animatedImages addObject:test];
     }
 }
@@ -1012,10 +1041,11 @@
        
         [self.animatedImagesFrame removeAllObjects];
         [self.animatedImagesCenter removeAllObjects];
+       [self.animatedImagesZIndex removeAllObjects];
        
        for (int i = 0; i < self.animatedImages.count; i += 1) {
            AnimatedImageView *image = [self.animatedImages objectAtIndex:i];
-           NSLog(@"z-position: %f", image.layer.zPosition);
+           NSLog(@"z-position: %d", image.finalZIndex);
            CGRect imageFrame = image.frame;
            NSNumber *scaleValue = [NSNumber numberWithFloat:image.finalScaleValue];
            if ([scaleValue floatValue] > 0) {
@@ -1025,6 +1055,7 @@
            [self.animatedImagesRotate replaceObjectAtIndex:i withObject:rotateValue];
            [self.animatedImagesFrame addObject:[NSValue valueWithCGRect:imageFrame]];
            [self.animatedImagesCenter addObject:[NSValue valueWithCGPoint:image.center]];
+           [self.animatedImagesZIndex addObject:[NSNumber numberWithInteger:image.finalZIndex]];
         }
        
         self.saveDrawingBoard.animatedImagesFrames = self.animatedImagesFrame;
@@ -1033,6 +1064,8 @@
         self.saveDrawingBoard.animatedImagesScale = self.animatedImagesScale;
         self.saveDrawingBoard.animatedImagesRotate = self.animatedImagesRotate;
         self.saveDrawingBoard.animatedImagesCenter = self.animatedImagesCenter;
+        self.saveDrawingBoard.animatedImagesZIndex = self.animatedImagesZIndex;
+       self.saveDrawingBoard.maxZIndex = self.maxZIndex;
        
         // Get datapath for the file
         self.dataFilePath = [[self getPathToDocumentsDir] stringByAppendingPathComponent:FILE_NAME];
@@ -1102,6 +1135,8 @@
             self.animatedImagesScale = self.saveDrawingBoard.animatedImagesScale;
             self.animatedImagesRotate = self.saveDrawingBoard.animatedImagesRotate;
             self.animatedImagesCenter = self.saveDrawingBoard.animatedImagesCenter;
+            self.animatedImagesZIndex = self.saveDrawingBoard.animatedImagesZIndex;
+            self.maxZIndex = (int)self.saveDrawingBoard.maxZIndex;
             
             int count = 0;
             for (NSNumber *img in self.animatedImagesFrame) {
@@ -1113,13 +1148,9 @@
                 float rotateValue = [[self.animatedImagesRotate objectAtIndex:count] floatValue];
                 CGPoint centerValue = [[self.animatedImagesCenter objectAtIndex:count] CGPointValue];
                 int category = [[self.animatedImagesCategory objectAtIndex:count] intValue];
+                int zIndex = [[self.animatedImagesZIndex objectAtIndex:count] intValue];
                 
-                [self addFaceAnimation:tag category:category xLocation:xPos yLocation:yPos scaleValue:scaleValue rotateValue:rotateValue centerValue:centerValue];
-                
-                [self.animatedImagesCategory removeLastObject];
-                [self.animatedImagesTag removeLastObject];
-                [self.animatedImagesScale removeLastObject];
-                [self.animatedImagesRotate removeLastObject];
+                [self addFaceAnimation:tag category:category xLocation:xPos yLocation:yPos scaleValue:scaleValue rotateValue:rotateValue centerValue:centerValue zIndex:zIndex];
                 
                 count += 1;
             }
@@ -1170,6 +1201,8 @@
     
     // Create queue for saving data
     saveDataQueue = dispatch_queue_create("saveDataQueue", NULL);
+    
+//    self.maxZIndex = 0;
 }
 
 @end

@@ -24,6 +24,8 @@
 #define ANIMATED_IMAGES_SCALE   @"Animated Images Scale"
 #define ANIMATED_IMAGES_ROTATE  @"Animated Images Rotate"
 #define ANIMATED_IMAGES_CENTER  @"Animated Images Center"
+#define ANIMATED_IMAGES_Z       @"Animated Images Z-Index"
+#define MAX_Z_INDEX             @"Max Z Index"
 #define STATIC_IMAGES           @"Static Images"
 
 #pragma mark - NSCoding
@@ -38,6 +40,8 @@
     [aCoder encodeObject:self.animatedImagesScale forKey:ANIMATED_IMAGES_SCALE];
     [aCoder encodeObject:self.animatedImagesRotate forKey:ANIMATED_IMAGES_ROTATE];
     [aCoder encodeObject:self.animatedImagesCenter forKey:ANIMATED_IMAGES_CENTER];
+    [aCoder encodeObject:self.animatedImagesZIndex forKey:ANIMATED_IMAGES_Z];
+    [aCoder encodeInteger:self.maxZIndex forKey:MAX_Z_INDEX];
     [aCoder encodeObject:self.staticImages forKey:STATIC_IMAGES];
 }
 
@@ -53,6 +57,8 @@
         [self setAnimatedImagesScale:[aDecoder decodeObjectForKey:ANIMATED_IMAGES_SCALE]];
         [self setAnimatedImagesRotate:[aDecoder decodeObjectForKey:ANIMATED_IMAGES_ROTATE]];
         [self setAnimatedImagesCenter:[aDecoder decodeObjectForKey:ANIMATED_IMAGES_CENTER]];
+        [self setAnimatedImagesZIndex:[aDecoder decodeObjectForKey:ANIMATED_IMAGES_Z]];
+        [self setMaxZIndex:[aDecoder decodeIntegerForKey:MAX_Z_INDEX]];
         [self setStaticImages:[aDecoder decodeObjectForKey:STATIC_IMAGES]];
     }
     return self;

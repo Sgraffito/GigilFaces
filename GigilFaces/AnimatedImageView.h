@@ -13,6 +13,7 @@
 // Scaling
 @property (nonatomic) float finalScaleValue;
 @property (nonatomic) float finalRotateValue;
+@property (nonatomic) int finalZIndex;
 
 - (void)animate;
 - (NSArray *)animatedImageNames; // Abstract

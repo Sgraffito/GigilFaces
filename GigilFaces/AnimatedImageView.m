@@ -55,7 +55,7 @@
             isSelected = true;
             
             // Change the background color
-            self.backgroundColor = [UIColor colorWithRed:0 / 255.0 green:166 / 255.0 blue:80 / 255.0 alpha:0.5];
+            //self.backgroundColor = [UIColor colorWithRed:0 / 255.0 green:166 / 255.0 blue:80 / 255.0 alpha:0.5];
             
             // Add a pan gesture recognizer
             self.pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePan:)];
@@ -63,16 +63,16 @@
             [self addGestureRecognizer:self.pan];
             
             // Add a cancel button to the view
-//            const int cancelButtonSize = 25;
-//            CGRect cancelButtonFrame = CGRectMake(self.frame.size.width - (cancelButtonSize),
-//                                                0,
-//                                                cancelButtonSize,
-//                                                cancelButtonSize);
-//            self.cancelButtonBounds = [UIBezierPath bezierPathWithOvalInRect:cancelButtonFrame];
-//            self.cancelButton = [[CancelButtonView alloc] initWithFrame:cancelButtonFrame];
-//            
-//            [self addSubview:self.cancelButton];
-//            self.cancelButton.backgroundColor = [UIColor clearColor];
+            const int cancelButtonSize = 25;
+            CGRect cancelButtonFrame = CGRectMake(self.bounds.size.width - cancelButtonSize,
+                                                0,
+                                                cancelButtonSize,
+                                                cancelButtonSize);
+            self.cancelButtonBounds = [UIBezierPath bezierPathWithOvalInRect:cancelButtonFrame];
+            self.cancelButton = [[CancelButtonView alloc] initWithFrame:cancelButtonFrame];
+            
+            [self addSubview:self.cancelButton];
+            self.cancelButton.backgroundColor = [UIColor clearColor];
             
             // Add a rotate gesture to the rotation bounds
             self.rotate = [[UIRotationGestureRecognizer alloc] initWithTarget:self action:@selector(handleRotate:)];
@@ -91,7 +91,7 @@
             isSelected = false;
             
             // Remove hightlighted background color
-            self.backgroundColor = [UIColor clearColor];
+            //self.backgroundColor = [UIColor clearColor];
             
             // Remove the cancel button
             [self.cancelButton removeFromSuperview];
@@ -103,11 +103,10 @@
         }
         
         // Bring selected view to the front of all other views
-        [gesture.view.superview bringSubviewToFront:gesture.view];
-        
+//        [gesture.view.superview bringSubviewToFront:gesture.view];
+        self.layer.zPosition = self.finalZIndex;        
     }
     return isSelected;
-
 }
 
 #pragma mark - Gestures
