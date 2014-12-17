@@ -35,7 +35,7 @@
 
 - (NSArray *)eyes {
     if (!_eyes) {
-        _eyes = @[@"win_1.png", @"rollingEyePopUpImage.png", @"toothy_grinIcon.png", @"Star2Layer2", @"image4.png"];
+        _eyes = @[@"EyeBlinkCropped.png", @"RollingEyeCropped", @"AlmondEyeBlinkCropped", @"Star2Layer2", @"GMClipped.png"];
     }
     return _eyes;
 }
@@ -105,6 +105,8 @@
     UIImageView *imgView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[self.mainArray objectAtIndex:indexPath.row]]];
     imgView.contentMode = UIViewContentModeTopLeft;
     imgView.clipsToBounds = YES;
+    imgView.frame = CGRectMake(0, 0, 100, 100);
+    imgView.contentMode = UIViewContentModeScaleAspectFill;
     cell.backgroundView = imgView;
     
     return cell;

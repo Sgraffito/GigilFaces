@@ -71,11 +71,11 @@
     if (self.inDeleteMode) {
         
         // Size of delete button
-        const int deleteButtonSize = 25;
+        float deleteButtonSize = 25;
         
         // Location of the delete button
-        CGRect deleteButtonFrame = CGRectMake((self.frame.size.width / 6) * 5.25,
-                                              (self.frame.size.width / 50),
+        CGRect deleteButtonFrame = CGRectMake((self.frame.size.width / 6) * 5.24,
+                                              (self.frame.size.width / 49),
                                               deleteButtonSize,
                                               deleteButtonSize);
         

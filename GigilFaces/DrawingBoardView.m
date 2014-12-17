@@ -15,8 +15,10 @@
 #import "AnimatedImageView.h"
 #import "AnimateGS.h"
 #import "RollingEyeView.h"
-#import "ToothyGrinView.h"
+#import "AlmondEyeBlinkView.h"
 #import "Star.h"
+#import "GrouchyMouthView.h"
+#import "BlinkingEyeView.h"
 #import "SaveDrawingBoard.h"
 #import "MyDrawingsVC.h"
 
@@ -175,6 +177,11 @@
     image.finalZIndex = self.maxZIndex;
     self.maxZIndex += 1;
     isSelected = [image selectAnimatedImage:gesture]; // Check if image is selected
+    
+    /* Remove the image from the subview and then add it again. This preserves the order
+       of the animaged images when an image is made to send to the camera roll */
+    [image removeFromSuperview];
+    [self addSubview:image];
         
     // If the image is selected, disable all drawing
     if (isSelected) {
@@ -354,10 +361,10 @@
     self.inkSupply = 0;
     
     // Half of the bristles in the brush
-    int halfOfBrush = 3.0; //(int)(4.0 / 3);
+    int halfOfBrush = 3.0;
     
     // Opacity for the first bristle in the brush
-    float opacityGradient = 0.25; //1 / (4.0);
+    float opacityGradient = 0.25;
     
     // Create each bristle in the brush
     for (int i = 0; i < (2 * halfOfBrush); i += 1) {
@@ -841,10 +848,13 @@
 + (UIImage *) imageWithView:(UIView *)view
 {
     UIGraphicsBeginImageContextWithOptions(view.bounds.size, view.opaque, [[UIScreen mainScreen] scale]);
+    [view setNeedsDisplay];
+    UIGraphicsBeginImageContextWithOptions(view.bounds.size, YES, 2.0);
     [view.layer renderInContext:UIGraphicsGetCurrentContext()];
     UIImage * img = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     return img;
+
 }
 
 #pragma mark - Animated Illustrations
@@ -862,7 +872,6 @@
     [self.animatedImagesRotate addObject:[NSNumber numberWithInt:rotate]];
     [self.animatedImagesZIndex addObject:[NSNumber numberWithInteger:self.maxZIndex]];
     self.maxZIndex += 1;
-//    NSLog(@"maxZIndex is: %d", self.maxZIndex);
 }
 
 - (void)addFaceAnimation:(int)tag category:(int)category
@@ -870,9 +879,7 @@
               scaleValue:(float)scale rotateValue:(float)rotate
              centerValue:(CGPoint)center
                   zIndex:(int)zIndexValue {
-    
-    NSLog(@"Z-Position index is: %d", zIndexValue);
-    
+        
     AnimatedImageView *test;
     int xPos = x;
     int yPos = y;
@@ -882,25 +889,25 @@
     
     // Create a random position for the view on the drawing board
     if (category == 0 && tag == 0) {
-        const float width = 86;
-        const float height = 193;
+        const float width = 149.6;
+        const float height = 149.6;
         if (xPos < 0) { xPos = [self calculateXPos:xPos width:width]; }
         if (yPos < 0) { yPos = [self calculateYPos:yPos width:height]; }
-        test = [[AnimateGS alloc] initWithFrame:CGRectMake(xPos, yPos, width, height)];
+        test = [[BlinkingEyeView alloc] initWithFrame:CGRectMake(xPos, yPos, width, height)];
     }
     else if (category == 0 && tag == 1) {
-        const float width = 150;
-        const float height = 150;
+        const float width = 149.6;
+        const float height = 149.6;
         if (xPos < 0) { xPos = [self calculateXPos:xPos width:width]; }
         if (yPos < 0) { yPos = [self calculateYPos:yPos width:height]; }
         test = [[RollingEyeView alloc] initWithFrame:CGRectMake(xPos, yPos, width, height)];
     }
     else if (category == 0 && tag == 2) {
-        const float width = 315;
-        const float height = 210;
+        const float width = 149.6;
+        const float height = 149.6;
         if (xPos < 0) { xPos = [self calculateXPos:xPos width:width]; }
         if (yPos < 0) { yPos = [self calculateYPos:yPos width:height]; }
-        test = [[ToothyGrinView alloc] initWithFrame:CGRectMake(xPos, yPos, width, height)];
+        test = [[AlmondEyeBlinkView alloc] initWithFrame:CGRectMake(xPos, yPos, width, height)];
     }
     else if (category == 0 && tag == 3) {
         const float width = 100;
@@ -908,6 +915,13 @@
         if (xPos < 0) { xPos = [self calculateXPos:xPos width:width]; }
         if (yPos < 0) { yPos = [self calculateYPos:yPos width:height]; }
         test = [[Star alloc] initWithFrame:CGRectMake(xPos, yPos, width, height)];
+    }
+    else if (category == 0 && tag == 4) {
+        const float width = 300;
+        const float height = 135;
+        if (xPos < 0) { xPos = [self calculateXPos:xPos width:width]; }
+        if (yPos < 0) { yPos = [self calculateYPos:yPos width:height]; }
+        test = [[GrouchyMouthView alloc] initWithFrame:CGRectMake(xPos, yPos, width, height)];
     }
     
     if (test != nil) {
@@ -1041,11 +1055,11 @@
        
         [self.animatedImagesFrame removeAllObjects];
         [self.animatedImagesCenter removeAllObjects];
-       [self.animatedImagesZIndex removeAllObjects];
+        [self.animatedImagesZIndex removeAllObjects];
        
+       // Get values for frame, rotate, scale, and z-index from each image on the artboard
        for (int i = 0; i < self.animatedImages.count; i += 1) {
            AnimatedImageView *image = [self.animatedImages objectAtIndex:i];
-           NSLog(@"z-position: %d", image.finalZIndex);
            CGRect imageFrame = image.frame;
            NSNumber *scaleValue = [NSNumber numberWithFloat:image.finalScaleValue];
            if ([scaleValue floatValue] > 0) {
@@ -1058,6 +1072,17 @@
            [self.animatedImagesZIndex addObject:[NSNumber numberWithInteger:image.finalZIndex]];
         }
        
+       /* Sort the animated image properties so the images are sorted from lowest z-index to highest z-index 
+          This allows images to be added to the drawing board in the order of the z-index (the highest z-index
+          corresponds to the uppermost layer on the drawing board. 
+          Important because when the drawing board is saved as an image, the animated images are popped off
+          in the order they were added. When the user clicks on an animated image, the image is removed from
+          the subview and added back again, so order of the images is preserved */
+       if (self.animatedImages.count > 1) {
+           [self bubbleSort];
+       }
+       
+       // Save values
         self.saveDrawingBoard.animatedImagesFrames = self.animatedImagesFrame;
         self.saveDrawingBoard.animatedImagesTag = self.animatedImagesTag;
         self.saveDrawingBoard.animatedImagesCategory = self.animatedImagesCategory;
@@ -1065,7 +1090,7 @@
         self.saveDrawingBoard.animatedImagesRotate = self.animatedImagesRotate;
         self.saveDrawingBoard.animatedImagesCenter = self.animatedImagesCenter;
         self.saveDrawingBoard.animatedImagesZIndex = self.animatedImagesZIndex;
-       self.saveDrawingBoard.maxZIndex = self.maxZIndex;
+        self.saveDrawingBoard.maxZIndex = self.maxZIndex;
        
         // Get datapath for the file
         self.dataFilePath = [[self getPathToDocumentsDir] stringByAppendingPathComponent:FILE_NAME];
@@ -1087,6 +1112,62 @@
             [NSKeyedArchiver archiveRootObject:temp toFile:self.dataFilePath];
         }
     });
+}
+
+- (void)bubbleSort {
+    
+    int j;
+    Boolean flag = true;
+    float temp;
+    CGRect tempRect;
+    CGPoint tempPoint;
+    
+    // Sort Z-index from smallest to largest
+    while (flag) {
+        flag = false;
+        for (j = 0; j < self.animatedImagesZIndex.count - 1; j += 1) {
+            int jValue = [[self.animatedImagesZIndex objectAtIndex:j] intValue];
+            int jplus1Value = [[self.animatedImagesZIndex objectAtIndex:(j+1)] intValue];
+            if (jValue > jplus1Value) {
+                
+                // Swap Z-index
+                temp = [[self.animatedImagesZIndex objectAtIndex:j] floatValue];
+                [self.animatedImagesZIndex replaceObjectAtIndex:j withObject:[self.animatedImagesZIndex objectAtIndex:(j + 1)]];
+                [self.animatedImagesZIndex replaceObjectAtIndex:(j + 1) withObject:[NSNumber numberWithFloat:temp]];
+                flag = true;
+                
+                // Swap Frames
+                tempRect = [[self.animatedImagesFrame objectAtIndex:j] CGRectValue];
+                [self.animatedImagesFrame replaceObjectAtIndex:j withObject:[self.animatedImagesFrame objectAtIndex:(j + 1)]];
+                [self.animatedImagesFrame replaceObjectAtIndex:(j + 1) withObject:[NSValue valueWithCGRect:tempRect]];
+
+                // Swap Tag
+                temp = [[self.animatedImagesTag objectAtIndex:j] floatValue];
+                [self.animatedImagesTag replaceObjectAtIndex:j withObject:[self.animatedImagesTag objectAtIndex:(j + 1)]];
+                [self.animatedImagesTag replaceObjectAtIndex:(j + 1) withObject:[NSNumber numberWithFloat:temp]];
+                
+                // Swap Category
+                temp = [[self.animatedImagesCategory objectAtIndex:j] floatValue];
+                [self.animatedImagesCategory replaceObjectAtIndex:j withObject:[self.animatedImagesCategory objectAtIndex:(j + 1)]];
+                [self.animatedImagesCategory replaceObjectAtIndex:(j + 1) withObject:[NSNumber numberWithFloat:temp]];
+                
+                // Swap Scale
+                temp = [[self.animatedImagesScale objectAtIndex:j] floatValue];
+                [self.animatedImagesScale replaceObjectAtIndex:j withObject:[self.animatedImagesScale objectAtIndex:(j + 1)]];
+                [self.animatedImagesScale replaceObjectAtIndex:(j + 1) withObject:[NSNumber numberWithFloat:temp]];
+                
+                // Swap Rotate
+                temp = [[self.animatedImagesRotate objectAtIndex:j] floatValue];
+                [self.animatedImagesRotate replaceObjectAtIndex:j withObject:[self.animatedImagesRotate objectAtIndex:(j + 1)]];
+                [self.animatedImagesRotate replaceObjectAtIndex:(j + 1) withObject:[NSNumber numberWithFloat:temp]];
+                
+                // Swap Center
+                tempPoint = [[self.animatedImagesCenter objectAtIndex:j] CGPointValue];
+                [self.animatedImagesCenter replaceObjectAtIndex:j withObject:[self.animatedImagesCenter objectAtIndex:(j + 1)]];
+                [self.animatedImagesCenter replaceObjectAtIndex:(j + 1) withObject:[NSValue valueWithCGPoint:tempPoint]];
+            }
+        }
+    }
 }
 
 #pragma mark - Setup

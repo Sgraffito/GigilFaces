@@ -20,14 +20,14 @@
 }
 
 - (NSString *)firstImageName {
-    return @"eye_roll1.png";
+    return @"ER1";
 }
 
 - (NSArray *)animatedImageNames {
-    return @[@"eye_roll1.png", @"eye_roll2.png", @"eye_roll3.png", @"eye_roll4.png",
-             @"eye_roll5.png", @"eye_roll6.png", @"eye_roll7.png", @"eye_roll8.png", @"eye_roll9.png",
-             @"eye_roll10.png", @"eye_roll11.png", @"eye_roll12.png", @"eye_roll13.png", @"eye_roll14.png",
-             @"eye_roll15.png", @"eye_roll16.png", @"eye_roll17.png", @"eye_roll18.png"];
+    return @[@"ER1", @"ER2", @"ER3", @"ER4",
+             @"ER5", @"ER6", @"ER7", @"ER8", @"ER9",
+             @"ER10", @"ER9", @"ER8", @"ER7", @"ER6",
+             @"ER5", @"ER4", @"ER3", @"ER2", @"ER1"];
 }
 
 /*

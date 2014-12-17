@@ -19,8 +19,12 @@
 @property (strong, nonatomic) UIRotationGestureRecognizer *rotate;
 
 // Cancel button
-@property (strong, nonatomic) CancelButtonView *cancelButton;
+//@property (strong, nonatomic) CancelButtonView *cancelButton;
 @property (strong, nonatomic) UIBezierPath *cancelButtonBounds;
+@property (strong, nonatomic) CAShapeLayer *removeButton;
+@property (strong, nonatomic) CAShapeLayer *upperLeftLineremoveButton;
+@property (strong, nonatomic) CAShapeLayer *lowerLeftLineremoveButton;
+
 
 @end
 
@@ -63,18 +67,55 @@
             [self addGestureRecognizer:self.pan];
             
             // Add a cancel button to the view
-            const int cancelButtonSize = 25;
+            float cancelButtonSize = 30;
+
             CGRect cancelButtonFrame = CGRectMake(self.bounds.size.width - cancelButtonSize,
                                                 0,
                                                 cancelButtonSize,
                                                 cancelButtonSize);
             self.cancelButtonBounds = [UIBezierPath bezierPathWithOvalInRect:cancelButtonFrame];
-            self.cancelButton = [[CancelButtonView alloc] initWithFrame:cancelButtonFrame];
             
-            [self addSubview:self.cancelButton];
-            self.cancelButton.backgroundColor = [UIColor clearColor];
+            // Remove Button - CAShape Layer
+            self.removeButton = [CAShapeLayer layer];
+            self.removeButton.strokeColor = [UIColor redColor].CGColor;
+            self.removeButton.fillColor = [UIColor clearColor].CGColor;
+            self.removeButton.lineWidth = 4.0;
+            self.removeButton.path = self.cancelButtonBounds.CGPath;
+            [self.layer addSublayer:self.removeButton];
             
-            // Add a rotate gesture to the rotation bounds
+            // Add an x (upper left to lower right)
+            UIBezierPath *diagonalLine = [UIBezierPath bezierPath];
+            [diagonalLine moveToPoint:CGPointMake(cancelButtonFrame.origin.x + 8,
+                                                  cancelButtonFrame.origin.y + 8)];
+            [diagonalLine addLineToPoint:CGPointMake(cancelButtonFrame.origin.x + cancelButtonFrame.size.width - 8,
+                                                     cancelButtonFrame.origin.y + cancelButtonFrame.size.height - 8)];
+            [diagonalLine closePath];
+            self.upperLeftLineremoveButton = [CAShapeLayer layer];
+            self.upperLeftLineremoveButton.strokeColor = [UIColor redColor].CGColor;
+            self.upperLeftLineremoveButton.fillColor = [UIColor clearColor].CGColor;
+            self.upperLeftLineremoveButton.lineWidth = 4.0;
+            self.upperLeftLineremoveButton.path = diagonalLine.CGPath;
+            self.upperLeftLineremoveButton.lineCap = kCALineCapRound;
+            [self.layer addSublayer:self.upperLeftLineremoveButton];
+
+            
+            // Add an x (lower left to upper right)
+            UIBezierPath *diagonalLine2 = [UIBezierPath bezierPath];
+            [diagonalLine2 moveToPoint:CGPointMake(cancelButtonFrame.origin.x + 8,
+                                                   cancelButtonFrame.origin.y + cancelButtonFrame.size.height - 8)];
+            [diagonalLine2 addLineToPoint:CGPointMake(cancelButtonFrame.origin.x + cancelButtonFrame.size.width - 8,
+                                                     cancelButtonFrame.origin.y + 8)];
+            [diagonalLine2 closePath];
+            self.lowerLeftLineremoveButton = [CAShapeLayer layer];
+            self.lowerLeftLineremoveButton.strokeColor = [UIColor redColor].CGColor;
+            self.lowerLeftLineremoveButton.fillColor = [UIColor clearColor].CGColor;
+            self.lowerLeftLineremoveButton.lineWidth = 4.0;
+            self.lowerLeftLineremoveButton.path = diagonalLine2.CGPath;
+            self.lowerLeftLineremoveButton.lineCap = kCALineCapRound;
+            [self.layer addSublayer:self.lowerLeftLineremoveButton];
+
+            
+            // Add a rotate gesture
             self.rotate = [[UIRotationGestureRecognizer alloc] initWithTarget:self action:@selector(handleRotate:)];
             self.rotate.delegate = self;
             [self addGestureRecognizer:self.rotate];
@@ -93,8 +134,10 @@
             // Remove hightlighted background color
             //self.backgroundColor = [UIColor clearColor];
             
-            // Remove the cancel button
-            [self.cancelButton removeFromSuperview];
+            // Remove the remove button
+            [self.removeButton removeFromSuperlayer];
+            [self.upperLeftLineremoveButton removeFromSuperlayer];
+            [self.lowerLeftLineremoveButton removeFromSuperlayer];
             
             // Remove pan gesture
             [self removeGestureRecognizer:self.pan];
@@ -103,10 +146,22 @@
         }
         
         // Bring selected view to the front of all other views
-//        [gesture.view.superview bringSubviewToFront:gesture.view];
-        self.layer.zPosition = self.finalZIndex;        
+        self.layer.zPosition = self.finalZIndex;
     }
     return isSelected;
+}
+
+-(void)makeLineLayer:(CALayer *)layer lineFromPointA:(CGPoint)pointA toPointB:(CGPoint)pointB
+{
+    CAShapeLayer *line = [CAShapeLayer layer];
+    UIBezierPath *linePath=[UIBezierPath bezierPath];
+    [linePath moveToPoint: pointA];
+    [linePath addLineToPoint:pointB];
+    line.path=linePath.CGPath;
+    line.fillColor = nil;
+    line.opacity = 1.0;
+    line.strokeColor = [UIColor redColor].CGColor;
+    [layer addSublayer:line];
 }
 
 #pragma mark - Gestures

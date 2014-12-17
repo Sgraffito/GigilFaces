@@ -25,6 +25,7 @@
 		BC4AE4B819A81066009CB7E7 /* BrushOpacityPopOverVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC4AE4B619A81066009CB7E7 /* BrushOpacityPopOverVC.xib */; };
 		BC4AE4BC19A810AD009CB7E7 /* BrushOpacityView.m in Sources */ = {isa = PBXBuildFile; fileRef = BC4AE4BB19A810AD009CB7E7 /* BrushOpacityView.m */; };
 		BC891B9819B8064300B4EFAB /* FillPaintingBrushBezier.m in Sources */ = {isa = PBXBuildFile; fileRef = BC891B9719B8064300B4EFAB /* FillPaintingBrushBezier.m */; };
+		BC9DCBBE1A30B0BC003F6D87 /* TalkingMouthView.m in Sources */ = {isa = PBXBuildFile; fileRef = BC9DCBBD1A30B0BC003F6D87 /* TalkingMouthView.m */; };
 		BCA121CE19A74E20005CC84D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCA121CD19A74E20005CC84D /* Foundation.framework */; };
 		BCA121D019A74E20005CC84D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCA121CF19A74E20005CC84D /* CoreGraphics.framework */; };
 		BCA121D219A74E20005CC84D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCA121D119A74E20005CC84D /* UIKit.framework */; };
@@ -52,8 +53,11 @@
 		BCD132CF19AF58D600C12601 /* MyDrawingCVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BCD132CE19AF58D600C12601 /* MyDrawingCVCell.m */; };
 		BCD132D619AFB4CD00C12601 /* FrontPageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BCD132D519AFB4CD00C12601 /* FrontPageVC.m */; };
 		BCE820191A28BD7B00788184 /* Star.m in Sources */ = {isa = PBXBuildFile; fileRef = BCE820181A28BD7B00788184 /* Star.m */; };
+		BCE970291A40FEAF00B4DC14 /* BlinkingEyeView.m in Sources */ = {isa = PBXBuildFile; fileRef = BCE970281A40FEAF00B4DC14 /* BlinkingEyeView.m */; };
+		BCE9702C1A410F6700B4DC14 /* AlmondEyeBlinkView.m in Sources */ = {isa = PBXBuildFile; fileRef = BCE9702B1A410F6700B4DC14 /* AlmondEyeBlinkView.m */; };
 		BCEEFF7D19AD69ED00FDD188 /* ToothyGrinView.m in Sources */ = {isa = PBXBuildFile; fileRef = BCEEFF7C19AD69ED00FDD188 /* ToothyGrinView.m */; };
 		BCEEFF8019AE100E00FDD188 /* SaveDrawingBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = BCEEFF7F19AE100E00FDD188 /* SaveDrawingBoard.m */; };
+		BCFF55AF1A40621400D09F0E /* GrouchyMouthView.m in Sources */ = {isa = PBXBuildFile; fileRef = BCFF55AE1A40621400D09F0E /* GrouchyMouthView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,6 +103,8 @@
 		BC4AE4BB19A810AD009CB7E7 /* BrushOpacityView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrushOpacityView.m; sourceTree = "<group>"; };
 		BC891B9619B8064300B4EFAB /* FillPaintingBrushBezier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FillPaintingBrushBezier.h; sourceTree = "<group>"; };
 		BC891B9719B8064300B4EFAB /* FillPaintingBrushBezier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FillPaintingBrushBezier.m; sourceTree = "<group>"; };
+		BC9DCBBC1A30B0BC003F6D87 /* TalkingMouthView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TalkingMouthView.h; sourceTree = "<group>"; };
+		BC9DCBBD1A30B0BC003F6D87 /* TalkingMouthView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TalkingMouthView.m; sourceTree = "<group>"; };
 		BCA121CA19A74E20005CC84D /* GigilFaces.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GigilFaces.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCA121CD19A74E20005CC84D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		BCA121CF19A74E20005CC84D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -142,10 +148,16 @@
 		BCD132D519AFB4CD00C12601 /* FrontPageVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FrontPageVC.m; sourceTree = "<group>"; };
 		BCE820171A28BD7B00788184 /* Star.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Star.h; sourceTree = "<group>"; };
 		BCE820181A28BD7B00788184 /* Star.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Star.m; sourceTree = "<group>"; };
+		BCE970271A40FEAF00B4DC14 /* BlinkingEyeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlinkingEyeView.h; sourceTree = "<group>"; };
+		BCE970281A40FEAF00B4DC14 /* BlinkingEyeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlinkingEyeView.m; sourceTree = "<group>"; };
+		BCE9702A1A410F6700B4DC14 /* AlmondEyeBlinkView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlmondEyeBlinkView.h; sourceTree = "<group>"; };
+		BCE9702B1A410F6700B4DC14 /* AlmondEyeBlinkView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlmondEyeBlinkView.m; sourceTree = "<group>"; };
 		BCEEFF7B19AD69ED00FDD188 /* ToothyGrinView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToothyGrinView.h; sourceTree = "<group>"; };
 		BCEEFF7C19AD69ED00FDD188 /* ToothyGrinView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToothyGrinView.m; sourceTree = "<group>"; };
 		BCEEFF7E19AE100E00FDD188 /* SaveDrawingBoard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SaveDrawingBoard.h; sourceTree = "<group>"; };
 		BCEEFF7F19AE100E00FDD188 /* SaveDrawingBoard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SaveDrawingBoard.m; sourceTree = "<group>"; };
+		BCFF55AD1A40621400D09F0E /* GrouchyMouthView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GrouchyMouthView.h; sourceTree = "<group>"; };
+		BCFF55AE1A40621400D09F0E /* GrouchyMouthView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GrouchyMouthView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -191,12 +203,7 @@
 				BCC74A0C19AB863A00C3A574 /* AnimateGS.m */,
 				BC12D2D919ACCA0700350C78 /* CancelButtonView.h */,
 				BC12D2DA19ACCA0700350C78 /* CancelButtonView.m */,
-				BC12D2DC19ACF49D00350C78 /* RollingEyeView.h */,
-				BC12D2DD19ACF49D00350C78 /* RollingEyeView.m */,
-				BCEEFF7B19AD69ED00FDD188 /* ToothyGrinView.h */,
-				BCEEFF7C19AD69ED00FDD188 /* ToothyGrinView.m */,
-				BCE820171A28BD7B00788184 /* Star.h */,
-				BCE820181A28BD7B00788184 /* Star.m */,
+				BCE970231A40FE7300B4DC14 /* Animated Images */,
 			);
 			name = "Animated Images";
 			sourceTree = "<group>";
@@ -425,6 +432,27 @@
 			name = "Front Page";
 			sourceTree = "<group>";
 		};
+		BCE970231A40FE7300B4DC14 /* Animated Images */ = {
+			isa = PBXGroup;
+			children = (
+				BC12D2DC19ACF49D00350C78 /* RollingEyeView.h */,
+				BC12D2DD19ACF49D00350C78 /* RollingEyeView.m */,
+				BCEEFF7B19AD69ED00FDD188 /* ToothyGrinView.h */,
+				BCEEFF7C19AD69ED00FDD188 /* ToothyGrinView.m */,
+				BCE820171A28BD7B00788184 /* Star.h */,
+				BCE820181A28BD7B00788184 /* Star.m */,
+				BC9DCBBC1A30B0BC003F6D87 /* TalkingMouthView.h */,
+				BC9DCBBD1A30B0BC003F6D87 /* TalkingMouthView.m */,
+				BCFF55AD1A40621400D09F0E /* GrouchyMouthView.h */,
+				BCFF55AE1A40621400D09F0E /* GrouchyMouthView.m */,
+				BCE970271A40FEAF00B4DC14 /* BlinkingEyeView.h */,
+				BCE970281A40FEAF00B4DC14 /* BlinkingEyeView.m */,
+				BCE9702A1A410F6700B4DC14 /* AlmondEyeBlinkView.h */,
+				BCE9702B1A410F6700B4DC14 /* AlmondEyeBlinkView.m */,
+			);
+			name = "Animated Images";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -529,6 +557,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BCE9702C1A410F6700B4DC14 /* AlmondEyeBlinkView.m in Sources */,
 				BC12D2DE19ACF49D00350C78 /* RollingEyeView.m in Sources */,
 				BCA1220A19A75B48005CC84D /* ColorSelectedView.m in Sources */,
 				BCA1220719A7560D005CC84D /* DrawingBoardView.m in Sources */,
@@ -546,10 +575,13 @@
 				BCC74A1119AB8C7B00C3A574 /* NoAnimatedImagesPopOverVC.m in Sources */,
 				BCC74A0A19AB861000C3A574 /* AnimatedImageView.m in Sources */,
 				BCA121DA19A74E20005CC84D /* main.m in Sources */,
+				BCE970291A40FEAF00B4DC14 /* BlinkingEyeView.m in Sources */,
 				BC12D2DB19ACCA0700350C78 /* CancelButtonView.m in Sources */,
 				BCA1220419A74E78005CC84D /* GigilFacesDrawingVC.m in Sources */,
 				BCEEFF8019AE100E00FDD188 /* SaveDrawingBoard.m in Sources */,
 				BC891B9819B8064300B4EFAB /* FillPaintingBrushBezier.m in Sources */,
+				BC9DCBBE1A30B0BC003F6D87 /* TalkingMouthView.m in Sources */,
+				BCFF55AF1A40621400D09F0E /* GrouchyMouthView.m in Sources */,
 				BCEEFF7D19AD69ED00FDD188 /* ToothyGrinView.m in Sources */,
 				BC1C080D19B0BF4C008EFCD8 /* SavePopOverVC.m in Sources */,
 				BC4AE4B719A81066009CB7E7 /* BrushOpacityPopOverVC.m in Sources */,

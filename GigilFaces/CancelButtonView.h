@@ -10,4 +10,6 @@
 
 @interface CancelButtonView : UIView
 
+- (void)scaleChanged:(float)scale;
+
 @end

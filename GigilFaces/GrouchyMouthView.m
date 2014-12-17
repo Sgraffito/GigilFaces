@@ -1,23 +1,23 @@
 //
-//  TalkingMouthView.m
+//  GrouchyMouthView.m
 //  GigilFaces
 //
-//  Created by Nicole on 12/4/14.
+//  Created by Nicole on 12/16/14.
 //  Copyright (c) 2014 nicole. All rights reserved.
 //
 
-#import "TalkingMouthView.h"
+#import "GrouchyMouthView.h"
 
-@implementation TalkingMouthView
+@implementation GrouchyMouthView
 
 - (NSString *)firstImageName {
-    return @"TM1";
+    return @"GM1";
 }
 
 - (NSArray *)animatedImageNames {
-    return @[@"TM1", @"TM2", @"TM3", @"TM4",
-             @"TM5", @"TM6", @"TM7", @"TM8", @"TM9",
-             @"TM10", @"TM11", @"TM12"];
+    return @[@"GM1", @"GM2", @"GM3", @"GM4",
+             @"GM5", @"GM6", @"GM7", @"GM8", @"GM9",
+             @"GM10", @"GM11", @"GM12", @"GM13", @"GM14"];
 }
 
 /*
