@@ -14,13 +14,14 @@
 #import "FaceAnimationsPopOverVC.h"
 #import "AnimatedImageView.h"
 #import "AnimateGS.h"
-#import "RollingEyeView.h"
-#import "AlmondEyeBlinkView.h"
-#import "Star.h"
-#import "GrouchyMouthView.h"
-#import "BlinkingEyeView.h"
 #import "SaveDrawingBoard.h"
 #import "MyDrawingsVC.h"
+
+// Images
+#import "AlmondEyeBlinkView.h"
+#import "GrouchyMouthView.h"
+#import "BlinkingEyeView.h"
+#import "CurlyMoustacheView.h"
 
 @interface DrawingBoardView()
 @property (nonatomic) UIColor *paperColor;
@@ -43,11 +44,13 @@
 @property (strong, nonatomic) NSMutableArray *animatedImages; // Of UIImageView //// CHANGE TO NSSTRING
 @property (strong, nonatomic) NSMutableArray *animatedImagesFrame; // Of CGRect
 @property (nonatomic) BOOL animated;
-@property (strong, nonatomic) NSMutableArray *animatedImagesTag; // Of NSNumber
-@property (strong, nonatomic) NSMutableArray *animatedImagesCategory; // Of NSNumber
+//@property (strong, nonatomic) NSMutableArray *animatedImagesTag; // Of NSNumber
+//@property (strong, nonatomic) NSMutableArray *animatedImagesCategory; // Of NSNumber
 @property (strong, nonatomic) NSMutableArray *animatedImagesScale; // Of NSNumber
 @property (strong, nonatomic) NSMutableArray *animatedImagesRotate; // Of NSNumber
 @property (strong, nonatomic) NSMutableArray *animatedImagesCenter; // Of CGPoint
+@property (strong, nonatomic) NSMutableArray *animatedImagesSerialNumber; // Of NSString
+@property (strong, nonatomic) NSMutableArray *animatedImagesType; // Of NSString
 @property (strong, nonatomic) NSMutableArray *animatedImagesZIndex; // Of NSNumber
 @property (nonatomic) int maxZIndex;
 
@@ -75,14 +78,19 @@
 
 #pragma mark - Initialization
 
+- (NSMutableArray *)animatedImagesSerialNumber {
+    if (!_animatedImagesSerialNumber) _animatedImagesSerialNumber = [[NSMutableArray alloc] init];
+    return _animatedImagesSerialNumber;
+}
+
+- (NSMutableArray *)animatedImagesType {
+    if (!_animatedImagesType) _animatedImagesType = [[NSMutableArray alloc] init];
+    return _animatedImagesType;
+}
+
 - (NSMutableArray *)animatedImagesZIndex {
     if (!_animatedImagesZIndex) _animatedImagesZIndex = [[NSMutableArray alloc] init];
     return _animatedImagesZIndex;
-}
-
-- (NSMutableArray *)animatedImagesTag {
-    if (!_animatedImagesTag) _animatedImagesTag = [[NSMutableArray alloc] init];
-    return _animatedImagesTag;
 }
 
 - (NSMutableArray *)animatedImagesCenter {
@@ -98,11 +106,6 @@
 - (NSMutableArray *)animatedImagesRotate {
     if (!_animatedImagesRotate) _animatedImagesRotate = [[NSMutableArray alloc] init];
     return _animatedImagesRotate;
-}
-
-- (NSMutableArray *)animatedImagesCategory {
-    if (!_animatedImagesCategory) _animatedImagesCategory = [[NSMutableArray alloc] init];
-    return _animatedImagesCategory;
 }
 
 - (NSString *)drawingTitle {
@@ -201,8 +204,8 @@
         for (int i = 0; i < [self.animatedImages count]; i += 1) {
             if ([image isEqual:[self.animatedImages objectAtIndex:i]]) {
                 [self.animatedImages removeObjectAtIndex:i];
-                [self.animatedImagesTag removeObjectAtIndex:i];
-                [self.animatedImagesCategory removeObjectAtIndex:i];
+                [self.animatedImagesType removeObjectAtIndex:i];
+                [self.animatedImagesSerialNumber removeObjectAtIndex:i];
                 [self.animatedImagesScale removeObjectAtIndex:i];
                 [self.animatedImagesRotate removeObjectAtIndex:i];
             }
@@ -812,8 +815,8 @@
     
     // Set arrays to nil
     self.animatedImages = nil;
-    self.animatedImagesCategory = nil;
-    self.animatedImagesTag = nil;
+    self.animatedImagesSerialNumber = nil;
+    self.animatedImagesType = nil;
     self.animatedImagesFrame = nil;
     self.animatedImagesScale = nil;
     self.animatedImagesRotate = nil;
@@ -862,25 +865,64 @@
 - (void)addFirstTimeFaceAnimation:(int)tag category:(int)category
                         xLocation:(float)x yLocation:(float)y
                        scaleValue:(float)scale rotateValue:(float)rotate
-                      centerValue:(CGPoint)center {
-    [self addFaceAnimation:tag category:category xLocation:x yLocation:y scaleValue:scale rotateValue:rotate centerValue:center zIndex:self.maxZIndex];
+                      centerValue:(CGPoint)center
+                        imageType:(NSString *)imageType {
+    
+    NSString *serialNumber;
+    
+    if ([imageType isEqualToString:@"animated"]) {
+    
+        /**** EYES **********************************************************************/
+        if (category == 0 && tag == 0) {
+            serialNumber = @"A0001";
+        }
+
+        /**** MOUTHS **********************************************************************/
+        else if (category == 1 && tag == 0) {
+            serialNumber = @"A1001";
+        }
+        
+        /**** OTHERS **********************************************************************/
+        else if (category == 2 && tag == 0) {
+            serialNumber = @"A2001";
+        }
+    }
+    else if ([imageType isEqualToString:@"static"]) {
+        /**** ?? **********************************************************************/
+        if (category == 0 && tag == 0) {
+            serialNumber = @"S0001";
+        }
+        
+        /**** ?? **********************************************************************/
+        else if (category == 1 && tag == 0) {
+            serialNumber = @"S1001";
+        }
+        
+        /**** ?? **********************************************************************/
+        else if (category == 2 && tag == 0) {
+            serialNumber = @"S2001";
+        }
+    }
+    
+    // Add the image to the drawing board
+    [self addFaceAnimation:serialNumber xLocation:x yLocation:y scaleValue:scale rotateValue:rotate centerValue:center zIndex:self.maxZIndex];
     
     // Save image properties
-    [self.animatedImagesTag addObject:[NSNumber numberWithInt:tag]];
-    [self.animatedImagesCategory addObject:[NSNumber numberWithInt:category]];
+    [self.animatedImagesSerialNumber addObject:serialNumber];
+    [self.animatedImagesType addObject:imageType];
     [self.animatedImagesScale addObject:[NSNumber numberWithInt:scale]];
     [self.animatedImagesRotate addObject:[NSNumber numberWithInt:rotate]];
     [self.animatedImagesZIndex addObject:[NSNumber numberWithInteger:self.maxZIndex]];
     self.maxZIndex += 1;
 }
 
-- (void)addFaceAnimation:(int)tag category:(int)category
+- (void)addFaceAnimation:(NSString *)serialNumber
                xLocation:(float)x yLocation:(float)y
               scaleValue:(float)scale rotateValue:(float)rotate
              centerValue:(CGPoint)center
                   zIndex:(int)zIndexValue {
         
-    AnimatedImageView *test;
+    AnimatedImageView *image;
     int xPos = x;
     int yPos = y;
     float scaleAmount = scale;
@@ -888,71 +930,54 @@
     CGPoint centerPoint = center;
     
     // Create a random position for the view on the drawing board
-    if (category == 0 && tag == 0) {
+    // Blinking Eye
+    if ([serialNumber isEqualToString:@"A0001"]) {
         const float width = 149.6;
         const float height = 149.6;
         if (xPos < 0) { xPos = [self calculateXPos:xPos width:width]; }
         if (yPos < 0) { yPos = [self calculateYPos:yPos width:height]; }
-        test = [[BlinkingEyeView alloc] initWithFrame:CGRectMake(xPos, yPos, width, height)];
+        image = [[BlinkingEyeView alloc] initWithFrame:CGRectMake(xPos, yPos, width, height)];
     }
-    else if (category == 0 && tag == 1) {
-        const float width = 149.6;
-        const float height = 149.6;
+
+    /** SATIC IMAGES **********************************************************************/
+    // Curly Moutache
+    else if ([serialNumber isEqualToString:@"S0001"]) {
+        const float width = 200;
+        const float height = 91.6;
         if (xPos < 0) { xPos = [self calculateXPos:xPos width:width]; }
         if (yPos < 0) { yPos = [self calculateYPos:yPos width:height]; }
-        test = [[RollingEyeView alloc] initWithFrame:CGRectMake(xPos, yPos, width, height)];
-    }
-    else if (category == 0 && tag == 2) {
-        const float width = 149.6;
-        const float height = 149.6;
-        if (xPos < 0) { xPos = [self calculateXPos:xPos width:width]; }
-        if (yPos < 0) { yPos = [self calculateYPos:yPos width:height]; }
-        test = [[AlmondEyeBlinkView alloc] initWithFrame:CGRectMake(xPos, yPos, width, height)];
-    }
-    else if (category == 0 && tag == 3) {
-        const float width = 100;
-        const float height = 100;
-        if (xPos < 0) { xPos = [self calculateXPos:xPos width:width]; }
-        if (yPos < 0) { yPos = [self calculateYPos:yPos width:height]; }
-        test = [[Star alloc] initWithFrame:CGRectMake(xPos, yPos, width, height)];
-    }
-    else if (category == 0 && tag == 4) {
-        const float width = 300;
-        const float height = 135;
-        if (xPos < 0) { xPos = [self calculateXPos:xPos width:width]; }
-        if (yPos < 0) { yPos = [self calculateYPos:yPos width:height]; }
-        test = [[GrouchyMouthView alloc] initWithFrame:CGRectMake(xPos, yPos, width, height)];
+        image = [[CurlyMoustacheView alloc] initWithFrame:CGRectMake(xPos, yPos, width, height)];
     }
     
-    if (test != nil) {
+    if (image != nil) {
         // Add a tap gesture to the view
-        test.userInteractionEnabled = YES; // Important, lets image view recognize tap
+        image.userInteractionEnabled = YES; // Important, lets image view recognize tap
         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapAnimatedView:)];
-        [test addGestureRecognizer:tap];
+        [image addGestureRecognizer:tap];
 
         // Update image with scale and rotate amount
-        test.finalScaleValue = scaleAmount;
-        test.finalRotateValue = rotateAmount;
-        test.finalZIndex = zIndexValue;
+        image.finalScaleValue = scaleAmount;
+        image.finalRotateValue = rotateAmount;
+        image.finalZIndex = zIndexValue;
 
         // Scale and rotate the image at the same time
         CGAffineTransform scaling = CGAffineTransformMakeScale(scaleAmount, scaleAmount);
         CGAffineTransform rotation = CGAffineTransformMakeRotation(rotateAmount);
         CGAffineTransform transform = CGAffineTransformConcat(rotation, scaling);
-        test.transform = transform;
+        image.transform = transform;
 
         // Readjust the transformed image to the correct center point
         // -100 checks to see if image is being added for first time (if so, image will not be scaled or rotated)
         if (centerPoint.x != -100 && centerPoint.y != -100) {
-            test.center = centerPoint;
+            image.center = centerPoint;
         }
         
         // Add image to the drawing board view
-        [self addSubview:test];
-        test.layer.zPosition = zIndexValue;
+        [self addSubview:image];
+        image.layer.zPosition = zIndexValue;
         
         // Save animated image to an array
-        [self.animatedImages addObject:test];
+        [self.animatedImages addObject:image];
     }
 }
 
@@ -966,7 +991,13 @@
 
 /*  Return the number of animated images on the drawing board */
 - (int)getAnimatedViewCount {
-    return (int)[self.animatedImages count];
+    int count = 0;
+    for (NSString *type in self.animatedImagesType) {
+        if ([type isEqualToString:@"animated"]) {
+            count += 1;
+        }
+    }
+    return count;
 }
 
 - (void)playAnimationButtonClicked {
@@ -1084,8 +1115,8 @@
        
        // Save values
         self.saveDrawingBoard.animatedImagesFrames = self.animatedImagesFrame;
-        self.saveDrawingBoard.animatedImagesTag = self.animatedImagesTag;
-        self.saveDrawingBoard.animatedImagesCategory = self.animatedImagesCategory;
+        self.saveDrawingBoard.animatedImagesType = self.animatedImagesType;
+        self.saveDrawingBoard.animatedImagesSerialNumber = self.animatedImagesSerialNumber;
         self.saveDrawingBoard.animatedImagesScale = self.animatedImagesScale;
         self.saveDrawingBoard.animatedImagesRotate = self.animatedImagesRotate;
         self.saveDrawingBoard.animatedImagesCenter = self.animatedImagesCenter;
@@ -1121,6 +1152,7 @@
     float temp;
     CGRect tempRect;
     CGPoint tempPoint;
+    NSString *tempString;
     
     // Sort Z-index from smallest to largest
     while (flag) {
@@ -1141,15 +1173,15 @@
                 [self.animatedImagesFrame replaceObjectAtIndex:j withObject:[self.animatedImagesFrame objectAtIndex:(j + 1)]];
                 [self.animatedImagesFrame replaceObjectAtIndex:(j + 1) withObject:[NSValue valueWithCGRect:tempRect]];
 
-                // Swap Tag
-                temp = [[self.animatedImagesTag objectAtIndex:j] floatValue];
-                [self.animatedImagesTag replaceObjectAtIndex:j withObject:[self.animatedImagesTag objectAtIndex:(j + 1)]];
-                [self.animatedImagesTag replaceObjectAtIndex:(j + 1) withObject:[NSNumber numberWithFloat:temp]];
+                // Swap Type
+                tempString = [self.animatedImagesType objectAtIndex:j];
+                [self.animatedImagesType replaceObjectAtIndex:j withObject:[self.animatedImagesType objectAtIndex:(j + 1)]];
+                [self.animatedImagesType replaceObjectAtIndex:(j + 1) withObject:tempString];
                 
-                // Swap Category
-                temp = [[self.animatedImagesCategory objectAtIndex:j] floatValue];
-                [self.animatedImagesCategory replaceObjectAtIndex:j withObject:[self.animatedImagesCategory objectAtIndex:(j + 1)]];
-                [self.animatedImagesCategory replaceObjectAtIndex:(j + 1) withObject:[NSNumber numberWithFloat:temp]];
+                // Swap Serial Number
+                tempString = [self.animatedImagesSerialNumber objectAtIndex:j];
+                [self.animatedImagesSerialNumber replaceObjectAtIndex:j withObject:[self.animatedImagesSerialNumber objectAtIndex:(j + 1)]];
+                [self.animatedImagesSerialNumber replaceObjectAtIndex:(j + 1) withObject:tempString];
                 
                 // Swap Scale
                 temp = [[self.animatedImagesScale objectAtIndex:j] floatValue];
@@ -1211,8 +1243,8 @@
             
             self.drawingTitle = self.saveDrawingBoard.finalImageTitle;
             self.animatedImagesFrame = self.saveDrawingBoard.animatedImagesFrames;
-            self.animatedImagesTag = self.saveDrawingBoard.animatedImagesTag;
-            self.animatedImagesCategory = self.saveDrawingBoard.animatedImagesCategory;
+            self.animatedImagesSerialNumber = self.saveDrawingBoard.animatedImagesSerialNumber;
+            self.animatedImagesType = self.saveDrawingBoard.animatedImagesType;
             self.animatedImagesScale = self.saveDrawingBoard.animatedImagesScale;
             self.animatedImagesRotate = self.saveDrawingBoard.animatedImagesRotate;
             self.animatedImagesCenter = self.saveDrawingBoard.animatedImagesCenter;
@@ -1223,15 +1255,14 @@
             for (NSNumber *img in self.animatedImagesFrame) {
                 int xPos = [img CGRectValue].origin.x;
                 int yPos = [img CGRectValue].origin.y;
-                int tag = [[self.animatedImagesTag objectAtIndex:count] intValue];
                 
                 float scaleValue = [[self.animatedImagesScale objectAtIndex:count] floatValue];
                 float rotateValue = [[self.animatedImagesRotate objectAtIndex:count] floatValue];
                 CGPoint centerValue = [[self.animatedImagesCenter objectAtIndex:count] CGPointValue];
-                int category = [[self.animatedImagesCategory objectAtIndex:count] intValue];
                 int zIndex = [[self.animatedImagesZIndex objectAtIndex:count] intValue];
+                NSString *serialNumber = [self.animatedImagesSerialNumber objectAtIndex:count];
                 
-                [self addFaceAnimation:tag category:category xLocation:xPos yLocation:yPos scaleValue:scaleValue rotateValue:rotateValue centerValue:centerValue zIndex:zIndex];
+                [self addFaceAnimation:serialNumber xLocation:xPos yLocation:yPos scaleValue:scaleValue rotateValue:rotateValue centerValue:centerValue zIndex:zIndex];
                 
                 count += 1;
             }

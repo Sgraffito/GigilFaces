@@ -12,10 +12,9 @@
 
 // Image names
 @property (strong, nonatomic) NSMutableArray *mainArray;
-@property (strong, nonatomic) NSArray *eyes;
-@property (strong, nonatomic) NSArray *ears;
-@property (strong, nonatomic) NSArray *noses;
-@property (strong, nonatomic) NSArray *mouths;
+@property (strong, nonatomic) NSArray *segmentOne;
+@property (strong, nonatomic) NSArray *segmentTwo;
+@property (strong, nonatomic) NSArray *segmentThree;
 
 // Segmented control
 @property (weak, nonatomic) IBOutlet UISegmentedControl *faceSegmentControl;
@@ -27,38 +26,31 @@
 @implementation FaceAnimationsPopOverVC
 
 #pragma mark - Initalization
-//
-//- (NSMutableArray *)mainArray {
-//    if (!_mainArray) _mainArray = [[NSMutableArray alloc] init];
-//    return _mainArray;
-//}
 
-- (NSArray *)eyes {
-    if (!_eyes) {
-        _eyes = @[@"EyeBlinkCropped.png", @"RollingEyeCropped", @"AlmondEyeBlinkCropped", @"Star2Layer2", @"GMClipped.png"];
-    }
-    return _eyes;
+- (NSMutableArray *)mainArray {
+    if (!_mainArray) _mainArray = [[NSMutableArray alloc] init];
+    return _mainArray;
 }
 
-- (NSArray *)ears {
-    if (!_ears) {
-        _ears = @[@"image2.png"];
+- (NSArray *)segmentOne {
+    if (!_segmentOne) {
+        _segmentOne = @[@"EyeBlinkCropped.png"];
     }
-    return _ears;
+    return _segmentOne;
 }
 
-- (NSArray *)noses {
-    if (!_noses) {
-        _noses = @[@"image3.png", @"image3.png", @"image3.png", @"image3.png", @"image3.png", @"image3.png",@"image3.png", @"image3.png", @"image3.png", @"image3.png", @"image3.png", @"image3.png"];
+- (NSArray *)segmentTwo {
+    if (!_segmentTwo) {
+        _segmentTwo = @[@"image2.png"];
     }
-    return _noses;
+    return _segmentTwo;
 }
 
-- (NSArray *)mouths {
-    if (!_mouths) {
-        _mouths = @[@"image4.png", @"image4.png", @"image4.png"];
+- (NSArray *)segmentThree {
+    if (!_segmentThree) {
+        _segmentThree = @[@"image3.png"];
     }
-    return _mouths;
+    return _segmentThree;
 }
 
 #pragma mark - Buttons
@@ -66,25 +58,25 @@
 - (IBAction)segmentedControlSelectionChanged:(UISegmentedControl *)sender {
     
     if (sender.selectedSegmentIndex == 0) {
-        self.mainArray = [NSMutableArray arrayWithArray:self.eyes];
+        self.mainArray = [NSMutableArray arrayWithArray:self.segmentOne];
         [self.animationsCollectionView reloadData];
         self.cellTagCount = 0;
     }
     if (sender.selectedSegmentIndex == 1) {
-        self.mainArray = [NSMutableArray arrayWithArray:self.ears];
+        self.mainArray = [NSMutableArray arrayWithArray:self.segmentTwo];
         [self.animationsCollectionView reloadData];
         self.cellTagCount = 0;
     }
     if (sender.selectedSegmentIndex == 2) {
-        self.mainArray = [NSMutableArray arrayWithArray:self.mouths];
+        self.mainArray = [NSMutableArray arrayWithArray:self.segmentThree];
         [self.animationsCollectionView reloadData];
         self.cellTagCount = 0;
     }
-    if (sender.selectedSegmentIndex == 3) {
-        self.mainArray = [NSMutableArray arrayWithArray:self.noses];
-        [self.animationsCollectionView reloadData];
-        self.cellTagCount = 0;
-    }
+//    if (sender.selectedSegmentIndex == 3) {
+//        self.mainArray = [NSMutableArray arrayWithArray:self.noses];
+//        [self.animationsCollectionView reloadData];
+//        self.cellTagCount = 0;
+//    }
 }
 
 #pragma mark - UICollection View
@@ -147,7 +139,7 @@
     // Do any additional setup after loading the view from its nib.
     
     // Set eye array as first collection view
-    self.mainArray = [NSMutableArray arrayWithArray:self.eyes];
+    self.mainArray = [NSMutableArray arrayWithArray:self.segmentOne];
     
     // Collection view
     _animationsCollectionView.delegate = self;

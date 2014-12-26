@@ -10,6 +10,8 @@
 
 @implementation BlinkingEyeView
 
+// Serial Number:
+
 - (NSString *)firstImageName {
     return @"EB1";
 }

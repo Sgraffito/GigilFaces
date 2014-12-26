@@ -21,10 +21,11 @@
 @property (strong, nonatomic) NSString *drawingTitle;
 
 - (void)addFirstTimeFaceAnimation:(int)tag category:(int)category
-               xLocation:(float)x yLocation:(float)y
-              scaleValue:(float)scale rotateValue:(float)rotate
-             centerValue:(CGPoint)center;
-- (void)addFaceAnimation:(int)tag category:(int)category
+                        xLocation:(float)x yLocation:(float)y
+                       scaleValue:(float)scale rotateValue:(float)rotate
+                      centerValue:(CGPoint)center
+                        imageType:(NSString *)imageType;
+- (void)addFaceAnimation:(NSString *)serialNumber
                xLocation:(float)x yLocation:(float)y
               scaleValue:(float)scale rotateValue:(float)rotate
              centerValue:(CGPoint)center

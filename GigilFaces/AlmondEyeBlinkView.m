@@ -10,6 +10,8 @@
 
 @implementation AlmondEyeBlinkView
 
+// Serial Number:
+
 - (NSString *)firstImageName {
     return @"AE1";
 }

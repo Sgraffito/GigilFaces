@@ -16,12 +16,13 @@
 #import "BrushOpacityPopOverVC.h"
 #import "FaceAnimationsPopOverVC.h"
 #import "NoAnimatedImagesPopOverVC.h"
+#import "StaticImagesPopOverVCViewController.h"
 #import "MyDrawingsVC.h"
 #import "SavePopOverVC.h"
 
 /* THIS IS A TEST FOR THE COMMENT BRANCH */
 
-@interface GigilFacesDrawingVC() <BrushSizePopOverViewControllerDelegate, BrushOpacityPopOverViewControllerDelegate, FaceAnimationPopOverViewControllerDelegate, SavePopOverViewControllerDelegate>
+@interface GigilFacesDrawingVC() <BrushSizePopOverViewControllerDelegate, BrushOpacityPopOverViewControllerDelegate, FaceAnimationPopOverViewControllerDelegate, SavePopOverViewControllerDelegate, StaticImagesPopOverViewControllerDelegate>
 
 // UI Navigational Controller Button
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *myDrawingsButton;
@@ -60,6 +61,7 @@
 @property (nonatomic, strong) UIPopoverController *faceAnimationsPopover;
 @property (nonatomic, strong) UIPopoverController *noAnimatedImagesPopover;
 @property (nonatomic, strong) UIPopoverController *saveImagesPopover;
+@property (nonatomic, strong) UIPopoverController *staticImagesPopover;
 
 // Play Animation Button
 @property (weak, nonatomic) IBOutlet UIButton *playAnimationButton;
@@ -306,6 +308,20 @@
                               permittedArrowDirections:UIPopoverArrowDirectionAny
                                             animated:YES];
 }
+
+- (IBAction)staticImageSelected:(UIButton *)sender {
+    StaticImagesPopOverVCViewController *collectionViewController = [[StaticImagesPopOverVCViewController alloc]
+                                                                     initWithNibName:@"StaticImagesPopOverVCViewController" bundle:nil];
+    collectionViewController.delegate = self;
+    
+    self.staticImagesPopover = [[UIPopoverController alloc] initWithContentViewController:collectionViewController];
+    self.staticImagesPopover.popoverContentSize = CGSizeMake(265, 470);
+    [self.staticImagesPopover presentPopoverFromRect:[(UIButton *) sender frame]
+                                              inView:self.view
+                            permittedArrowDirections:UIPopoverArrowDirectionAny
+                                            animated:YES];
+}
+
 
 /**
  *  When the brush opacity button is clicked, a pop-over appears allowing the user to change the brush opacity.
@@ -588,7 +604,15 @@
     // A scale value of 1 applies no scaling
     // A rotate value of 0 applies no rotation
     // Negative x and y locations tell the program to add the image to the drawing board in a random position
-    [self.drawingBoard addFirstTimeFaceAnimation:tag category:category xLocation:-1 yLocation:-1 scaleValue:1 rotateValue:0 centerValue:CGPointMake(-100, -100)];
+    [self.drawingBoard addFirstTimeFaceAnimation:tag category:category xLocation:-1 yLocation:-1 scaleValue:1 rotateValue:0 centerValue:CGPointMake(-100, -100) imageType:@"animated"];
+}
+
+- (void)staticImageAdded:(int)tag category:(int)category {
+    // Tell the drawing board to add the selected image
+    // A scale value of 1 applies no scaling
+    // A rotate value of 0 applies no rotation
+    // Negative x and y locations tell the program to add the image to the drawing board in a random position
+    [self.drawingBoard addFirstTimeFaceAnimation:tag category:category xLocation:-1 yLocation:-1 scaleValue:1 rotateValue:0 centerValue:CGPointMake(-100, -100) imageType:@"static"];
 }
 
 /**
