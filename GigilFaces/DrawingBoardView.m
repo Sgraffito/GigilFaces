@@ -23,6 +23,9 @@
 #import "BlinkingEyeView.h"
 #import "CurlyMoustacheView.h"
 
+// Moustaches
+#import "BushyMoustacheView.h"
+
 @interface DrawingBoardView()
 @property (nonatomic) UIColor *paperColor;
 @property (strong, nonatomic) UIBezierPath *currentBrushStroke;
@@ -198,7 +201,7 @@
     
     // If user clicked on the remove button, remove the face animation view from the drawing board
     BOOL cancel = [image cancelButtonClicked:[gesture locationInView:image]];
-    if (cancel) {
+    if (cancel && !isSelected) {
         
         // Remove the animation from the array of all animations on the drawing board
         for (int i = 0; i < [self.animatedImages count]; i += 1) {
@@ -878,30 +881,35 @@
         }
 
         /**** MOUTHS **********************************************************************/
-        else if (category == 1 && tag == 0) {
-            serialNumber = @"A1001";
-        }
+//        else if (category == 1 && tag == 0) {
+//            serialNumber = @"A1001";
+//        }
         
         /**** OTHERS **********************************************************************/
-        else if (category == 2 && tag == 0) {
-            serialNumber = @"A2001";
-        }
+//        else if (category == 2 && tag == 0) {
+//            serialNumber = @"A2001";
+//        }
     }
     else if ([imageType isEqualToString:@"static"]) {
-        /**** ?? **********************************************************************/
+        /**** Hair **********************************************************************/
+        // Curly Moustache
         if (category == 0 && tag == 0) {
             serialNumber = @"S0001";
         }
-        
-        /**** ?? **********************************************************************/
-        else if (category == 1 && tag == 0) {
-            serialNumber = @"S1001";
+        // Bushy Moutache
+        if (category == 0 && tag == 1) {
+            serialNumber = @"S0002";
         }
         
         /**** ?? **********************************************************************/
-        else if (category == 2 && tag == 0) {
-            serialNumber = @"S2001";
-        }
+//        else if (category == 1 && tag == 0) {
+//            serialNumber = @"S1001";
+//        }
+        
+        /**** ?? **********************************************************************/
+//        else if (category == 2 && tag == 0) {
+//            serialNumber = @"S2001";
+//        }
     }
     
     // Add the image to the drawing board
@@ -931,22 +939,30 @@
     
     // Create a random position for the view on the drawing board
     // Blinking Eye
-    if ([serialNumber isEqualToString:@"A0001"]) {
-        const float width = 149.6;
-        const float height = 149.6;
-        if (xPos < 0) { xPos = [self calculateXPos:xPos width:width]; }
-        if (yPos < 0) { yPos = [self calculateYPos:yPos width:height]; }
-        image = [[BlinkingEyeView alloc] initWithFrame:CGRectMake(xPos, yPos, width, height)];
-    }
+//    if ([serialNumber isEqualToString:@"A0001"]) {
+//        const float width = 149.6;
+//        const float height = 149.6;
+//        if (xPos < 0) { xPos = [self calculateXPos:xPos width:width]; }
+//        if (yPos < 0) { yPos = [self calculateYPos:yPos width:height]; }
+//        image = [[BlinkingEyeView alloc] initWithFrame:CGRectMake(xPos, yPos, width, height)];
+//    }
 
     /** SATIC IMAGES **********************************************************************/
     // Curly Moutache
-    else if ([serialNumber isEqualToString:@"S0001"]) {
+    if ([serialNumber isEqualToString:@"S0001"]) {
         const float width = 200;
         const float height = 91.6;
         if (xPos < 0) { xPos = [self calculateXPos:xPos width:width]; }
         if (yPos < 0) { yPos = [self calculateYPos:yPos width:height]; }
         image = [[CurlyMoustacheView alloc] initWithFrame:CGRectMake(xPos, yPos, width, height)];
+    }
+    // Bushy Moutache
+    else if ([serialNumber isEqualToString:@"S0002"]) {
+        const float width = 200;
+        const float height = 156;
+        if (xPos < 0) { xPos = [self calculateXPos:xPos width:width]; }
+        if (yPos < 0) { yPos = [self calculateYPos:yPos width:height]; }
+        image = [[BushyMoustacheView alloc] initWithFrame:CGRectMake(xPos, yPos, width, height)];
     }
     
     if (image != nil) {

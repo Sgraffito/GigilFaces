@@ -45,6 +45,7 @@
 		BCA1220A19A75B48005CC84D /* ColorSelectedView.m in Sources */ = {isa = PBXBuildFile; fileRef = BCA1220919A75B48005CC84D /* ColorSelectedView.m */; };
 		BCA1220D19A75EB0005CC84D /* ColorTrayView.m in Sources */ = {isa = PBXBuildFile; fileRef = BCA1220C19A75EAF005CC84D /* ColorTrayView.m */; };
 		BCA1221119A76AAE005CC84D /* DrawingUtensilsTrayView.m in Sources */ = {isa = PBXBuildFile; fileRef = BCA1221019A76AAE005CC84D /* DrawingUtensilsTrayView.m */; };
+		BCBD328A1A4E0DF600522466 /* BushyMoustacheView.m in Sources */ = {isa = PBXBuildFile; fileRef = BCBD32891A4E0DF600522466 /* BushyMoustacheView.m */; };
 		BCC1F7F119B69A5000D73DDE /* NanumScript.ttc in Resources */ = {isa = PBXBuildFile; fileRef = BCC1F7F019B69A5000D73DDE /* NanumScript.ttc */; };
 		BCC74A0A19AB861000C3A574 /* AnimatedImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = BCC74A0919AB861000C3A574 /* AnimatedImageView.m */; };
 		BCC74A0D19AB863A00C3A574 /* AnimateGS.m in Sources */ = {isa = PBXBuildFile; fileRef = BCC74A0C19AB863A00C3A574 /* AnimateGS.m */; };
@@ -132,6 +133,8 @@
 		BCA1220C19A75EAF005CC84D /* ColorTrayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorTrayView.m; sourceTree = "<group>"; };
 		BCA1220F19A76AAE005CC84D /* DrawingUtensilsTrayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrawingUtensilsTrayView.h; sourceTree = "<group>"; };
 		BCA1221019A76AAE005CC84D /* DrawingUtensilsTrayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrawingUtensilsTrayView.m; sourceTree = "<group>"; };
+		BCBD32881A4E0DF600522466 /* BushyMoustacheView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BushyMoustacheView.h; sourceTree = "<group>"; };
+		BCBD32891A4E0DF600522466 /* BushyMoustacheView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BushyMoustacheView.m; sourceTree = "<group>"; };
 		BCC1F7F019B69A5000D73DDE /* NanumScript.ttc */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumScript.ttc; sourceTree = "<group>"; };
 		BCC74A0819AB861000C3A574 /* AnimatedImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimatedImageView.h; sourceTree = "<group>"; };
 		BCC74A0919AB861000C3A574 /* AnimatedImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimatedImageView.m; sourceTree = "<group>"; };
@@ -292,6 +295,8 @@
 			children = (
 				BC519A5E1A4E01F3006B92D1 /* CurlyMoustacheView.h */,
 				BC519A5F1A4E01F3006B92D1 /* CurlyMoustacheView.m */,
+				BCBD32881A4E0DF600522466 /* BushyMoustacheView.h */,
+				BCBD32891A4E0DF600522466 /* BushyMoustacheView.m */,
 			);
 			name = "Static Images";
 			sourceTree = "<group>";
@@ -581,6 +586,7 @@
 				BC4AE4BC19A810AD009CB7E7 /* BrushOpacityView.m in Sources */,
 				BC4AE4AE19A803EA009CB7E7 /* BrushSizePopOverVC.m in Sources */,
 				BCC74A0D19AB863A00C3A574 /* AnimateGS.m in Sources */,
+				BCBD328A1A4E0DF600522466 /* BushyMoustacheView.m in Sources */,
 				BC4AE4A019A7DE47009CB7E7 /* VineLineBezierPath.m in Sources */,
 				BCA121DE19A74E20005CC84D /* GigilFacesAppDelegate.m in Sources */,
 				BCC74A1119AB8C7B00C3A574 /* NoAnimatedImagesPopOverVC.m in Sources */,
