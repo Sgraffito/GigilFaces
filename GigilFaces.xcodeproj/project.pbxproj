@@ -21,6 +21,12 @@
 		BC1990CC1A4E60FD00484830 /* EightPointStarView.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1990CB1A4E60FD00484830 /* EightPointStarView.m */; };
 		BC1C080D19B0BF4C008EFCD8 /* SavePopOverVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1C080B19B0BF4C008EFCD8 /* SavePopOverVC.m */; };
 		BC1C080E19B0BF4C008EFCD8 /* SavePopOverVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC1C080C19B0BF4C008EFCD8 /* SavePopOverVC.xib */; };
+		BC45E0A91A4EF50D00F06963 /* CircleRedView.m in Sources */ = {isa = PBXBuildFile; fileRef = BC45E0A81A4EF50D00F06963 /* CircleRedView.m */; };
+		BC45E0AC1A4EF51B00F06963 /* CircleGreenView.m in Sources */ = {isa = PBXBuildFile; fileRef = BC45E0AB1A4EF51B00F06963 /* CircleGreenView.m */; };
+		BC45E0AF1A4EF52C00F06963 /* CirclePurpleView.m in Sources */ = {isa = PBXBuildFile; fileRef = BC45E0AE1A4EF52C00F06963 /* CirclePurpleView.m */; };
+		BC45E0B21A4EF54900F06963 /* CircleBlackView.m in Sources */ = {isa = PBXBuildFile; fileRef = BC45E0B11A4EF54900F06963 /* CircleBlackView.m */; };
+		BC45E0B51A4EF55A00F06963 /* TeardropDkBlueView.m in Sources */ = {isa = PBXBuildFile; fileRef = BC45E0B41A4EF55A00F06963 /* TeardropDkBlueView.m */; };
+		BC45E0B81A4EF56700F06963 /* TeardropLtBlueView.m in Sources */ = {isa = PBXBuildFile; fileRef = BC45E0B71A4EF56700F06963 /* TeardropLtBlueView.m */; };
 		BC4AE49619A7B9C7009CB7E7 /* SmoothPaintingBrushBezier.m in Sources */ = {isa = PBXBuildFile; fileRef = BC4AE49519A7B9C7009CB7E7 /* SmoothPaintingBrushBezier.m */; };
 		BC4AE49A19A7C29A009CB7E7 /* DrawingBoardShadowView.m in Sources */ = {isa = PBXBuildFile; fileRef = BC4AE49919A7C29A009CB7E7 /* DrawingBoardShadowView.m */; };
 		BC4AE49D19A7C5C0009CB7E7 /* VariedWidthsPaintingBrushBezier.m in Sources */ = {isa = PBXBuildFile; fileRef = BC4AE49C19A7C5C0009CB7E7 /* VariedWidthsPaintingBrushBezier.m */; };
@@ -106,6 +112,18 @@
 		BC1C080A19B0BF4C008EFCD8 /* SavePopOverVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SavePopOverVC.h; sourceTree = "<group>"; };
 		BC1C080B19B0BF4C008EFCD8 /* SavePopOverVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SavePopOverVC.m; sourceTree = "<group>"; };
 		BC1C080C19B0BF4C008EFCD8 /* SavePopOverVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SavePopOverVC.xib; sourceTree = "<group>"; };
+		BC45E0A71A4EF50D00F06963 /* CircleRedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircleRedView.h; sourceTree = "<group>"; };
+		BC45E0A81A4EF50D00F06963 /* CircleRedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CircleRedView.m; sourceTree = "<group>"; };
+		BC45E0AA1A4EF51B00F06963 /* CircleGreenView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircleGreenView.h; sourceTree = "<group>"; };
+		BC45E0AB1A4EF51B00F06963 /* CircleGreenView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CircleGreenView.m; sourceTree = "<group>"; };
+		BC45E0AD1A4EF52C00F06963 /* CirclePurpleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CirclePurpleView.h; sourceTree = "<group>"; };
+		BC45E0AE1A4EF52C00F06963 /* CirclePurpleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CirclePurpleView.m; sourceTree = "<group>"; };
+		BC45E0B01A4EF54900F06963 /* CircleBlackView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircleBlackView.h; sourceTree = "<group>"; };
+		BC45E0B11A4EF54900F06963 /* CircleBlackView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CircleBlackView.m; sourceTree = "<group>"; };
+		BC45E0B31A4EF55A00F06963 /* TeardropDkBlueView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeardropDkBlueView.h; sourceTree = "<group>"; };
+		BC45E0B41A4EF55A00F06963 /* TeardropDkBlueView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeardropDkBlueView.m; sourceTree = "<group>"; };
+		BC45E0B61A4EF56700F06963 /* TeardropLtBlueView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeardropLtBlueView.h; sourceTree = "<group>"; };
+		BC45E0B71A4EF56700F06963 /* TeardropLtBlueView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeardropLtBlueView.m; sourceTree = "<group>"; };
 		BC4AE49419A7B9C7009CB7E7 /* SmoothPaintingBrushBezier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmoothPaintingBrushBezier.h; sourceTree = "<group>"; };
 		BC4AE49519A7B9C7009CB7E7 /* SmoothPaintingBrushBezier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmoothPaintingBrushBezier.m; sourceTree = "<group>"; };
 		BC4AE49819A7C29A009CB7E7 /* DrawingBoardShadowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrawingBoardShadowView.h; sourceTree = "<group>"; };
@@ -290,6 +308,17 @@
 			name = "Save Pop-Over";
 			sourceTree = "<group>";
 		};
+		BC45E0B91A4EF7F800F06963 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				BC1990C71A4E5E9100484830 /* SixPointStarView.h */,
+				BC1990C81A4E5E9100484830 /* SixPointStarView.m */,
+				BC1990CA1A4E60FD00484830 /* EightPointStarView.h */,
+				BC1990CB1A4E60FD00484830 /* EightPointStarView.m */,
+			);
+			name = Other;
+			sourceTree = "<group>";
+		};
 		BC4AE49719A7B9CA009CB7E7 /* Bezier Paths */ = {
 			isa = PBXGroup;
 			children = (
@@ -366,6 +395,18 @@
 			isa = PBXGroup;
 			children = (
 				BC1990B51A4E4A0300484830 /* Hair */,
+				BC45E0A71A4EF50D00F06963 /* CircleRedView.h */,
+				BC45E0A81A4EF50D00F06963 /* CircleRedView.m */,
+				BC45E0AA1A4EF51B00F06963 /* CircleGreenView.h */,
+				BC45E0AB1A4EF51B00F06963 /* CircleGreenView.m */,
+				BC45E0AD1A4EF52C00F06963 /* CirclePurpleView.h */,
+				BC45E0AE1A4EF52C00F06963 /* CirclePurpleView.m */,
+				BC45E0B01A4EF54900F06963 /* CircleBlackView.h */,
+				BC45E0B11A4EF54900F06963 /* CircleBlackView.m */,
+				BC45E0B31A4EF55A00F06963 /* TeardropDkBlueView.h */,
+				BC45E0B41A4EF55A00F06963 /* TeardropDkBlueView.m */,
+				BC45E0B61A4EF56700F06963 /* TeardropLtBlueView.h */,
+				BC45E0B71A4EF56700F06963 /* TeardropLtBlueView.m */,
 			);
 			name = "Static Images";
 			sourceTree = "<group>";
@@ -528,10 +569,7 @@
 			children = (
 				BC1990BD1A4E4E2000484830 /* Mouths */,
 				BC1990BC1A4E4E1A00484830 /* Eyes */,
-				BC1990C71A4E5E9100484830 /* SixPointStarView.h */,
-				BC1990C81A4E5E9100484830 /* SixPointStarView.m */,
-				BC1990CA1A4E60FD00484830 /* EightPointStarView.h */,
-				BC1990CB1A4E60FD00484830 /* EightPointStarView.m */,
+				BC45E0B91A4EF7F800F06963 /* Other */,
 			);
 			name = "Animated Images";
 			sourceTree = "<group>";
@@ -641,18 +679,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC45E0AF1A4EF52C00F06963 /* CirclePurpleView.m in Sources */,
 				BCE9702C1A410F6700B4DC14 /* AlmondEyeBlinkView.m in Sources */,
 				BC519A5A1A4DF714006B92D1 /* StaticImagesPopOverVCViewController.m in Sources */,
+				BC45E0B81A4EF56700F06963 /* TeardropLtBlueView.m in Sources */,
+				BC45E0AC1A4EF51B00F06963 /* CircleGreenView.m in Sources */,
 				BC519A601A4E01F3006B92D1 /* CurlyMoustacheView.m in Sources */,
 				BC1990C31A4E539A00484830 /* SharpTeethSmileView.m in Sources */,
 				BCA1220A19A75B48005CC84D /* ColorSelectedView.m in Sources */,
 				BCA1220719A7560D005CC84D /* DrawingBoardView.m in Sources */,
 				BCD132CF19AF58D600C12601 /* MyDrawingCVCell.m in Sources */,
 				BCA1220D19A75EB0005CC84D /* ColorTrayView.m in Sources */,
+				BC45E0B21A4EF54900F06963 /* CircleBlackView.m in Sources */,
 				BC1990C61A4E5AB800484830 /* HappySmileToothlessView.m in Sources */,
 				BCD132CC19AF572C00C12601 /* MyDrawingsVC.m in Sources */,
 				BC4AE4A319A7DE64009CB7E7 /* VineBranchBezierPath.m in Sources */,
 				BC1990C91A4E5E9100484830 /* SixPointStarView.m in Sources */,
+				BC45E0A91A4EF50D00F06963 /* CircleRedView.m in Sources */,
 				BC4AE4B319A8043C009CB7E7 /* BrushSizeView.m in Sources */,
 				BCD132D619AFB4CD00C12601 /* FrontPageVC.m in Sources */,
 				BC4AE4BC19A810AD009CB7E7 /* BrushOpacityView.m in Sources */,
@@ -681,6 +724,7 @@
 				BCA1221119A76AAE005CC84D /* DrawingUtensilsTrayView.m in Sources */,
 				BC08673C19A8D293006C05D0 /* FaceAnimationsPopOverVC.m in Sources */,
 				BC4AE49D19A7C5C0009CB7E7 /* VariedWidthsPaintingBrushBezier.m in Sources */,
+				BC45E0B51A4EF55A00F06963 /* TeardropDkBlueView.m in Sources */,
 				BC4AE49619A7B9C7009CB7E7 /* SmoothPaintingBrushBezier.m in Sources */,
 				BC4AE49A19A7C29A009CB7E7 /* DrawingBoardShadowView.m in Sources */,
 			);

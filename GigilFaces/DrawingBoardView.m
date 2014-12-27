@@ -40,6 +40,14 @@
 #import "SixPointStarView.h"
 #import "EightPointStarView.h"
 
+// Shapes
+#import "CircleBlackView.h"
+#import "CircleGreenView.h"
+#import "CirclePurpleView.h"
+#import "CircleRedView.h"
+#import "TeardropDkBlueView.h"
+#import "TeardropLtBlueView.h"
+
 @interface DrawingBoardView()
 @property (nonatomic) UIColor *paperColor;
 @property (strong, nonatomic) UIBezierPath *currentBrushStroke;
@@ -954,9 +962,30 @@
         }
         
         /**** ?? **********************************************************************/
-//        else if (category == 1 && tag == 0) {
-//            serialNumber = @"S1001";
-//        }
+        // Red Circle
+        else if (category == 1 && tag == 0) {
+            serialNumber = @"S1001";
+        }
+        // Green Circle
+        else if (category == 1 && tag == 1) {
+            serialNumber = @"S1002";
+        }
+        // Purple Circle
+        else if (category == 1 && tag == 2) {
+            serialNumber = @"S1003";
+        }
+        // Black Circle
+        else if (category == 1 && tag == 3) {
+            serialNumber = @"S1004";
+        }
+        // Dark Blue Teardrop
+        else if (category == 1 && tag == 4) {
+            serialNumber = @"S1005";
+        }
+        // Light Blue Teardrop
+        else if (category == 1 && tag == 5) {
+            serialNumber = @"S1006";
+        }
         
         /**** ?? **********************************************************************/
 //        else if (category == 2 && tag == 0) {
@@ -1107,6 +1136,55 @@
         if (xPos < 0) { xPos = [self calculateXPos:xPos width:width]; }
         if (yPos < 0) { yPos = [self calculateYPos:yPos width:height]; }
         image = [[TrimMoustacheView alloc] initWithFrame:CGRectMake(xPos, yPos, width, height)];
+    }
+    
+    // Red Circle
+    else if ([serialNumber isEqualToString:@"S1001"]) {
+        const float width = 200;
+        const float height = 200;
+        if (xPos < 0) { xPos = [self calculateXPos:xPos width:width]; }
+        if (yPos < 0) { yPos = [self calculateYPos:yPos width:height]; }
+        image = [[CircleRedView alloc] initWithFrame:CGRectMake(xPos, yPos, width, height)];
+    }
+    // Green Circle
+    else if ([serialNumber isEqualToString:@"S1002"]) {
+        const float width = 200;
+        const float height = 200;
+        if (xPos < 0) { xPos = [self calculateXPos:xPos width:width]; }
+        if (yPos < 0) { yPos = [self calculateYPos:yPos width:height]; }
+        image = [[CircleGreenView alloc] initWithFrame:CGRectMake(xPos, yPos, width, height)];
+    }
+    // Purple Circle
+    else if ([serialNumber isEqualToString:@"S1003"]) {
+        const float width = 200;
+        const float height = 200;
+        if (xPos < 0) { xPos = [self calculateXPos:xPos width:width]; }
+        if (yPos < 0) { yPos = [self calculateYPos:yPos width:height]; }
+        image = [[CirclePurpleView alloc] initWithFrame:CGRectMake(xPos, yPos, width, height)];
+    }
+    // Black Circle
+    else if ([serialNumber isEqualToString:@"S1004"]) {
+        const float width = 200;
+        const float height = 200;
+        if (xPos < 0) { xPos = [self calculateXPos:xPos width:width]; }
+        if (yPos < 0) { yPos = [self calculateYPos:yPos width:height]; }
+        image = [[CircleBlackView alloc] initWithFrame:CGRectMake(xPos, yPos, width, height)];
+    }
+    // Dark Blue Teardrop
+    else if ([serialNumber isEqualToString:@"S1005"]) {
+        const float width = 100;
+        const float height = 100;
+        if (xPos < 0) { xPos = [self calculateXPos:xPos width:width]; }
+        if (yPos < 0) { yPos = [self calculateYPos:yPos width:height]; }
+        image = [[TeardropDkBlueView alloc] initWithFrame:CGRectMake(xPos, yPos, width, height)];
+    }
+    // Dark Blue Teardrop
+    else if ([serialNumber isEqualToString:@"S1006"]) {
+        const float width = 100;
+        const float height = 100;
+        if (xPos < 0) { xPos = [self calculateXPos:xPos width:width]; }
+        if (yPos < 0) { yPos = [self calculateYPos:yPos width:height]; }
+        image = [[TeardropLtBlueView alloc] initWithFrame:CGRectMake(xPos, yPos, width, height)];
     }
     
     if (image != nil) {

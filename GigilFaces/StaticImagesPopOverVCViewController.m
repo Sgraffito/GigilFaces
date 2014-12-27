@@ -41,7 +41,8 @@
 
 - (NSArray *)segmentTwo {
     if (!_segmentTwo) {
-        _segmentTwo = @[@"image2.png"];
+        _segmentTwo = @[@"CircleRedSmall", @"CircleGreenSmall", @"CirclePurpleSmall", @"CircleBlackSmall",
+                        @"TeardropDkBlueSmall", @"TeardropLtBlueSmall"];
     }
     return _segmentTwo;
 }
