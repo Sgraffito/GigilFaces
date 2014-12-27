@@ -17,6 +17,8 @@
 		BC1990C01A4E505100484830 /* SurpriseEyeView.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1990BF1A4E505100484830 /* SurpriseEyeView.m */; };
 		BC1990C31A4E539A00484830 /* SharpTeethSmileView.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1990C21A4E539A00484830 /* SharpTeethSmileView.m */; };
 		BC1990C61A4E5AB800484830 /* HappySmileToothlessView.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1990C51A4E5AB800484830 /* HappySmileToothlessView.m */; };
+		BC1990C91A4E5E9100484830 /* SixPointStarView.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1990C81A4E5E9100484830 /* SixPointStarView.m */; };
+		BC1990CC1A4E60FD00484830 /* EightPointStarView.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1990CB1A4E60FD00484830 /* EightPointStarView.m */; };
 		BC1C080D19B0BF4C008EFCD8 /* SavePopOverVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1C080B19B0BF4C008EFCD8 /* SavePopOverVC.m */; };
 		BC1C080E19B0BF4C008EFCD8 /* SavePopOverVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC1C080C19B0BF4C008EFCD8 /* SavePopOverVC.xib */; };
 		BC4AE49619A7B9C7009CB7E7 /* SmoothPaintingBrushBezier.m in Sources */ = {isa = PBXBuildFile; fileRef = BC4AE49519A7B9C7009CB7E7 /* SmoothPaintingBrushBezier.m */; };
@@ -97,6 +99,10 @@
 		BC1990C21A4E539A00484830 /* SharpTeethSmileView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SharpTeethSmileView.m; sourceTree = "<group>"; };
 		BC1990C41A4E5AB800484830 /* HappySmileToothlessView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HappySmileToothlessView.h; sourceTree = "<group>"; };
 		BC1990C51A4E5AB800484830 /* HappySmileToothlessView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HappySmileToothlessView.m; sourceTree = "<group>"; };
+		BC1990C71A4E5E9100484830 /* SixPointStarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SixPointStarView.h; sourceTree = "<group>"; };
+		BC1990C81A4E5E9100484830 /* SixPointStarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SixPointStarView.m; sourceTree = "<group>"; };
+		BC1990CA1A4E60FD00484830 /* EightPointStarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EightPointStarView.h; sourceTree = "<group>"; };
+		BC1990CB1A4E60FD00484830 /* EightPointStarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EightPointStarView.m; sourceTree = "<group>"; };
 		BC1C080A19B0BF4C008EFCD8 /* SavePopOverVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SavePopOverVC.h; sourceTree = "<group>"; };
 		BC1C080B19B0BF4C008EFCD8 /* SavePopOverVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SavePopOverVC.m; sourceTree = "<group>"; };
 		BC1C080C19B0BF4C008EFCD8 /* SavePopOverVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SavePopOverVC.xib; sourceTree = "<group>"; };
@@ -522,6 +528,10 @@
 			children = (
 				BC1990BD1A4E4E2000484830 /* Mouths */,
 				BC1990BC1A4E4E1A00484830 /* Eyes */,
+				BC1990C71A4E5E9100484830 /* SixPointStarView.h */,
+				BC1990C81A4E5E9100484830 /* SixPointStarView.m */,
+				BC1990CA1A4E60FD00484830 /* EightPointStarView.h */,
+				BC1990CB1A4E60FD00484830 /* EightPointStarView.m */,
 			);
 			name = "Animated Images";
 			sourceTree = "<group>";
@@ -642,9 +652,11 @@
 				BC1990C61A4E5AB800484830 /* HappySmileToothlessView.m in Sources */,
 				BCD132CC19AF572C00C12601 /* MyDrawingsVC.m in Sources */,
 				BC4AE4A319A7DE64009CB7E7 /* VineBranchBezierPath.m in Sources */,
+				BC1990C91A4E5E9100484830 /* SixPointStarView.m in Sources */,
 				BC4AE4B319A8043C009CB7E7 /* BrushSizeView.m in Sources */,
 				BCD132D619AFB4CD00C12601 /* FrontPageVC.m in Sources */,
 				BC4AE4BC19A810AD009CB7E7 /* BrushOpacityView.m in Sources */,
+				BC1990CC1A4E60FD00484830 /* EightPointStarView.m in Sources */,
 				BC1990B81A4E4CFB00484830 /* RollingEyeView.m in Sources */,
 				BC1990B41A4E49D600484830 /* TrimMoustacheView.m in Sources */,
 				BC4AE4AE19A803EA009CB7E7 /* BrushSizePopOverVC.m in Sources */,

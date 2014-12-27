@@ -36,6 +36,10 @@
 #import "PinchedMoustacheView.h"
 #import "TrimMoustacheView.h"
 
+// Other
+#import "SixPointStarView.h"
+#import "EightPointStarView.h"
+
 @interface DrawingBoardView()
 @property (nonatomic) UIColor *paperColor;
 @property (strong, nonatomic) UIBezierPath *currentBrushStroke;
@@ -920,10 +924,16 @@
         }
         
         /**** OTHERS **********************************************************************/
-//        else if (category == 2 && tag == 0) {
-//            serialNumber = @"A2001";
-//        }
+        // Six Point Star
+        else if (category == 2 && tag == 0) {
+            serialNumber = @"A2001";
+        }
+        // Eight Point Star
+        else if (category == 2 && tag == 1) {
+            serialNumber = @"A2002";
+        }
     }
+    
     else if ([imageType isEqualToString:@"static"]) {
         /**** Hair **********************************************************************/
         // Curly Moustache
@@ -1046,6 +1056,22 @@
         if (xPos < 0) { xPos = [self calculateXPos:xPos width:width]; }
         if (yPos < 0) { yPos = [self calculateYPos:yPos width:height]; }
         image = [[HappySmileToothlessView alloc] initWithFrame:CGRectMake(xPos, yPos, width, height)];
+    }
+    // Six Point Star
+    else if ([serialNumber isEqualToString:@"A2001"]) {
+        const float width = 200;
+        const float height = 200;
+        if (xPos < 0) { xPos = [self calculateXPos:xPos width:width]; }
+        if (yPos < 0) { yPos = [self calculateYPos:yPos width:height]; }
+        image = [[SixPointStarView alloc] initWithFrame:CGRectMake(xPos, yPos, width, height)];
+    }
+    // Six Point Star
+    else if ([serialNumber isEqualToString:@"A2002"]) {
+        const float width = 200;
+        const float height = 200;
+        if (xPos < 0) { xPos = [self calculateXPos:xPos width:width]; }
+        if (yPos < 0) { yPos = [self calculateYPos:yPos width:height]; }
+        image = [[EightPointStarView alloc] initWithFrame:CGRectMake(xPos, yPos, width, height)];
     }
 
 

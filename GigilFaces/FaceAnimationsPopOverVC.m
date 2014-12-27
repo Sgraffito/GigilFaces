@@ -49,7 +49,7 @@
 
 - (NSArray *)segmentThree {
     if (!_segmentThree) {
-        _segmentThree = @[@"image3.png"];
+        _segmentThree = @[@"6PointStarSmall", @"8PointStarSmall"];
     }
     return _segmentThree;
 }
