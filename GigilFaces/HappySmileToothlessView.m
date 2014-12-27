@@ -1,25 +1,23 @@
 //
-//  GrouchyMouthView.m
+//  HappySmileToothlessView.m
 //  GigilFaces
 //
-//  Created by Nicole on 12/16/14.
+//  Created by Nicole on 12/26/14.
 //  Copyright (c) 2014 nicole. All rights reserved.
 //
 
-#import "GrouchyMouthView.h"
+#import "HappySmileToothlessView.h"
 
-@implementation GrouchyMouthView
+@implementation HappySmileToothlessView
 
-// Serial Number: A1001
+// Serial Number: A1003
 
 - (NSString *)firstImageName {
-    return @"GS1";
+    return @"HST1";
 }
 
 - (NSArray *)animatedImageNames {
-    return @[@"GS1", @"GS2", @"GS3", @"GS4",
-             @"GS5", @"GS6", @"GS7", @"GS8", @"GS9",
-             @"GS10", @"GS11", @"GS12"];
+    return @[@"HST1", @"HST2", @"HST3", @"HST4"];
 }
 
 /*

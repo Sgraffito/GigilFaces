@@ -10,16 +10,17 @@
 
 @implementation BlinkingEyeView
 
-// Serial Number:
+// Serial Number: A0001
 
 - (NSString *)firstImageName {
     return @"EB1";
 }
 
 - (NSArray *)animatedImageNames {
-    return @[@"EB1", @"EB1", @"EB1", @"EB2", @"EB2",
-             @"EB2", @"EB2", @"EB2", @"EB3", @"EB3",
-             @"EB3", @"EB2", @"EB2", @"EB2"];
+    return @[@"EB1", @"EB1", @"EB1",
+             @"EB2", @"EB2", @"EB2", @"EB2",
+             @"EB3", @"EB3", @"EB3",
+             @"EB2", @"EB2", @"EB2"];
 }
 
 /*

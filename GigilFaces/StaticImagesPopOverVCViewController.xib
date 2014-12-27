@@ -26,8 +26,8 @@
                 <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="r0O-Wp-hLH">
                     <rect key="frame" x="20" y="59" width="225" height="29"/>
                     <segments>
-                        <segment title="eyes"/>
-                        <segment title="mouths"/>
+                        <segment title="hair"/>
+                        <segment title="shapes"/>
                         <segment title="other"/>
                     </segments>
                     <color key="tintColor" red="0.40000000000000002" green="0.17254901959999999" blue="0.56470588239999997" alpha="1" colorSpace="calibratedRGB"/>

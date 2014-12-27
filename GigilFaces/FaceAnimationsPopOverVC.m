@@ -34,14 +34,15 @@
 
 - (NSArray *)segmentOne {
     if (!_segmentOne) {
-        _segmentOne = @[@"EyeBlinkCropped.png"];
+        _segmentOne = @[@"EyeBlinkSmall", @"AlmondEyesSmall", @"RollingEyeSmall",
+                        @"CryingEyesSmall", @"SurpriseEyeSmall"];
     }
     return _segmentOne;
 }
 
 - (NSArray *)segmentTwo {
     if (!_segmentTwo) {
-        _segmentTwo = @[@"image2.png"];
+        _segmentTwo = @[@"GrouchySmileSmall", @"HappySmileSmall", @"HappySmileToothlessSmall"];
     }
     return _segmentTwo;
 }

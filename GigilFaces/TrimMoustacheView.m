@@ -1,25 +1,23 @@
 //
-//  GrouchyMouthView.m
+//  TrimMoustacheView.m
 //  GigilFaces
 //
-//  Created by Nicole on 12/16/14.
+//  Created by Nicole on 12/26/14.
 //  Copyright (c) 2014 nicole. All rights reserved.
 //
 
-#import "GrouchyMouthView.h"
+#import "TrimMoustacheView.h"
 
-@implementation GrouchyMouthView
+@implementation TrimMoustacheView
 
-// Serial Number: A1001
+// Serial Number: S0004
 
 - (NSString *)firstImageName {
-    return @"GS1";
+    return @"TrimMoustacheLarge";
 }
 
 - (NSArray *)animatedImageNames {
-    return @[@"GS1", @"GS2", @"GS3", @"GS4",
-             @"GS5", @"GS6", @"GS7", @"GS8", @"GS9",
-             @"GS10", @"GS11", @"GS12"];
+    return @[@"TrimMoustacheLarge"];
 }
 
 /*

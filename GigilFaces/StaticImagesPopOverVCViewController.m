@@ -34,7 +34,7 @@
 
 - (NSArray *)segmentOne {
     if (!_segmentOne) {
-        _segmentOne = @[@"CurlyMoustacheSmall", @"BushyMoustacheSmall"];
+        _segmentOne = @[@"CurlyMoustacheSmall", @"BushyMoustacheSmall", @"PinchedMoustacheSmall", @"TrimMoustacheSmall"];
     }
     return _segmentOne;
 }

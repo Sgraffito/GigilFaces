@@ -17,14 +17,24 @@
 #import "SaveDrawingBoard.h"
 #import "MyDrawingsVC.h"
 
-// Images
+// Images /////////////////////////
+// Eyes
 #import "AlmondEyeBlinkView.h"
-#import "GrouchyMouthView.h"
 #import "BlinkingEyeView.h"
-#import "CurlyMoustacheView.h"
+#import "RollingEyeView.h"
+#import "CryingEyeView.h"
+#import "SurpriseEyeView.h"
+
+// Mouths
+#import "GrouchyMouthView.h"
+#import "SharpTeethSmileView.h"
+#import "HappySmileToothlessView.h"
 
 // Moustaches
 #import "BushyMoustacheView.h"
+#import "CurlyMoustacheView.h"
+#import "PinchedMoustacheView.h"
+#import "TrimMoustacheView.h"
 
 @interface DrawingBoardView()
 @property (nonatomic) UIColor *paperColor;
@@ -47,8 +57,6 @@
 @property (strong, nonatomic) NSMutableArray *animatedImages; // Of UIImageView //// CHANGE TO NSSTRING
 @property (strong, nonatomic) NSMutableArray *animatedImagesFrame; // Of CGRect
 @property (nonatomic) BOOL animated;
-//@property (strong, nonatomic) NSMutableArray *animatedImagesTag; // Of NSNumber
-//@property (strong, nonatomic) NSMutableArray *animatedImagesCategory; // Of NSNumber
 @property (strong, nonatomic) NSMutableArray *animatedImagesScale; // Of NSNumber
 @property (strong, nonatomic) NSMutableArray *animatedImagesRotate; // Of NSNumber
 @property (strong, nonatomic) NSMutableArray *animatedImagesCenter; // Of CGPoint
@@ -876,14 +884,40 @@
     if ([imageType isEqualToString:@"animated"]) {
     
         /**** EYES **********************************************************************/
+        // Blinking Eye
         if (category == 0 && tag == 0) {
             serialNumber = @"A0001";
         }
+        // Almond Eye Blink
+        else if (category == 0 && tag == 1) {
+            serialNumber = @"A0002";
+        }
+        // Eye Roll
+        else if (category == 0 && tag == 2) {
+            serialNumber = @"A0003";
+        }
+        // Crying Eye
+        else if (category == 0 && tag == 3) {
+            serialNumber = @"A0004";
+        }
+        // Surprise Eye
+        else if (category == 0 && tag == 4) {
+            serialNumber = @"A0005";
+        }
 
         /**** MOUTHS **********************************************************************/
-//        else if (category == 1 && tag == 0) {
-//            serialNumber = @"A1001";
-//        }
+        // Grouchy Mouth
+        else if (category == 1 && tag == 0) {
+            serialNumber = @"A1001";
+        }
+        // Sharp Teeth Smile
+        else if (category == 1 && tag == 1) {
+            serialNumber = @"A1002";
+        }
+        // Happy Smile Toothless
+        else if (category == 1 && tag == 2) {
+            serialNumber = @"A1003";
+        }
         
         /**** OTHERS **********************************************************************/
 //        else if (category == 2 && tag == 0) {
@@ -897,8 +931,16 @@
             serialNumber = @"S0001";
         }
         // Bushy Moutache
-        if (category == 0 && tag == 1) {
+        else if (category == 0 && tag == 1) {
             serialNumber = @"S0002";
+        }
+        // Pinched Moustache
+        else if (category == 0 && tag == 2) {
+            serialNumber = @"S0003";
+        }
+        // Trim Moustache
+        else if (category == 0 && tag == 3) {
+            serialNumber = @"S0004";
         }
         
         /**** ?? **********************************************************************/
@@ -912,16 +954,19 @@
 //        }
     }
     
-    // Add the image to the drawing board
-    [self addFaceAnimation:serialNumber xLocation:x yLocation:y scaleValue:scale rotateValue:rotate centerValue:center zIndex:self.maxZIndex];
+    // Check to make sure that an image was clicked
+    if (serialNumber) {
+        // Add the image to the drawing board
+        [self addFaceAnimation:serialNumber xLocation:x yLocation:y scaleValue:scale rotateValue:rotate centerValue:center zIndex:self.maxZIndex];
     
-    // Save image properties
-    [self.animatedImagesSerialNumber addObject:serialNumber];
-    [self.animatedImagesType addObject:imageType];
-    [self.animatedImagesScale addObject:[NSNumber numberWithInt:scale]];
-    [self.animatedImagesRotate addObject:[NSNumber numberWithInt:rotate]];
-    [self.animatedImagesZIndex addObject:[NSNumber numberWithInteger:self.maxZIndex]];
-    self.maxZIndex += 1;
+        // Save image properties
+        [self.animatedImagesSerialNumber addObject:serialNumber];
+        [self.animatedImagesType addObject:imageType];
+        [self.animatedImagesScale addObject:[NSNumber numberWithInt:scale]];
+        [self.animatedImagesRotate addObject:[NSNumber numberWithInt:rotate]];
+        [self.animatedImagesZIndex addObject:[NSNumber numberWithInteger:self.maxZIndex]];
+        self.maxZIndex += 1;
+    }
 }
 
 - (void)addFaceAnimation:(NSString *)serialNumber
@@ -937,19 +982,76 @@
     float rotateAmount = rotate;
     CGPoint centerPoint = center;
     
-    // Create a random position for the view on the drawing board
+    /** ANIMATED IMAGES **********************************************************************/
     // Blinking Eye
-//    if ([serialNumber isEqualToString:@"A0001"]) {
-//        const float width = 149.6;
-//        const float height = 149.6;
-//        if (xPos < 0) { xPos = [self calculateXPos:xPos width:width]; }
-//        if (yPos < 0) { yPos = [self calculateYPos:yPos width:height]; }
-//        image = [[BlinkingEyeView alloc] initWithFrame:CGRectMake(xPos, yPos, width, height)];
-//    }
+    if ([serialNumber isEqualToString:@"A0001"]) {
+        const float width = 149.6;
+        const float height = 149.6;
+        if (xPos < 0) { xPos = [self calculateXPos:xPos width:width]; }
+        if (yPos < 0) { yPos = [self calculateYPos:yPos width:height]; }
+        image = [[BlinkingEyeView alloc] initWithFrame:CGRectMake(xPos, yPos, width, height)];
+    }
+    // Almond Eye Blink
+    else if ([serialNumber isEqualToString:@"A0002"]) {
+        const float width = 149.6;
+        const float height = 137.6;
+        if (xPos < 0) { xPos = [self calculateXPos:xPos width:width]; }
+        if (yPos < 0) { yPos = [self calculateYPos:yPos width:height]; }
+        image = [[AlmondEyeBlinkView alloc] initWithFrame:CGRectMake(xPos, yPos, width, height)];
+    }
+    // Eye Roll
+    else if ([serialNumber isEqualToString:@"A0003"]) {
+        const float width = 149.6;
+        const float height = 149.6;
+        if (xPos < 0) { xPos = [self calculateXPos:xPos width:width]; }
+        if (yPos < 0) { yPos = [self calculateYPos:yPos width:height]; }
+        image = [[RollingEyeView alloc] initWithFrame:CGRectMake(xPos, yPos, width, height)];
+    }
+    // Crying Eye
+    else if ([serialNumber isEqualToString:@"A0004"]) {
+        const float width = 149.6;
+        const float height = 138.5;
+        if (xPos < 0) { xPos = [self calculateXPos:xPos width:width]; }
+        if (yPos < 0) { yPos = [self calculateYPos:yPos width:height]; }
+        image = [[CryingEyeView alloc] initWithFrame:CGRectMake(xPos, yPos, width, height)];
+    }
+    // Surprise Eye
+    else if ([serialNumber isEqualToString:@"A0005"]) {
+        const float width = 149.6;
+        const float height = 149.6;
+        if (xPos < 0) { xPos = [self calculateXPos:xPos width:width]; }
+        if (yPos < 0) { yPos = [self calculateYPos:yPos width:height]; }
+        image = [[SurpriseEyeView alloc] initWithFrame:CGRectMake(xPos, yPos, width, height)];
+    }
+    // Grouchy Mouth
+    else if ([serialNumber isEqualToString:@"A1001"]) {
+        const float width = 200;
+        const float height = 106.5;
+        if (xPos < 0) { xPos = [self calculateXPos:xPos width:width]; }
+        if (yPos < 0) { yPos = [self calculateYPos:yPos width:height]; }
+        image = [[GrouchyMouthView alloc] initWithFrame:CGRectMake(xPos, yPos, width, height)];
+    }
+    // Sharp Teeth Smile
+    else if ([serialNumber isEqualToString:@"A1002"]) {
+        const float width = 200;
+        const float height = 90;
+        if (xPos < 0) { xPos = [self calculateXPos:xPos width:width]; }
+        if (yPos < 0) { yPos = [self calculateYPos:yPos width:height]; }
+        image = [[SharpTeethSmileView alloc] initWithFrame:CGRectMake(xPos, yPos, width, height)];
+    }
+    // Sharp Teeth Smile
+    else if ([serialNumber isEqualToString:@"A1003"]) {
+        const float width = 200;
+        const float height = 127.6;
+        if (xPos < 0) { xPos = [self calculateXPos:xPos width:width]; }
+        if (yPos < 0) { yPos = [self calculateYPos:yPos width:height]; }
+        image = [[HappySmileToothlessView alloc] initWithFrame:CGRectMake(xPos, yPos, width, height)];
+    }
 
-    /** SATIC IMAGES **********************************************************************/
+
+    /** STATIC IMAGES ***********************************************************************/
     // Curly Moutache
-    if ([serialNumber isEqualToString:@"S0001"]) {
+    else if ([serialNumber isEqualToString:@"S0001"]) {
         const float width = 200;
         const float height = 91.6;
         if (xPos < 0) { xPos = [self calculateXPos:xPos width:width]; }
@@ -963,6 +1065,22 @@
         if (xPos < 0) { xPos = [self calculateXPos:xPos width:width]; }
         if (yPos < 0) { yPos = [self calculateYPos:yPos width:height]; }
         image = [[BushyMoustacheView alloc] initWithFrame:CGRectMake(xPos, yPos, width, height)];
+    }
+    // Pinched Moutache
+    else if ([serialNumber isEqualToString:@"S0003"]) {
+        const float width = 200;
+        const float height = 50.4;
+        if (xPos < 0) { xPos = [self calculateXPos:xPos width:width]; }
+        if (yPos < 0) { yPos = [self calculateYPos:yPos width:height]; }
+        image = [[PinchedMoustacheView alloc] initWithFrame:CGRectMake(xPos, yPos, width, height)];
+    }
+    // Trim Moutache
+    else if ([serialNumber isEqualToString:@"S0004"]) {
+        const float width = 200;
+        const float height = 87.2;
+        if (xPos < 0) { xPos = [self calculateXPos:xPos width:width]; }
+        if (yPos < 0) { yPos = [self calculateYPos:yPos width:height]; }
+        image = [[TrimMoustacheView alloc] initWithFrame:CGRectMake(xPos, yPos, width, height)];
     }
     
     if (image != nil) {

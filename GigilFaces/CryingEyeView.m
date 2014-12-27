@@ -1,25 +1,23 @@
 //
-//  GrouchyMouthView.m
+//  CryingEyeView.m
 //  GigilFaces
 //
-//  Created by Nicole on 12/16/14.
+//  Created by Nicole on 12/26/14.
 //  Copyright (c) 2014 nicole. All rights reserved.
 //
 
-#import "GrouchyMouthView.h"
+#import "CryingEyeView.h"
 
-@implementation GrouchyMouthView
+@implementation CryingEyeView
 
-// Serial Number: A1001
+// Serial Number: A0004
 
 - (NSString *)firstImageName {
-    return @"GS1";
+    return @"CE1";
 }
 
 - (NSArray *)animatedImageNames {
-    return @[@"GS1", @"GS2", @"GS3", @"GS4",
-             @"GS5", @"GS6", @"GS7", @"GS8", @"GS9",
-             @"GS10", @"GS11", @"GS12"];
+    return @[@"CE1", @"CE2", @"CE2", @"CE3a", @"CE3", @"CE4", @"CE4", @"CE5", @"CE6", @"CE6", @"CE7", @"CE8", @"CE8"];
 }
 
 /*
