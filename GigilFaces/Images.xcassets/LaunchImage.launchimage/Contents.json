@@ -1,13 +1,6 @@
 {
   "images" : [
     {
-      "orientation" : "portrait",
-      "idiom" : "ipad",
-      "extent" : "full-screen",
-      "minimum-system-version" : "7.0",
-      "scale" : "1x"
-    },
-    {
       "orientation" : "landscape",
       "idiom" : "ipad",
       "extent" : "full-screen",
@@ -16,17 +9,11 @@
       "scale" : "1x"
     },
     {
-      "orientation" : "portrait",
-      "idiom" : "ipad",
-      "extent" : "full-screen",
-      "minimum-system-version" : "7.0",
-      "scale" : "2x"
-    },
-    {
       "orientation" : "landscape",
       "idiom" : "ipad",
       "extent" : "full-screen",
       "minimum-system-version" : "7.0",
+      "filename" : "GigilFacesSplashScreen@2x.png",
       "scale" : "2x"
     }
   ],

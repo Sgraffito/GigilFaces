@@ -42,14 +42,16 @@
 - (NSArray *)segmentTwo {
     if (!_segmentTwo) {
         _segmentTwo = @[@"CircleRedSmall", @"CircleGreenSmall", @"CirclePurpleSmall", @"CircleBlackSmall",
-                        @"TeardropDkBlueSmall", @"TeardropLtBlueSmall"];
+                        @"TeardropDkBlueSmall", @"TeardropLtBlueSmall",
+                        @"StarRedSmall", @"StarBlueSmall", @"StarYellowSmall",
+                        @"TriangleRedSmall", @"TriangleGreenSmall", @"TrianglePurpleSmall", @"TriangleBlackSmall"];
     }
     return _segmentTwo;
 }
 
 - (NSArray *)segmentThree {
     if (!_segmentThree) {
-        _segmentThree = @[@"image3.png"];
+        _segmentThree = @[@"BowTieSmall", @"TieSmall"];
     }
     return _segmentThree;
 }

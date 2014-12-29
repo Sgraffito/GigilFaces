@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8C3146B51A50599700B1240E /* BowTieView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C3146B41A50599700B1240E /* BowTieView.m */; };
+		8C3146B81A50604900B1240E /* TieView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C3146B71A50604900B1240E /* TieView.m */; };
+		8C3146BB1A50654A00B1240E /* StarRedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C3146BA1A50654A00B1240E /* StarRedView.m */; };
+		8C3146BE1A50655500B1240E /* StarBlueView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C3146BD1A50655500B1240E /* StarBlueView.m */; };
+		8C3146C11A50656100B1240E /* StarYellowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C3146C01A50656100B1240E /* StarYellowView.m */; };
+		8C3146C41A50745800B1240E /* TriangleRedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C3146C31A50745800B1240E /* TriangleRedView.m */; };
+		8C3146C71A50747700B1240E /* TriangleGreenView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C3146C61A50747700B1240E /* TriangleGreenView.m */; };
+		8C3146CA1A50748300B1240E /* TrianglePurpleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C3146C91A50748300B1240E /* TrianglePurpleView.m */; };
+		8C3146CD1A50749B00B1240E /* TriangleBlackView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C3146CC1A50749B00B1240E /* TriangleBlackView.m */; };
 		BC08673C19A8D293006C05D0 /* FaceAnimationsPopOverVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BC08673A19A8D293006C05D0 /* FaceAnimationsPopOverVC.m */; };
 		BC08673D19A8D293006C05D0 /* FaceAnimationsPopOverVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC08673B19A8D293006C05D0 /* FaceAnimationsPopOverVC.xib */; };
 		BC12D2DB19ACCA0700350C78 /* CancelButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = BC12D2DA19ACCA0700350C78 /* CancelButtonView.m */; };
@@ -86,6 +95,24 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8C3146B31A50599700B1240E /* BowTieView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BowTieView.h; sourceTree = "<group>"; };
+		8C3146B41A50599700B1240E /* BowTieView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BowTieView.m; sourceTree = "<group>"; };
+		8C3146B61A50604900B1240E /* TieView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TieView.h; sourceTree = "<group>"; };
+		8C3146B71A50604900B1240E /* TieView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TieView.m; sourceTree = "<group>"; };
+		8C3146B91A50654A00B1240E /* StarRedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StarRedView.h; sourceTree = "<group>"; };
+		8C3146BA1A50654A00B1240E /* StarRedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StarRedView.m; sourceTree = "<group>"; };
+		8C3146BC1A50655500B1240E /* StarBlueView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StarBlueView.h; sourceTree = "<group>"; };
+		8C3146BD1A50655500B1240E /* StarBlueView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StarBlueView.m; sourceTree = "<group>"; };
+		8C3146BF1A50656100B1240E /* StarYellowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StarYellowView.h; sourceTree = "<group>"; };
+		8C3146C01A50656100B1240E /* StarYellowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StarYellowView.m; sourceTree = "<group>"; };
+		8C3146C21A50745800B1240E /* TriangleRedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TriangleRedView.h; sourceTree = "<group>"; };
+		8C3146C31A50745800B1240E /* TriangleRedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TriangleRedView.m; sourceTree = "<group>"; };
+		8C3146C51A50747700B1240E /* TriangleGreenView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TriangleGreenView.h; sourceTree = "<group>"; };
+		8C3146C61A50747700B1240E /* TriangleGreenView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TriangleGreenView.m; sourceTree = "<group>"; };
+		8C3146C81A50748300B1240E /* TrianglePurpleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrianglePurpleView.h; sourceTree = "<group>"; };
+		8C3146C91A50748300B1240E /* TrianglePurpleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrianglePurpleView.m; sourceTree = "<group>"; };
+		8C3146CB1A50749B00B1240E /* TriangleBlackView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TriangleBlackView.h; sourceTree = "<group>"; };
+		8C3146CC1A50749B00B1240E /* TriangleBlackView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TriangleBlackView.m; sourceTree = "<group>"; };
 		BC08673919A8D293006C05D0 /* FaceAnimationsPopOverVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FaceAnimationsPopOverVC.h; sourceTree = "<group>"; };
 		BC08673A19A8D293006C05D0 /* FaceAnimationsPopOverVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FaceAnimationsPopOverVC.m; sourceTree = "<group>"; };
 		BC08673B19A8D293006C05D0 /* FaceAnimationsPopOverVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FaceAnimationsPopOverVC.xib; sourceTree = "<group>"; };
@@ -228,6 +255,39 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8C3146B21A50597E00B1240E /* Shapes */ = {
+			isa = PBXGroup;
+			children = (
+				BC45E0A71A4EF50D00F06963 /* CircleRedView.h */,
+				BC45E0A81A4EF50D00F06963 /* CircleRedView.m */,
+				BC45E0AA1A4EF51B00F06963 /* CircleGreenView.h */,
+				BC45E0AB1A4EF51B00F06963 /* CircleGreenView.m */,
+				BC45E0AD1A4EF52C00F06963 /* CirclePurpleView.h */,
+				BC45E0AE1A4EF52C00F06963 /* CirclePurpleView.m */,
+				BC45E0B01A4EF54900F06963 /* CircleBlackView.h */,
+				BC45E0B11A4EF54900F06963 /* CircleBlackView.m */,
+				BC45E0B31A4EF55A00F06963 /* TeardropDkBlueView.h */,
+				BC45E0B41A4EF55A00F06963 /* TeardropDkBlueView.m */,
+				BC45E0B61A4EF56700F06963 /* TeardropLtBlueView.h */,
+				BC45E0B71A4EF56700F06963 /* TeardropLtBlueView.m */,
+				8C3146B91A50654A00B1240E /* StarRedView.h */,
+				8C3146BA1A50654A00B1240E /* StarRedView.m */,
+				8C3146BC1A50655500B1240E /* StarBlueView.h */,
+				8C3146BD1A50655500B1240E /* StarBlueView.m */,
+				8C3146BF1A50656100B1240E /* StarYellowView.h */,
+				8C3146C01A50656100B1240E /* StarYellowView.m */,
+				8C3146C21A50745800B1240E /* TriangleRedView.h */,
+				8C3146C31A50745800B1240E /* TriangleRedView.m */,
+				8C3146C51A50747700B1240E /* TriangleGreenView.h */,
+				8C3146C61A50747700B1240E /* TriangleGreenView.m */,
+				8C3146C81A50748300B1240E /* TrianglePurpleView.h */,
+				8C3146C91A50748300B1240E /* TrianglePurpleView.m */,
+				8C3146CB1A50749B00B1240E /* TriangleBlackView.h */,
+				8C3146CC1A50749B00B1240E /* TriangleBlackView.m */,
+			);
+			name = Shapes;
+			sourceTree = "<group>";
+		};
 		BC08673E19A8D298006C05D0 /* Face Animations Pop-Over */ = {
 			isa = PBXGroup;
 			children = (
@@ -395,18 +455,11 @@
 			isa = PBXGroup;
 			children = (
 				BC1990B51A4E4A0300484830 /* Hair */,
-				BC45E0A71A4EF50D00F06963 /* CircleRedView.h */,
-				BC45E0A81A4EF50D00F06963 /* CircleRedView.m */,
-				BC45E0AA1A4EF51B00F06963 /* CircleGreenView.h */,
-				BC45E0AB1A4EF51B00F06963 /* CircleGreenView.m */,
-				BC45E0AD1A4EF52C00F06963 /* CirclePurpleView.h */,
-				BC45E0AE1A4EF52C00F06963 /* CirclePurpleView.m */,
-				BC45E0B01A4EF54900F06963 /* CircleBlackView.h */,
-				BC45E0B11A4EF54900F06963 /* CircleBlackView.m */,
-				BC45E0B31A4EF55A00F06963 /* TeardropDkBlueView.h */,
-				BC45E0B41A4EF55A00F06963 /* TeardropDkBlueView.m */,
-				BC45E0B61A4EF56700F06963 /* TeardropLtBlueView.h */,
-				BC45E0B71A4EF56700F06963 /* TeardropLtBlueView.m */,
+				8C3146B21A50597E00B1240E /* Shapes */,
+				8C3146B31A50599700B1240E /* BowTieView.h */,
+				8C3146B41A50599700B1240E /* BowTieView.m */,
+				8C3146B61A50604900B1240E /* TieView.h */,
+				8C3146B71A50604900B1240E /* TieView.m */,
 			);
 			name = "Static Images";
 			sourceTree = "<group>";
@@ -622,6 +675,9 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = nicole;
 				TargetAttributes = {
+					BCA121C919A74E20005CC84D = {
+						DevelopmentTeam = 9964T2D9BH;
+					};
 					BCA121EA19A74E20005CC84D = {
 						TestTargetID = BCA121C919A74E20005CC84D;
 					};
@@ -689,9 +745,14 @@
 				BCA1220A19A75B48005CC84D /* ColorSelectedView.m in Sources */,
 				BCA1220719A7560D005CC84D /* DrawingBoardView.m in Sources */,
 				BCD132CF19AF58D600C12601 /* MyDrawingCVCell.m in Sources */,
+				8C3146C71A50747700B1240E /* TriangleGreenView.m in Sources */,
 				BCA1220D19A75EB0005CC84D /* ColorTrayView.m in Sources */,
+				8C3146B81A50604900B1240E /* TieView.m in Sources */,
+				8C3146C41A50745800B1240E /* TriangleRedView.m in Sources */,
 				BC45E0B21A4EF54900F06963 /* CircleBlackView.m in Sources */,
+				8C3146C11A50656100B1240E /* StarYellowView.m in Sources */,
 				BC1990C61A4E5AB800484830 /* HappySmileToothlessView.m in Sources */,
+				8C3146B51A50599700B1240E /* BowTieView.m in Sources */,
 				BCD132CC19AF572C00C12601 /* MyDrawingsVC.m in Sources */,
 				BC4AE4A319A7DE64009CB7E7 /* VineBranchBezierPath.m in Sources */,
 				BC1990C91A4E5E9100484830 /* SixPointStarView.m in Sources */,
@@ -709,11 +770,13 @@
 				BCA121DE19A74E20005CC84D /* GigilFacesAppDelegate.m in Sources */,
 				BCC74A1119AB8C7B00C3A574 /* NoAnimatedImagesPopOverVC.m in Sources */,
 				BCC74A0A19AB861000C3A574 /* AnimatedImageView.m in Sources */,
+				8C3146BB1A50654A00B1240E /* StarRedView.m in Sources */,
 				BC1990C01A4E505100484830 /* SurpriseEyeView.m in Sources */,
 				BCA121DA19A74E20005CC84D /* main.m in Sources */,
 				BCE970291A40FEAF00B4DC14 /* BlinkingEyeView.m in Sources */,
 				BC12D2DB19ACCA0700350C78 /* CancelButtonView.m in Sources */,
 				BC1990BB1A4E4E1300484830 /* CryingEyeView.m in Sources */,
+				8C3146CD1A50749B00B1240E /* TriangleBlackView.m in Sources */,
 				BC1990B11A4E489600484830 /* PinchedMoustacheView.m in Sources */,
 				BCA1220419A74E78005CC84D /* GigilFacesDrawingVC.m in Sources */,
 				BCEEFF8019AE100E00FDD188 /* SaveDrawingBoard.m in Sources */,
@@ -721,11 +784,13 @@
 				BCFF55AF1A40621400D09F0E /* GrouchyMouthView.m in Sources */,
 				BC1C080D19B0BF4C008EFCD8 /* SavePopOverVC.m in Sources */,
 				BC4AE4B719A81066009CB7E7 /* BrushOpacityPopOverVC.m in Sources */,
+				8C3146CA1A50748300B1240E /* TrianglePurpleView.m in Sources */,
 				BCA1221119A76AAE005CC84D /* DrawingUtensilsTrayView.m in Sources */,
 				BC08673C19A8D293006C05D0 /* FaceAnimationsPopOverVC.m in Sources */,
 				BC4AE49D19A7C5C0009CB7E7 /* VariedWidthsPaintingBrushBezier.m in Sources */,
 				BC45E0B51A4EF55A00F06963 /* TeardropDkBlueView.m in Sources */,
 				BC4AE49619A7B9C7009CB7E7 /* SmoothPaintingBrushBezier.m in Sources */,
+				8C3146BE1A50655500B1240E /* StarBlueView.m in Sources */,
 				BC4AE49A19A7C29A009CB7E7 /* DrawingBoardShadowView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -853,10 +918,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "GigilFaces/GigilFaces-Prefix.pch";
 				INFOPLIST_FILE = "GigilFaces/GigilFaces-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -866,10 +934,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "GigilFaces/GigilFaces-Prefix.pch";
 				INFOPLIST_FILE = "GigilFaces/GigilFaces-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

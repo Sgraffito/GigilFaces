@@ -47,6 +47,17 @@
 #import "CircleRedView.h"
 #import "TeardropDkBlueView.h"
 #import "TeardropLtBlueView.h"
+#import "StarRedView.h"
+#import "StarBlueView.h"
+#import "StarYellowView.h"
+#import "TriangleBlackView.h"
+#import "TriangleGreenView.h"
+#import "TrianglePurpleView.h"
+#import "TriangleRedView.h"
+
+// Clothes
+#import "BowTieView.h"
+#import "TieView.h"
 
 @interface DrawingBoardView()
 @property (nonatomic) UIColor *paperColor;
@@ -943,7 +954,8 @@
     }
     
     else if ([imageType isEqualToString:@"static"]) {
-        /**** Hair **********************************************************************/
+       
+        /**** HAIR **********************************************************************/
         // Curly Moustache
         if (category == 0 && tag == 0) {
             serialNumber = @"S0001";
@@ -961,7 +973,7 @@
             serialNumber = @"S0004";
         }
         
-        /**** ?? **********************************************************************/
+        /**** SHAPES **********************************************************************/
         // Red Circle
         else if (category == 1 && tag == 0) {
             serialNumber = @"S1001";
@@ -986,11 +998,44 @@
         else if (category == 1 && tag == 5) {
             serialNumber = @"S1006";
         }
-        
-        /**** ?? **********************************************************************/
-//        else if (category == 2 && tag == 0) {
-//            serialNumber = @"S2001";
-//        }
+        // Red Star
+        else if (category == 1 && tag == 6) {
+            serialNumber = @"S1007";
+        }
+        // Blue Star
+        else if (category == 1 && tag == 7) {
+            serialNumber = @"S1008";
+        }
+        // Yellow Star
+        else if (category == 1 && tag == 8) {
+            serialNumber = @"S1009";
+        }
+        // Red Triangle
+        else if (category == 1 && tag == 9) {
+            serialNumber = @"S1010";
+        }
+        // Green Triangle
+        else if (category == 1 && tag == 10) {
+            serialNumber = @"S1011";
+        }
+        // Purple Triangle
+        else if (category == 1 && tag == 11) {
+            serialNumber = @"S1012";
+        }
+        // Black Triangle
+        else if (category == 1 && tag == 12) {
+            serialNumber = @"S1013";
+        }
+
+        /**** OTHER **********************************************************************/
+        // Bow Tie
+        else if (category == 2 && tag == 0) {
+            serialNumber = @"S2001";
+        }
+        // Tie
+        else if (category == 2 && tag == 1) {
+            serialNumber = @"S2002";
+        }
     }
     
     // Check to make sure that an image was clicked
@@ -1186,6 +1231,79 @@
         if (yPos < 0) { yPos = [self calculateYPos:yPos width:height]; }
         image = [[TeardropLtBlueView alloc] initWithFrame:CGRectMake(xPos, yPos, width, height)];
     }
+    // Red Star
+    else if ([serialNumber isEqualToString:@"S1007"]) {
+        const float width = 100;
+        const float height = 95;
+        if (xPos < 0) { xPos = [self calculateXPos:xPos width:width]; }
+        if (yPos < 0) { yPos = [self calculateYPos:yPos width:height]; }
+        image = [[StarRedView alloc] initWithFrame:CGRectMake(xPos, yPos, width, height)];
+    }
+    // Blue Star
+    else if ([serialNumber isEqualToString:@"S1008"]) {
+        const float width = 100;
+        const float height = 95;
+        if (xPos < 0) { xPos = [self calculateXPos:xPos width:width]; }
+        if (yPos < 0) { yPos = [self calculateYPos:yPos width:height]; }
+        image = [[StarBlueView alloc] initWithFrame:CGRectMake(xPos, yPos, width, height)];
+    }
+    // Yellow Star
+    else if ([serialNumber isEqualToString:@"S1009"]) {
+        const float width = 100;
+        const float height = 95;
+        if (xPos < 0) { xPos = [self calculateXPos:xPos width:width]; }
+        if (yPos < 0) { yPos = [self calculateYPos:yPos width:height]; }
+        image = [[StarYellowView alloc] initWithFrame:CGRectMake(xPos, yPos, width, height)];
+    }
+    // Red Triangle
+    else if ([serialNumber isEqualToString:@"S1010"]) {
+        const float width = 100;
+        const float height = 87;
+        if (xPos < 0) { xPos = [self calculateXPos:xPos width:width]; }
+        if (yPos < 0) { yPos = [self calculateYPos:yPos width:height]; }
+        image = [[TriangleRedView alloc] initWithFrame:CGRectMake(xPos, yPos, width, height)];
+    }
+    // Green Triangle
+    else if ([serialNumber isEqualToString:@"S1011"]) {
+        const float width = 100;
+        const float height = 87;
+        if (xPos < 0) { xPos = [self calculateXPos:xPos width:width]; }
+        if (yPos < 0) { yPos = [self calculateYPos:yPos width:height]; }
+        image = [[TriangleGreenView alloc] initWithFrame:CGRectMake(xPos, yPos, width, height)];
+    }
+    // Purple Triangle
+    else if ([serialNumber isEqualToString:@"S1012"]) {
+        const float width = 100;
+        const float height = 87;
+        if (xPos < 0) { xPos = [self calculateXPos:xPos width:width]; }
+        if (yPos < 0) { yPos = [self calculateYPos:yPos width:height]; }
+        image = [[TrianglePurpleView alloc] initWithFrame:CGRectMake(xPos, yPos, width, height)];
+    }
+    // Black Triangle
+    else if ([serialNumber isEqualToString:@"S1013"]) {
+        const float width = 100;
+        const float height = 87;
+        if (xPos < 0) { xPos = [self calculateXPos:xPos width:width]; }
+        if (yPos < 0) { yPos = [self calculateYPos:yPos width:height]; }
+        image = [[TriangleBlackView alloc] initWithFrame:CGRectMake(xPos, yPos, width, height)];
+    }
+    
+    // Bow Tie
+    else if ([serialNumber isEqualToString:@"S2001"]) {
+        const float width = 200;
+        const float height = 110;
+        if (xPos < 0) { xPos = [self calculateXPos:xPos width:width]; }
+        if (yPos < 0) { yPos = [self calculateYPos:yPos width:height]; }
+        image = [[BowTieView alloc] initWithFrame:CGRectMake(xPos, yPos, width, height)];
+    }
+    // Tie
+    else if ([serialNumber isEqualToString:@"S2002"]) {
+        const float width = 100;
+        const float height = 292;
+        if (xPos < 0) { xPos = [self calculateXPos:xPos width:width]; }
+        if (yPos < 0) { yPos = [self calculateYPos:yPos width:height]; }
+        image = [[TieView alloc] initWithFrame:CGRectMake(xPos, yPos, width, height)];
+    }
     
     if (image != nil) {
         // Add a tap gesture to the view
@@ -1351,6 +1469,11 @@
            [self bubbleSort];
        }
        
+       NSLog(@"\n\nSaved Values:");
+       for (int i = 0; i < self.animatedImagesFrame.count; i += 1) {
+           NSLog(@"%d. Serial Number: %@, ZIndex: %@, Center: %@", i, [self.animatedImagesSerialNumber objectAtIndex:i], [self.animatedImagesZIndex objectAtIndex:i], [self.animatedImagesCenter objectAtIndex:i]);
+       }
+
        // Save values
         self.saveDrawingBoard.animatedImagesFrames = self.animatedImagesFrame;
         self.saveDrawingBoard.animatedImagesType = self.animatedImagesType;
@@ -1489,6 +1612,7 @@
             self.animatedImagesZIndex = self.saveDrawingBoard.animatedImagesZIndex;
             self.maxZIndex = (int)self.saveDrawingBoard.maxZIndex;
             
+            NSLog(@"\n\nGetting Saved Values:");
             int count = 0;
             for (NSNumber *img in self.animatedImagesFrame) {
                 int xPos = [img CGRectValue].origin.x;
@@ -1502,6 +1626,7 @@
                 
                 [self addFaceAnimation:serialNumber xLocation:xPos yLocation:yPos scaleValue:scaleValue rotateValue:rotateValue centerValue:centerValue zIndex:zIndex];
                 
+                NSLog(@"%d. Serial Number: %@, zIndex: %d, Center: %@", count, serialNumber, zIndex, [self.animatedImagesCenter objectAtIndex:count]);
                 count += 1;
             }
         }
@@ -1551,8 +1676,6 @@
     
     // Create queue for saving data
     saveDataQueue = dispatch_queue_create("saveDataQueue", NULL);
-    
-//    self.maxZIndex = 0;
 }
 
 @end

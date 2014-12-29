@@ -435,11 +435,11 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="OgF-g1-eow">
-                                <rect key="frame" x="543" y="593" width="280" height="82"/>
+                                <rect key="frame" x="475" y="600" width="329" height="82"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
-                                <state key="normal" title="My Drawings">
-                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="38"/>
+                                <state key="normal" title="Saved Drawings">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -447,18 +447,18 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="oHM-Kw-fXd">
-                                <rect key="frame" x="203" y="593" width="253" height="82"/>
+                                <rect key="frame" x="219" y="600" width="281" height="82"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="38"/>
                                 <state key="normal" title="New Drawing">
-                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
                                 <connections>
                                     <segue destination="BYZ-38-t0r" kind="push" identifier="New Drawing Segue" id="NQR-fU-DXg"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="FrontImage" id="uDo-ni-FeP">
-                                <rect key="frame" x="0.0" y="-67" width="1024" height="664"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MainScreen" id="uDo-ni-FeP">
+                                <rect key="frame" x="0.0" y="-64" width="1024" height="664"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
@@ -493,7 +493,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="FrontImage" width="1023" height="664"/>
+        <image name="MainScreen" width="1024" height="664"/>
         <image name="brushOpacityButton" width="54" height="54"/>
         <image name="brushSizeButton" width="54" height="54"/>
         <image name="crayonUnSelected" width="62" height="55"/>
@@ -514,7 +514,7 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="8Gt-6U-oow"/>
+        <segue reference="NQR-fU-DXg"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.32549019607843138" green="0.30980392156862746" blue="0.63921568627450975" alpha="1" colorSpace="calibratedRGB"/>
 </document>
