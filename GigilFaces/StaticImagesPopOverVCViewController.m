@@ -51,7 +51,7 @@
 
 - (NSArray *)segmentThree {
     if (!_segmentThree) {
-        _segmentThree = @[@"BowTieSmall", @"TieSmall"];
+        _segmentThree = @[@"BowTieSmall", @"TieSmall", @"BowlerSmall", @"TopHatSmall", @"ReporterHatSmall"];
     }
     return _segmentThree;
 }

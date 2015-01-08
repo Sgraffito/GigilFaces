@@ -35,21 +35,22 @@
 - (NSArray *)segmentOne {
     if (!_segmentOne) {
         _segmentOne = @[@"EyeBlinkSmall", @"AlmondEyesSmall", @"RollingEyeSmall",
-                        @"CryingEyesSmall", @"SurpriseEyeSmall"];
+                        @"CryingEyesSmall", @"SurpriseEyeSmall", @"DartEyeSmall"];
     }
     return _segmentOne;
 }
 
 - (NSArray *)segmentTwo {
     if (!_segmentTwo) {
-        _segmentTwo = @[@"GrouchySmileSmall", @"HappySmileSmall", @"HappySmileToothlessSmall"];
+        _segmentTwo = @[@"GrouchySmileSmall", @"HappySmileSmall", @"HappySmileToothlessSmall",
+                        @"SadMouthSmall", @"SurpriseMouthSmall", @"CryingMouthSmall"];
     }
     return _segmentTwo;
 }
 
 - (NSArray *)segmentThree {
     if (!_segmentThree) {
-        _segmentThree = @[@"6PointStarSmall", @"8PointStarSmall"];
+        _segmentThree = @[@"6PointStarSmall", @"8PointStarSmall", @"CircleLightGreenSmall", @"Star12PointSmall"];
     }
     return _segmentThree;
 }
@@ -105,8 +106,7 @@
     return cell;
 }
 
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
-{
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     return CGSizeMake(106, 106);
 }
 

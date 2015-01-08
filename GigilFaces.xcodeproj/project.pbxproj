@@ -19,6 +19,10 @@
 		BC08673C19A8D293006C05D0 /* FaceAnimationsPopOverVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BC08673A19A8D293006C05D0 /* FaceAnimationsPopOverVC.m */; };
 		BC08673D19A8D293006C05D0 /* FaceAnimationsPopOverVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC08673B19A8D293006C05D0 /* FaceAnimationsPopOverVC.xib */; };
 		BC12D2DB19ACCA0700350C78 /* CancelButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = BC12D2DA19ACCA0700350C78 /* CancelButtonView.m */; };
+		BC1859FE1A545198006E6A57 /* SadMouthView.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1859FD1A545198006E6A57 /* SadMouthView.m */; };
+		BC185A011A545843006E6A57 /* SurpriseMouthView.m in Sources */ = {isa = PBXBuildFile; fileRef = BC185A001A545843006E6A57 /* SurpriseMouthView.m */; };
+		BC185A041A54687A006E6A57 /* CryingMouthView.m in Sources */ = {isa = PBXBuildFile; fileRef = BC185A031A54687A006E6A57 /* CryingMouthView.m */; };
+		BC185A071A547134006E6A57 /* DartEyeView.m in Sources */ = {isa = PBXBuildFile; fileRef = BC185A061A547134006E6A57 /* DartEyeView.m */; };
 		BC1990B11A4E489600484830 /* PinchedMoustacheView.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1990B01A4E489600484830 /* PinchedMoustacheView.m */; };
 		BC1990B41A4E49D600484830 /* TrimMoustacheView.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1990B31A4E49D600484830 /* TrimMoustacheView.m */; };
 		BC1990B81A4E4CFB00484830 /* RollingEyeView.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1990B71A4E4CFB00484830 /* RollingEyeView.m */; };
@@ -81,6 +85,11 @@
 		BCE970291A40FEAF00B4DC14 /* BlinkingEyeView.m in Sources */ = {isa = PBXBuildFile; fileRef = BCE970281A40FEAF00B4DC14 /* BlinkingEyeView.m */; };
 		BCE9702C1A410F6700B4DC14 /* AlmondEyeBlinkView.m in Sources */ = {isa = PBXBuildFile; fileRef = BCE9702B1A410F6700B4DC14 /* AlmondEyeBlinkView.m */; };
 		BCEEFF8019AE100E00FDD188 /* SaveDrawingBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = BCEEFF7F19AE100E00FDD188 /* SaveDrawingBoard.m */; };
+		BCFF18BB1A5ED85A00EB2D7E /* CircleDifferentColorsView.m in Sources */ = {isa = PBXBuildFile; fileRef = BCFF18BA1A5ED85A00EB2D7E /* CircleDifferentColorsView.m */; };
+		BCFF18BE1A5EDEA100EB2D7E /* TwelvePointStarView.m in Sources */ = {isa = PBXBuildFile; fileRef = BCFF18BD1A5EDEA100EB2D7E /* TwelvePointStarView.m */; };
+		BCFF18C21A5EEEAB00EB2D7E /* BowlerHatView.m in Sources */ = {isa = PBXBuildFile; fileRef = BCFF18C11A5EEEAB00EB2D7E /* BowlerHatView.m */; };
+		BCFF18C51A5EEEB600EB2D7E /* TopHatView.m in Sources */ = {isa = PBXBuildFile; fileRef = BCFF18C41A5EEEB600EB2D7E /* TopHatView.m */; };
+		BCFF18C81A5EEEC100EB2D7E /* ReporterHatView.m in Sources */ = {isa = PBXBuildFile; fileRef = BCFF18C71A5EEEC100EB2D7E /* ReporterHatView.m */; };
 		BCFF55AF1A40621400D09F0E /* GrouchyMouthView.m in Sources */ = {isa = PBXBuildFile; fileRef = BCFF55AE1A40621400D09F0E /* GrouchyMouthView.m */; };
 /* End PBXBuildFile section */
 
@@ -118,6 +127,14 @@
 		BC08673B19A8D293006C05D0 /* FaceAnimationsPopOverVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FaceAnimationsPopOverVC.xib; sourceTree = "<group>"; };
 		BC12D2D919ACCA0700350C78 /* CancelButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CancelButtonView.h; sourceTree = "<group>"; };
 		BC12D2DA19ACCA0700350C78 /* CancelButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CancelButtonView.m; sourceTree = "<group>"; };
+		BC1859FC1A545198006E6A57 /* SadMouthView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SadMouthView.h; sourceTree = "<group>"; };
+		BC1859FD1A545198006E6A57 /* SadMouthView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SadMouthView.m; sourceTree = "<group>"; };
+		BC1859FF1A545843006E6A57 /* SurpriseMouthView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SurpriseMouthView.h; sourceTree = "<group>"; };
+		BC185A001A545843006E6A57 /* SurpriseMouthView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SurpriseMouthView.m; sourceTree = "<group>"; };
+		BC185A021A54687A006E6A57 /* CryingMouthView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CryingMouthView.h; sourceTree = "<group>"; };
+		BC185A031A54687A006E6A57 /* CryingMouthView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CryingMouthView.m; sourceTree = "<group>"; };
+		BC185A051A547134006E6A57 /* DartEyeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DartEyeView.h; sourceTree = "<group>"; };
+		BC185A061A547134006E6A57 /* DartEyeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DartEyeView.m; sourceTree = "<group>"; };
 		BC1990AF1A4E489600484830 /* PinchedMoustacheView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PinchedMoustacheView.h; sourceTree = "<group>"; };
 		BC1990B01A4E489600484830 /* PinchedMoustacheView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PinchedMoustacheView.m; sourceTree = "<group>"; };
 		BC1990B21A4E49D600484830 /* TrimMoustacheView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrimMoustacheView.h; sourceTree = "<group>"; };
@@ -227,6 +244,16 @@
 		BCE9702B1A410F6700B4DC14 /* AlmondEyeBlinkView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlmondEyeBlinkView.m; sourceTree = "<group>"; };
 		BCEEFF7E19AE100E00FDD188 /* SaveDrawingBoard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SaveDrawingBoard.h; sourceTree = "<group>"; };
 		BCEEFF7F19AE100E00FDD188 /* SaveDrawingBoard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SaveDrawingBoard.m; sourceTree = "<group>"; };
+		BCFF18B91A5ED85A00EB2D7E /* CircleDifferentColorsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircleDifferentColorsView.h; sourceTree = "<group>"; };
+		BCFF18BA1A5ED85A00EB2D7E /* CircleDifferentColorsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CircleDifferentColorsView.m; sourceTree = "<group>"; };
+		BCFF18BC1A5EDEA100EB2D7E /* TwelvePointStarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwelvePointStarView.h; sourceTree = "<group>"; };
+		BCFF18BD1A5EDEA100EB2D7E /* TwelvePointStarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwelvePointStarView.m; sourceTree = "<group>"; };
+		BCFF18C01A5EEEAB00EB2D7E /* BowlerHatView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BowlerHatView.h; sourceTree = "<group>"; };
+		BCFF18C11A5EEEAB00EB2D7E /* BowlerHatView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BowlerHatView.m; sourceTree = "<group>"; };
+		BCFF18C31A5EEEB600EB2D7E /* TopHatView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopHatView.h; sourceTree = "<group>"; };
+		BCFF18C41A5EEEB600EB2D7E /* TopHatView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopHatView.m; sourceTree = "<group>"; };
+		BCFF18C61A5EEEC100EB2D7E /* ReporterHatView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReporterHatView.h; sourceTree = "<group>"; };
+		BCFF18C71A5EEEC100EB2D7E /* ReporterHatView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReporterHatView.m; sourceTree = "<group>"; };
 		BCFF55AD1A40621400D09F0E /* GrouchyMouthView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GrouchyMouthView.h; sourceTree = "<group>"; };
 		BCFF55AE1A40621400D09F0E /* GrouchyMouthView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GrouchyMouthView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -341,6 +368,8 @@
 				BC1990BA1A4E4E1300484830 /* CryingEyeView.m */,
 				BC1990BE1A4E505100484830 /* SurpriseEyeView.h */,
 				BC1990BF1A4E505100484830 /* SurpriseEyeView.m */,
+				BC185A051A547134006E6A57 /* DartEyeView.h */,
+				BC185A061A547134006E6A57 /* DartEyeView.m */,
 			);
 			name = Eyes;
 			sourceTree = "<group>";
@@ -354,6 +383,12 @@
 				BC1990C21A4E539A00484830 /* SharpTeethSmileView.m */,
 				BC1990C41A4E5AB800484830 /* HappySmileToothlessView.h */,
 				BC1990C51A4E5AB800484830 /* HappySmileToothlessView.m */,
+				BC1859FC1A545198006E6A57 /* SadMouthView.h */,
+				BC1859FD1A545198006E6A57 /* SadMouthView.m */,
+				BC1859FF1A545843006E6A57 /* SurpriseMouthView.h */,
+				BC185A001A545843006E6A57 /* SurpriseMouthView.m */,
+				BC185A021A54687A006E6A57 /* CryingMouthView.h */,
+				BC185A031A54687A006E6A57 /* CryingMouthView.m */,
 			);
 			name = Mouths;
 			sourceTree = "<group>";
@@ -375,6 +410,10 @@
 				BC1990C81A4E5E9100484830 /* SixPointStarView.m */,
 				BC1990CA1A4E60FD00484830 /* EightPointStarView.h */,
 				BC1990CB1A4E60FD00484830 /* EightPointStarView.m */,
+				BCFF18B91A5ED85A00EB2D7E /* CircleDifferentColorsView.h */,
+				BCFF18BA1A5ED85A00EB2D7E /* CircleDifferentColorsView.m */,
+				BCFF18BC1A5EDEA100EB2D7E /* TwelvePointStarView.h */,
+				BCFF18BD1A5EDEA100EB2D7E /* TwelvePointStarView.m */,
 			);
 			name = Other;
 			sourceTree = "<group>";
@@ -456,10 +495,7 @@
 			children = (
 				BC1990B51A4E4A0300484830 /* Hair */,
 				8C3146B21A50597E00B1240E /* Shapes */,
-				8C3146B31A50599700B1240E /* BowTieView.h */,
-				8C3146B41A50599700B1240E /* BowTieView.m */,
-				8C3146B61A50604900B1240E /* TieView.h */,
-				8C3146B71A50604900B1240E /* TieView.m */,
+				BCFF18BF1A5EEE9900EB2D7E /* Clothes */,
 			);
 			name = "Static Images";
 			sourceTree = "<group>";
@@ -627,6 +663,23 @@
 			name = "Animated Images";
 			sourceTree = "<group>";
 		};
+		BCFF18BF1A5EEE9900EB2D7E /* Clothes */ = {
+			isa = PBXGroup;
+			children = (
+				8C3146B31A50599700B1240E /* BowTieView.h */,
+				8C3146B41A50599700B1240E /* BowTieView.m */,
+				8C3146B61A50604900B1240E /* TieView.h */,
+				8C3146B71A50604900B1240E /* TieView.m */,
+				BCFF18C01A5EEEAB00EB2D7E /* BowlerHatView.h */,
+				BCFF18C11A5EEEAB00EB2D7E /* BowlerHatView.m */,
+				BCFF18C31A5EEEB600EB2D7E /* TopHatView.h */,
+				BCFF18C41A5EEEB600EB2D7E /* TopHatView.m */,
+				BCFF18C61A5EEEC100EB2D7E /* ReporterHatView.h */,
+				BCFF18C71A5EEEC100EB2D7E /* ReporterHatView.m */,
+			);
+			name = Clothes;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -735,7 +788,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BCFF18BE1A5EDEA100EB2D7E /* TwelvePointStarView.m in Sources */,
+				BC185A041A54687A006E6A57 /* CryingMouthView.m in Sources */,
 				BC45E0AF1A4EF52C00F06963 /* CirclePurpleView.m in Sources */,
+				BCFF18BB1A5ED85A00EB2D7E /* CircleDifferentColorsView.m in Sources */,
 				BCE9702C1A410F6700B4DC14 /* AlmondEyeBlinkView.m in Sources */,
 				BC519A5A1A4DF714006B92D1 /* StaticImagesPopOverVCViewController.m in Sources */,
 				BC45E0B81A4EF56700F06963 /* TeardropLtBlueView.m in Sources */,
@@ -745,6 +801,7 @@
 				BCA1220A19A75B48005CC84D /* ColorSelectedView.m in Sources */,
 				BCA1220719A7560D005CC84D /* DrawingBoardView.m in Sources */,
 				BCD132CF19AF58D600C12601 /* MyDrawingCVCell.m in Sources */,
+				BCFF18C21A5EEEAB00EB2D7E /* BowlerHatView.m in Sources */,
 				8C3146C71A50747700B1240E /* TriangleGreenView.m in Sources */,
 				BCA1220D19A75EB0005CC84D /* ColorTrayView.m in Sources */,
 				8C3146B81A50604900B1240E /* TieView.m in Sources */,
@@ -756,6 +813,7 @@
 				BCD132CC19AF572C00C12601 /* MyDrawingsVC.m in Sources */,
 				BC4AE4A319A7DE64009CB7E7 /* VineBranchBezierPath.m in Sources */,
 				BC1990C91A4E5E9100484830 /* SixPointStarView.m in Sources */,
+				BCFF18C81A5EEEC100EB2D7E /* ReporterHatView.m in Sources */,
 				BC45E0A91A4EF50D00F06963 /* CircleRedView.m in Sources */,
 				BC4AE4B319A8043C009CB7E7 /* BrushSizeView.m in Sources */,
 				BCD132D619AFB4CD00C12601 /* FrontPageVC.m in Sources */,
@@ -763,6 +821,7 @@
 				BC1990CC1A4E60FD00484830 /* EightPointStarView.m in Sources */,
 				BC1990B81A4E4CFB00484830 /* RollingEyeView.m in Sources */,
 				BC1990B41A4E49D600484830 /* TrimMoustacheView.m in Sources */,
+				BCFF18C51A5EEEB600EB2D7E /* TopHatView.m in Sources */,
 				BC4AE4AE19A803EA009CB7E7 /* BrushSizePopOverVC.m in Sources */,
 				BCC74A0D19AB863A00C3A574 /* AnimateGS.m in Sources */,
 				BCBD328A1A4E0DF600522466 /* BushyMoustacheView.m in Sources */,
@@ -771,6 +830,7 @@
 				BCC74A1119AB8C7B00C3A574 /* NoAnimatedImagesPopOverVC.m in Sources */,
 				BCC74A0A19AB861000C3A574 /* AnimatedImageView.m in Sources */,
 				8C3146BB1A50654A00B1240E /* StarRedView.m in Sources */,
+				BC185A011A545843006E6A57 /* SurpriseMouthView.m in Sources */,
 				BC1990C01A4E505100484830 /* SurpriseEyeView.m in Sources */,
 				BCA121DA19A74E20005CC84D /* main.m in Sources */,
 				BCE970291A40FEAF00B4DC14 /* BlinkingEyeView.m in Sources */,
@@ -788,8 +848,10 @@
 				BCA1221119A76AAE005CC84D /* DrawingUtensilsTrayView.m in Sources */,
 				BC08673C19A8D293006C05D0 /* FaceAnimationsPopOverVC.m in Sources */,
 				BC4AE49D19A7C5C0009CB7E7 /* VariedWidthsPaintingBrushBezier.m in Sources */,
+				BC185A071A547134006E6A57 /* DartEyeView.m in Sources */,
 				BC45E0B51A4EF55A00F06963 /* TeardropDkBlueView.m in Sources */,
 				BC4AE49619A7B9C7009CB7E7 /* SmoothPaintingBrushBezier.m in Sources */,
+				BC1859FE1A545198006E6A57 /* SadMouthView.m in Sources */,
 				8C3146BE1A50655500B1240E /* StarBlueView.m in Sources */,
 				BC4AE49A19A7C29A009CB7E7 /* DrawingBoardShadowView.m in Sources */,
 			);

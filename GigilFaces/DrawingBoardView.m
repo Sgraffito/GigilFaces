@@ -24,11 +24,15 @@
 #import "RollingEyeView.h"
 #import "CryingEyeView.h"
 #import "SurpriseEyeView.h"
+#import "DartEyeView.h"
 
 // Mouths
 #import "GrouchyMouthView.h"
 #import "SharpTeethSmileView.h"
 #import "HappySmileToothlessView.h"
+#import "SadMouthView.h"
+#import "SurpriseMouthView.h"
+#import "CryingMouthView.h"
 
 // Moustaches
 #import "BushyMoustacheView.h"
@@ -39,6 +43,8 @@
 // Other
 #import "SixPointStarView.h"
 #import "EightPointStarView.h"
+#import "CircleDifferentColorsView.h"
+#import "TwelvePointStarView.h"
 
 // Shapes
 #import "CircleBlackView.h"
@@ -58,6 +64,9 @@
 // Clothes
 #import "BowTieView.h"
 #import "TieView.h"
+#import "BowlerHatView.h"
+#import "TopHatView.h"
+#import "ReporterHatView.h"
 
 @interface DrawingBoardView()
 @property (nonatomic) UIColor *paperColor;
@@ -927,6 +936,10 @@
         else if (category == 0 && tag == 4) {
             serialNumber = @"A0005";
         }
+        // Dart Eye
+        else if (category == 0 && tag == 5) {
+            serialNumber = @"A0006";
+        }
 
         /**** MOUTHS **********************************************************************/
         // Grouchy Mouth
@@ -941,6 +954,18 @@
         else if (category == 1 && tag == 2) {
             serialNumber = @"A1003";
         }
+        // Sad Mouth
+        else if (category == 1 && tag == 3) {
+            serialNumber = @"A1004";
+        }
+        // Surprise Mouth
+        else if (category == 1 && tag == 4) {
+            serialNumber = @"A1005";
+        }
+        // Crying Mouth
+        else if (category == 1 && tag == 5) {
+            serialNumber = @"A1006";
+        }
         
         /**** OTHERS **********************************************************************/
         // Six Point Star
@@ -950,6 +975,14 @@
         // Eight Point Star
         else if (category == 2 && tag == 1) {
             serialNumber = @"A2002";
+        }
+        // Circle - Different Colors
+        else if (category == 2 && tag == 2) {
+            serialNumber = @"A2003";
+        }
+        // Twelve Point Star
+        else if (category == 2 && tag == 3) {
+            serialNumber = @"A2004";
         }
     }
     
@@ -1036,6 +1069,18 @@
         else if (category == 2 && tag == 1) {
             serialNumber = @"S2002";
         }
+        // Bower Hat
+        else if (category == 2 && tag == 2) {
+            serialNumber = @"S2003";
+        }
+        // Top Hat
+        else if (category == 2 && tag == 3) {
+            serialNumber = @"S2004";
+        }
+        // Reporter Hat
+        else if (category == 2 && tag == 4) {
+            serialNumber = @"S2005";
+        }
     }
     
     // Check to make sure that an image was clicked
@@ -1107,6 +1152,15 @@
         if (yPos < 0) { yPos = [self calculateYPos:yPos width:height]; }
         image = [[SurpriseEyeView alloc] initWithFrame:CGRectMake(xPos, yPos, width, height)];
     }
+    // Dart Eye
+    else if ([serialNumber isEqualToString:@"A0006"]) {
+        const float width = 149.6;
+        const float height = 149.6;
+        if (xPos < 0) { xPos = [self calculateXPos:xPos width:width]; }
+        if (yPos < 0) { yPos = [self calculateYPos:yPos width:height]; }
+        image = [[DartEyeView alloc] initWithFrame:CGRectMake(xPos, yPos, width, height)];
+    }
+    
     // Grouchy Mouth
     else if ([serialNumber isEqualToString:@"A1001"]) {
         const float width = 200;
@@ -1131,6 +1185,31 @@
         if (yPos < 0) { yPos = [self calculateYPos:yPos width:height]; }
         image = [[HappySmileToothlessView alloc] initWithFrame:CGRectMake(xPos, yPos, width, height)];
     }
+    // Sad Mouth
+    else if ([serialNumber isEqualToString:@"A1004"]) {
+        const float width = 200;
+        const float height = 126;
+        if (xPos < 0) { xPos = [self calculateXPos:xPos width:width]; }
+        if (yPos < 0) { yPos = [self calculateYPos:yPos width:height]; }
+        image = [[SadMouthView alloc] initWithFrame:CGRectMake(xPos, yPos, width, height)];
+    }
+    // Surprise Mouth
+    else if ([serialNumber isEqualToString:@"A1005"]) {
+        const float width = 200;
+        const float height = 200;
+        if (xPos < 0) { xPos = [self calculateXPos:xPos width:width]; }
+        if (yPos < 0) { yPos = [self calculateYPos:yPos width:height]; }
+        image = [[SurpriseMouthView alloc] initWithFrame:CGRectMake(xPos, yPos, width, height)];
+    }
+    // Crying Mouth
+    else if ([serialNumber isEqualToString:@"A1006"]) {
+        const float width = 200;
+        const float height = 93.2;
+        if (xPos < 0) { xPos = [self calculateXPos:xPos width:width]; }
+        if (yPos < 0) { yPos = [self calculateYPos:yPos width:height]; }
+        image = [[CryingMouthView alloc] initWithFrame:CGRectMake(xPos, yPos, width, height)];
+    }
+    
     // Six Point Star
     else if ([serialNumber isEqualToString:@"A2001"]) {
         const float width = 200;
@@ -1139,7 +1218,7 @@
         if (yPos < 0) { yPos = [self calculateYPos:yPos width:height]; }
         image = [[SixPointStarView alloc] initWithFrame:CGRectMake(xPos, yPos, width, height)];
     }
-    // Six Point Star
+    // Eight Point Star
     else if ([serialNumber isEqualToString:@"A2002"]) {
         const float width = 200;
         const float height = 200;
@@ -1147,7 +1226,22 @@
         if (yPos < 0) { yPos = [self calculateYPos:yPos width:height]; }
         image = [[EightPointStarView alloc] initWithFrame:CGRectMake(xPos, yPos, width, height)];
     }
-
+    // Circle - Different Colors
+    else if ([serialNumber isEqualToString:@"A2003"]) {
+        const float width = 150;
+        const float height = 150;
+        if (xPos < 0) { xPos = [self calculateXPos:xPos width:width]; }
+        if (yPos < 0) { yPos = [self calculateYPos:yPos width:height]; }
+        image = [[CircleDifferentColorsView alloc] initWithFrame:CGRectMake(xPos, yPos, width, height)];
+    }
+    // Twelve Point Star
+    else if ([serialNumber isEqualToString:@"A2004"]) {
+        const float width = 150;
+        const float height = 150;
+        if (xPos < 0) { xPos = [self calculateXPos:xPos width:width]; }
+        if (yPos < 0) { yPos = [self calculateYPos:yPos width:height]; }
+        image = [[TwelvePointStarView alloc] initWithFrame:CGRectMake(xPos, yPos, width, height)];
+    }
 
     /** STATIC IMAGES ***********************************************************************/
     // Curly Moutache
@@ -1303,6 +1397,30 @@
         if (xPos < 0) { xPos = [self calculateXPos:xPos width:width]; }
         if (yPos < 0) { yPos = [self calculateYPos:yPos width:height]; }
         image = [[TieView alloc] initWithFrame:CGRectMake(xPos, yPos, width, height)];
+    }
+    // Bower Hat
+    else if ([serialNumber isEqualToString:@"S2003"]) {
+        const float width = 200;
+        const float height = 119.6;
+        if (xPos < 0) { xPos = [self calculateXPos:xPos width:width]; }
+        if (yPos < 0) { yPos = [self calculateYPos:yPos width:height]; }
+        image = [[BowlerHatView alloc] initWithFrame:CGRectMake(xPos, yPos, width, height)];
+    }
+    // Top Hat
+    else if ([serialNumber isEqualToString:@"S2004"]) {
+        const float width = 200;
+        const float height = 127.6;
+        if (xPos < 0) { xPos = [self calculateXPos:xPos width:width]; }
+        if (yPos < 0) { yPos = [self calculateYPos:yPos width:height]; }
+        image = [[TopHatView alloc] initWithFrame:CGRectMake(xPos, yPos, width, height)];
+    }
+    // Reporter Hat
+    else if ([serialNumber isEqualToString:@"S2005"]) {
+        const float width = 200;
+        const float height = 116.8;
+        if (xPos < 0) { xPos = [self calculateXPos:xPos width:width]; }
+        if (yPos < 0) { yPos = [self calculateYPos:yPos width:height]; }
+        image = [[ReporterHatView alloc] initWithFrame:CGRectMake(xPos, yPos, width, height)];
     }
     
     if (image != nil) {
@@ -1469,10 +1587,11 @@
            [self bubbleSort];
        }
        
-       NSLog(@"\n\nSaved Values:");
-       for (int i = 0; i < self.animatedImagesFrame.count; i += 1) {
-           NSLog(@"%d. Serial Number: %@, ZIndex: %@, Center: %@", i, [self.animatedImagesSerialNumber objectAtIndex:i], [self.animatedImagesZIndex objectAtIndex:i], [self.animatedImagesCenter objectAtIndex:i]);
-       }
+       // TEST PRINT
+//       NSLog(@"\n\nSaved Values:");
+//       for (int i = 0; i < self.animatedImagesFrame.count; i += 1) {
+//           NSLog(@"%d. Serial Number: %@, ZIndex: %@, Center: %@", i, [self.animatedImagesSerialNumber objectAtIndex:i], [self.animatedImagesZIndex objectAtIndex:i], [self.animatedImagesCenter objectAtIndex:i]);
+//       }
 
        // Save values
         self.saveDrawingBoard.animatedImagesFrames = self.animatedImagesFrame;
@@ -1612,7 +1731,7 @@
             self.animatedImagesZIndex = self.saveDrawingBoard.animatedImagesZIndex;
             self.maxZIndex = (int)self.saveDrawingBoard.maxZIndex;
             
-            NSLog(@"\n\nGetting Saved Values:");
+//            NSLog(@"\n\nGetting Saved Values:");
             int count = 0;
             for (NSNumber *img in self.animatedImagesFrame) {
                 int xPos = [img CGRectValue].origin.x;
@@ -1626,7 +1745,7 @@
                 
                 [self addFaceAnimation:serialNumber xLocation:xPos yLocation:yPos scaleValue:scaleValue rotateValue:rotateValue centerValue:centerValue zIndex:zIndex];
                 
-                NSLog(@"%d. Serial Number: %@, zIndex: %d, Center: %@", count, serialNumber, zIndex, [self.animatedImagesCenter objectAtIndex:count]);
+//                NSLog(@"%d. Serial Number: %@, zIndex: %d, Center: %@", count, serialNumber, zIndex, [self.animatedImagesCenter objectAtIndex:count]);
                 count += 1;
             }
         }
